@@ -95,6 +95,21 @@ section[hidden]{display:none}
 .show-hot .hot,.flash .hot{background:rgba(98,67,185,.28);box-shadow:inset 0 0 0 2px #8B6FE0}
 .flash .hot{transition:background .5s}
 
+/* Sticky Add to bag: slides up once the intro copy reaches the top of the screen */
+.atc-bar{position:absolute;left:var(--bezel-x);right:var(--bezel-x);
+  bottom:var(--bezel-y);z-index:5;
+  border-bottom-left-radius:calc(var(--sw)*0.075);border-bottom-right-radius:calc(var(--sw)*0.075);
+  overflow:hidden;
+  transform:translateY(105%);transition:transform .26s cubic-bezier(.22,.7,.3,1);
+  pointer-events:none}
+.atc-bar.on{transform:translateY(0);pointer-events:auto}
+.atc-bar button{display:block;width:100%;border:0;cursor:pointer;
+  background:#252427;color:#fff;
+  font-size:calc(var(--sw)*0.045);font-weight:600;letter-spacing:-.01em;
+  padding:calc(var(--sw)*0.045) 0 calc(var(--sw)*0.055)}
+.atc-bar button:hover{background:#34323A}
+@media (prefers-reduced-motion:reduce){.atc-bar{transition:none}}
+
 /* A note that drops in at the top of the screen once the viewer reaches the bottom */
 .scroll-note{position:absolute;left:50%;top:calc(var(--bezel-y) + var(--sw)*0.04);
   transform:translate(-50%,-14px);z-index:5;width:calc(var(--sw) * 0.86);
@@ -175,10 +190,11 @@ section[hidden]{display:none}
         <h2>You're on</h2>
         <p class="meta"><strong>Paris Hilton &times; Loop Engage&trade;</strong><br>Product page</p>
         <h2>About this one</h2>
-        <p class="meta">A copy of the prototype page held in this repo, so everything works: the gallery, the videos, the carousels and the FAQ. Kept here so test annotations can track the page as you scroll.</p>
+        <p class="meta">A copy of the prototype page kept in this repo, so everything works: the gallery, the videos, the carousels and the FAQ. Holding it here is what lets the sticky button and, later, the test pins follow the page as you scroll.</p>
         <p class="meta"><a href="prototype/product.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
       </div>
-      <div class="phone" data-embed data-src="prototype/product.html">
+      <div class="phone" data-embed data-src="prototype/product.html"
+           data-atc-after="#intro" data-atc-click="#buy-card button.btn-primary" data-atc-label="Add to bag">
         <div class="viewport" style="overflow:hidden">
           <iframe class="embed-frame" title="Paris Hilton &times; Loop Engage&trade;" src="prototype/product.html"
             referrerpolicy="no-referrer-when-downgrade" scrolling="yes"></iframe>
@@ -190,6 +206,7 @@ section[hidden]{display:none}
       </div>
       <div class="side right">
         <p class="hint">Scroll inside the phone to move down the page. It scrolls on its own, so the page behind it stays put.</p>
+        <p class="hint">The sticky <strong>Add to bag</strong> bar slides up once the intro copy reaches the top of the screen, and drops away when you scroll back to the buy box.</p>
       </div>
     </div>
   </section>
@@ -199,7 +216,7 @@ section[hidden]{display:none}
         <h2>You're on</h2>
         <p class="meta"><strong>Loop</strong><br>Home page</p>
         <h2>About this one</h2>
-        <p class="meta">A copy of the prototype home page held in this repo, with its hero, campaign blocks and navigation working as built. Kept here so test annotations can track the page as you scroll.</p>
+        <p class="meta">A copy of the prototype home page kept in this repo, with its hero, campaign blocks and navigation working as built.</p>
         <p class="meta"><a href="prototype/index.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
       </div>
       <div class="phone" data-embed data-src="prototype/index.html">
@@ -346,6 +363,34 @@ document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.pro
     fit();
     if(window.ResizeObserver) new ResizeObserver(fit).observe(vp);
     window.addEventListener('resize',fit);
+
+    // Sticky Add to bag. Shows once the element named by data-atc-after has reached
+    // the top of the screen, which is necessarily past the buy box above it.
+    const after=phone.dataset.atcAfter;
+    if(!after) return;
+    const bar=document.createElement('div'); bar.className='atc-bar';
+    const btn=document.createElement('button'); btn.type='button';
+    btn.textContent=phone.dataset.atcLabel||'Add to bag';
+    bar.appendChild(btn); phone.appendChild(bar);
+
+    f.addEventListener('load',function(){
+      let w;
+      try{ w=f.contentWindow; w.document; }catch(e){ return; }  // cross-origin: leave it hidden
+      const target=w.document.querySelector(after);
+      if(!target) return;
+      function update(){
+        const past=target.getBoundingClientRect().top<=0;
+        bar.classList.toggle('on',past);
+      }
+      w.addEventListener('scroll',update,{passive:true});
+      w.addEventListener('resize',update);
+      update();
+      btn.addEventListener('click',function(){
+        const sel=phone.dataset.atcClick;
+        const real=sel && w.document.querySelector(sel);
+        if(real) real.click();
+      });
+    });
   });
 })();
 showTab(location.hash.slice(1)||'intro');
