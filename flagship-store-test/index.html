@@ -95,12 +95,15 @@ section[hidden]{display:none}
 .show-hot .hot,.flash .hot{background:rgba(98,67,185,.28);box-shadow:inset 0 0 0 2px #8B6FE0}
 .flash .hot{transition:background .5s}
 
+/* Clipping layer over the screen area, so anything sliding in or out is cropped
+   by the screen edge instead of appearing on the bezel. */
+.screen-clip{position:absolute;top:var(--bezel-y);left:var(--bezel-x);
+  right:var(--bezel-x);bottom:var(--bezel-y);z-index:5;
+  border-radius:calc(var(--sw)*0.075);overflow:hidden;pointer-events:none}
+
 /* Sticky Add to bag: slides up once the intro copy reaches the top of the screen */
-.atc-bar{position:absolute;left:var(--bezel-x);right:var(--bezel-x);
-  bottom:var(--bezel-y);z-index:5;
-  border-bottom-left-radius:calc(var(--sw)*0.075);border-bottom-right-radius:calc(var(--sw)*0.075);
-  overflow:hidden;
-  transform:translateY(105%);transition:transform .26s cubic-bezier(.22,.7,.3,1);
+.atc-bar{position:absolute;left:0;right:0;bottom:0;
+  transform:translateY(100%);transition:transform .26s cubic-bezier(.22,.7,.3,1);
   pointer-events:none}
 .atc-bar.on{transform:translateY(0);pointer-events:auto}
 .atc-bar button{display:block;width:100%;border:0;cursor:pointer;
@@ -368,10 +371,11 @@ document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.pro
     // the top of the screen, which is necessarily past the buy box above it.
     const after=phone.dataset.atcAfter;
     if(!after) return;
+    const clip=document.createElement('div'); clip.className='screen-clip';
     const bar=document.createElement('div'); bar.className='atc-bar';
     const btn=document.createElement('button'); btn.type='button';
     btn.textContent=phone.dataset.atcLabel||'Add to bag';
-    bar.appendChild(btn); phone.appendChild(bar);
+    bar.appendChild(btn); clip.appendChild(bar); phone.appendChild(clip);
 
     f.addEventListener('load',function(){
       let w;
