@@ -91,6 +91,50 @@ section[hidden]{display:none}
 .slice .track{position:relative}
 .slice img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 
+/* Test pin: small glassy circle over the element the experiment changed */
+.pin{position:absolute;z-index:6;width:calc(var(--sw)*0.075);height:calc(var(--sw)*0.075);
+  transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;padding:0;
+  background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.65);
+  -webkit-backdrop-filter:blur(6px) saturate(1.3);backdrop-filter:blur(6px) saturate(1.3);
+  box-shadow:0 2px 10px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.5);
+  display:grid;place-items:center;transition:transform .15s ease,background .15s ease}
+.pin::after{content:"";width:28%;height:28%;border-radius:50%;background:rgba(255,255,255,.95)}
+.pin:hover{transform:translate(-50%,-50%) scale(1.14);background:rgba(255,255,255,.3)}
+.pin[aria-pressed="true"]{background:var(--violet);border-color:#fff}
+.pin.pulse{animation:pinpulse 2.4s ease-out 3}
+@keyframes pinpulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5),0 2px 10px rgba(0,0,0,.28)}
+  70%{box-shadow:0 0 0 12px rgba(255,255,255,0),0 2px 10px rgba(0,0,0,.28)}
+  100%{box-shadow:0 0 0 0 rgba(255,255,255,0),0 2px 10px rgba(0,0,0,.28)}}
+@media (prefers-reduced-motion:reduce){.pin.pulse{animation:none}}
+
+/* Test details panel */
+.testpanel{position:sticky;top:16px;border-left:1px solid var(--line);padding-left:24px;min-height:200px}
+.testpanel .placeholder{color:var(--muted);font-size:15px;max-width:30ch}
+.testpanel h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0 0 4px;line-height:1.2}
+.testpanel .tid{font-size:13px;color:var(--muted);margin:0 0 18px}
+.regions{display:flex;gap:10px;margin:0 0 20px;flex-wrap:wrap}
+.region{flex:1 1 0;min-width:88px;border:1px solid var(--line);padding:12px 10px;text-align:center}
+.region .cvr{font-size:26px;font-weight:600;letter-spacing:-.03em;line-height:1.1;display:block}
+.region .cvr.up{color:#1B7F4B}.region .cvr.down{color:#B3234B}
+.region .rlabel{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.region .verdict{display:inline-block;margin-top:8px;font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.04em;padding:3px 8px;border-radius:999px}
+.verdict.win{background:#DCF3E6;color:#14603A}
+.verdict.lose{background:#FBE0E8;color:#8E1C3C}
+.verdict.incon{background:var(--line);color:var(--muted)}
+:root[data-theme="dark"] .verdict.win,:root:not([data-theme="light"]) .verdict.win{background:#17402C;color:#8FE0B4}
+:root[data-theme="dark"] .verdict.lose,:root:not([data-theme="light"]) .verdict.lose{background:#43182A;color:#F4A3BD}
+.testpanel .summary{font-size:15px;line-height:1.55;margin:0 0 18px}
+.testpanel figure{margin:0 0 18px}
+.testpanel figure img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;
+  object-position:top;border:1px solid var(--line);background:var(--panel)}
+.testpanel figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.analysis{display:inline-block;background:var(--ink);color:var(--bg);text-decoration:none;
+  padding:11px 18px;border-radius:999px;font-size:14px;font-weight:600}
+.analysis:hover{opacity:.88}
+.analysis.pending{background:none;color:var(--muted);border:1px dashed var(--mid);cursor:default}
+.nodata{font-size:15px;color:var(--muted);margin:0 0 18px}
+
 .hot{position:absolute;background:transparent;border:0;padding:0;cursor:pointer;border-radius:6px;z-index:2}
 .show-hot .hot,.flash .hot{background:rgba(98,67,185,.28);box-shadow:inset 0 0 0 2px #8B6FE0}
 .flash .hot{transition:background .5s}
@@ -147,6 +191,11 @@ section[hidden]{display:none}
 .empty h2{margin:0 0 8px;font-size:22px;font-weight:600}
 .empty p{margin:0;color:var(--muted)}
 
+@media (max-width:1100px){
+  .proto.has-tests{grid-template-columns:minmax(0,1fr) auto;gap:28px}
+  .proto.has-tests .testpanel{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line);
+    padding-left:0;padding-top:20px;position:static}
+}
 @media (max-width:900px){
   .proto{grid-template-columns:1fr;justify-items:center;gap:24px}
   .side{width:100%;max-width:420px;padding:0}
@@ -241,7 +290,7 @@ section[hidden]{display:none}
 </main>
 
 <script>
-const PAGES = {"nav": {"screens": {"shop": {"src": "images/Nav-clean-screen_shop.png", "title": "Shop", "parent": null, "pw": 478, "ph": 1093, "iw": 478, "hot": [{"l": 0.0, "t": 21.226, "w": 100.0, "h": 5.124, "to": "shop_product", "label": "Shop by product (CTA 1)"}, {"l": 0.0, "t": 27.264, "w": 100.0, "h": 5.124, "to": "shop_situation", "label": "Shop by situation (CTA 2)"}, {"l": 0.0, "t": 39.524, "w": 100.0, "h": 5.124, "to": "shop_bundles", "label": "Bundles (CTA 3)"}, {"l": 20.921, "t": 12.626, "w": 29.289, "h": 4.575, "to": "whatsnew", "label": "What's new (CTA 4)"}, {"l": 51.883, "t": 12.626, "w": 25.105, "h": 4.575, "to": "aboutus", "label": "About us (CTA 5)"}, {"l": 2.5, "t": 2.187, "w": 16.875, "h": 6.013, "to": "shop", "label": "Close (reset)"}], "ratio": 2.286610878661088}, "whatsnew": {"src": "images/Nav-clean-screen_whatsnew.png", "title": "What's new", "parent": null, "pw": 320, "ph": 1560, "iw": 320, "hot": [{"l": 3.75, "t": 5.897, "w": 15.625, "h": 2.051, "to": "shop", "label": "Shop tab"}, {"l": 52.5, "t": 5.897, "w": 23.75, "h": 2.051, "to": "aboutus", "label": "About us tab"}, {"l": 2.5, "t": 1.026, "w": 16.875, "h": 2.821, "to": "shop", "label": "Close (reset)"}], "ratio": 4.875}, "aboutus": {"src": "images/Nav-clean-screen_aboutus.png", "title": "About us", "parent": null, "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 3.75, "t": 12.655, "w": 15.625, "h": 4.402, "to": "shop", "label": "Shop tab"}, {"l": 21.25, "t": 12.655, "w": 29.375, "h": 4.402, "to": "whatsnew", "label": "What's new tab"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_product": {"src": "images/Nav-clean-screen_shop_product.png", "title": "Shop by product", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 22.008, "w": 100.0, "h": 7.703, "to": "shop_product_earplugs", "label": "Earplugs (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_product_earplugs": {"src": "images/Nav-clean-screen_shop_product_earplugs.png", "title": "Earplugs", "parent": "shop_product", "pw": 320, "ph": 860, "iw": 320, "hot": [{"l": 0.0, "t": 10.233, "w": 62.5, "h": 4.651, "to": "shop_product", "label": "Back"}, {"l": 2.5, "t": 1.86, "w": 16.875, "h": 5.116, "to": "shop", "label": "Close (reset)"}], "ratio": 2.6875}, "shop_situation": {"src": "images/Nav-clean-screen_shop_situation.png", "title": "Shop by situation", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 20.908, "w": 100.0, "h": 5.777, "to": "shop_situation_sleep", "label": "Sleep (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_situation_sleep": {"src": "images/Nav-clean-screen_shop_situation_sleep.png", "title": "Sleep", "parent": "shop_situation", "pw": 320, "ph": 1065, "iw": 320, "hot": [{"l": 0.0, "t": 8.263, "w": 62.5, "h": 3.756, "to": "shop_situation", "label": "Back"}, {"l": 2.5, "t": 1.502, "w": 16.875, "h": 4.131, "to": "shop", "label": "Close (reset)"}], "ratio": 3.328125}, "shop_bundles": {"src": "images/Nav-clean-screen_shop_bundles.png", "title": "Bundles", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}}, "order": [["shop", 0], ["shop_product", 1], ["shop_product_earplugs", 2], ["shop_situation", 1], ["shop_situation_sleep", 2], ["shop_bundles", 1], ["whatsnew", 0], ["aboutus", 0]], "start": "shop", "ratio": 2.2866, "body": 2.4466}, "plp": {"screens": {"entry_type": {"src": "images/PLP-clean-screen_entry_type.png", "title": "What brings you here? (by type)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 2.674, "t": 11.15, "w": 94.652, "h": 6.6, "to": "shopall", "label": "All (CTA 1)"}, {"l": 2.674, "t": 41.713, "w": 94.652, "h": 6.588, "to": "shopbundles", "label": "Bundles (CTA 2)"}, {"l": 50.267, "t": 8.125, "w": 35.294, "h": 1.375, "to": "entry_situation", "label": "Shop by situation [extra]"}], "ratio": 8.556149732620321}, "entry_situation": {"src": "images/PLP-clean-screen_entry_situation.png", "title": "What brings you here? (by situation)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 14.973, "t": 7.75, "w": 35.294, "h": 1.5, "to": "entry_type", "label": "Shop by type [extra]"}], "ratio": 8.556149732620321}, "shopall": {"src": "images/PLP-clean-screen_shopall.png", "title": "Shop all", "parent": "entry_type", "pw": 484, "ph": 8000, "iw": 1390, "hot": [{"l": 5.785, "t": 1.5, "w": 36.157, "h": 0.625, "to": "shop_dropdown", "label": "Shop all dropdown (CTA 1)"}, {"l": 83.264, "t": 1.475, "w": 12.397, "h": 0.65, "to": "shop_filter", "label": "Filters (CTA 2)"}], "ratio": 16.52892561983471, "slices": [{"y0": 0, "h": 3201, "sx": false}, {"y0": 3201, "h": 538, "sx": true}, {"y0": 3739, "h": 4261, "sx": false}], "sticky": {"src": "images/PLP-clean-screen_shopall_helpmechoose.png", "w": 72.73, "ratio": 0.2545454545454545}}, "shopbundles": {"src": "images/PLP-clean-screen_shopbundles.png", "title": "Bundles", "parent": "entry_type", "pw": 528, "ph": 8000, "iw": 528, "hot": [{"l": 6.629, "t": 1.65, "w": 37.879, "h": 0.562, "to": "shop_dropdown", "label": "Bundles dropdown [extra]"}, {"l": 85.606, "t": 1.663, "w": 10.417, "h": 0.6, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 15.151515151515152}, "shop_dropdown": {"src": "images/PLP-clean-screen_shop_dropdown.png", "title": "Category dropdown", "parent": "shopall", "pw": 782, "ph": 1792, "iw": 782, "hot": [{"l": 3.581, "t": 10.212, "w": 15.985, "h": 4.185, "to": "shopall", "label": "Close dropdown [extra]"}, {"l": 86.957, "t": 10.603, "w": 7.673, "h": 3.069, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 2.29156010230179}, "shop_filter": {"src": "images/PLP-clean-screen_shop_filter.png", "title": "Filters", "parent": "shopall", "pw": 780, "ph": 2926, "iw": 780, "hot": [{"l": 69.872, "t": 0.957, "w": 26.923, "h": 2.905, "to": "shopall", "label": "Close [extra]"}, {"l": 5.128, "t": 93.643, "w": 89.744, "h": 4.375, "to": "shopall", "label": "See results [extra]"}], "ratio": 3.7512820512820513}}, "order": [["entry_type", 0], ["shopall", 1], ["shop_dropdown", 2], ["shop_filter", 2], ["shopbundles", 1], ["entry_situation", 0]], "start": "entry_type", "ratio": 2.141, "body": 2.301}, "cart": {"screens": {"empty": {"src": "images/Cart-clean-screen_empty.png", "title": "Empty bag", "parent": null, "pw": 780, "ph": 1688, "iw": 780, "hot": [], "ratio": 2.164102564102564, "note": {"text": "Click here to test a cart with items", "to": "bag1"}}, "bag1": {"src": "images/Cart-clean-screen_bag1.png", "title": "1 item in bag", "parent": "empty", "pw": 640, "ph": 1958, "iw": 640, "hot": [{"l": 65.469, "t": 71.859, "w": 24.531, "h": 4.086, "to": "bag2", "label": "Add Loop Eclipse (CTA 1)"}, {"l": 85.938, "t": 2.962, "w": 8.125, "h": 2.656, "to": "empty", "label": "Close [extra]"}], "ratio": 3.059375}, "bag2": {"src": "images/Cart-clean-screen_bag2.png", "title": "2 items in bag", "parent": "bag1", "pw": 640, "ph": 2330, "iw": 640, "hot": [{"l": 65.469, "t": 74.12, "w": 24.531, "h": 3.433, "to": "bag3", "label": "Add Loop Switch (CTA 1)"}, {"l": 85.938, "t": 2.489, "w": 8.125, "h": 2.232, "to": "empty", "label": "Close [extra]"}], "ratio": 3.640625}, "bag3": {"src": "images/Cart-clean-screen_bag3.png", "title": "3 items in bag", "parent": "bag2", "pw": 960, "ph": 2769, "iw": 960, "hot": [{"l": 86.25, "t": 3.322, "w": 7.292, "h": 2.528, "to": "empty", "label": "Close [extra]"}], "ratio": 2.884375}}, "order": [["empty", 0], ["bag1", 1], ["bag2", 2], ["bag3", 3]], "start": "empty", "ratio": 2.141, "body": 2.301}};
+const PAGES = {"nav": {"screens": {"shop": {"src": "images/Nav-clean-screen_shop.png", "title": "Shop", "parent": null, "pw": 478, "ph": 1093, "iw": 478, "hot": [{"l": 0.0, "t": 21.226, "w": 100.0, "h": 5.124, "to": "shop_product", "label": "Shop by product (CTA 1)"}, {"l": 0.0, "t": 27.264, "w": 100.0, "h": 5.124, "to": "shop_situation", "label": "Shop by situation (CTA 2)"}, {"l": 0.0, "t": 39.524, "w": 100.0, "h": 5.124, "to": "shop_bundles", "label": "Bundles (CTA 3)"}, {"l": 20.921, "t": 12.626, "w": 29.289, "h": 4.575, "to": "whatsnew", "label": "What's new (CTA 4)"}, {"l": 51.883, "t": 12.626, "w": 25.105, "h": 4.575, "to": "aboutus", "label": "About us (CTA 5)"}, {"l": 2.5, "t": 2.187, "w": 16.875, "h": 6.013, "to": "shop", "label": "Close (reset)"}], "ratio": 2.286610878661088, "pins": [{"l": 81.172, "t": 95.974, "test": "943"}]}, "whatsnew": {"src": "images/Nav-clean-screen_whatsnew.png", "title": "What's new", "parent": null, "pw": 320, "ph": 1560, "iw": 320, "hot": [{"l": 3.75, "t": 5.897, "w": 15.625, "h": 2.051, "to": "shop", "label": "Shop tab"}, {"l": 52.5, "t": 5.897, "w": 23.75, "h": 2.051, "to": "aboutus", "label": "About us tab"}, {"l": 2.5, "t": 1.026, "w": 16.875, "h": 2.821, "to": "shop", "label": "Close (reset)"}], "ratio": 4.875}, "aboutus": {"src": "images/Nav-clean-screen_aboutus.png", "title": "About us", "parent": null, "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 3.75, "t": 12.655, "w": 15.625, "h": 4.402, "to": "shop", "label": "Shop tab"}, {"l": 21.25, "t": 12.655, "w": 29.375, "h": 4.402, "to": "whatsnew", "label": "What's new tab"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_product": {"src": "images/Nav-clean-screen_shop_product.png", "title": "Shop by product", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 22.008, "w": 100.0, "h": 7.703, "to": "shop_product_earplugs", "label": "Earplugs (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875, "pins": [{"l": 51.875, "t": 92.435, "test": "984/986/987"}]}, "shop_product_earplugs": {"src": "images/Nav-clean-screen_shop_product_earplugs.png", "title": "Earplugs", "parent": "shop_product", "pw": 320, "ph": 860, "iw": 320, "hot": [{"l": 0.0, "t": 10.233, "w": 62.5, "h": 4.651, "to": "shop_product", "label": "Back"}, {"l": 2.5, "t": 1.86, "w": 16.875, "h": 5.116, "to": "shop", "label": "Close (reset)"}], "ratio": 2.6875}, "shop_situation": {"src": "images/Nav-clean-screen_shop_situation.png", "title": "Shop by situation", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 20.908, "w": 100.0, "h": 5.777, "to": "shop_situation_sleep", "label": "Sleep (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875, "pins": [{"l": 50.0, "t": 90.096, "test": "984/986/987"}]}, "shop_situation_sleep": {"src": "images/Nav-clean-screen_shop_situation_sleep.png", "title": "Sleep", "parent": "shop_situation", "pw": 320, "ph": 1065, "iw": 320, "hot": [{"l": 0.0, "t": 8.263, "w": 62.5, "h": 3.756, "to": "shop_situation", "label": "Back"}, {"l": 2.5, "t": 1.502, "w": 16.875, "h": 4.131, "to": "shop", "label": "Close (reset)"}], "ratio": 3.328125}, "shop_bundles": {"src": "images/Nav-clean-screen_shop_bundles.png", "title": "Bundles", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875, "pins": [{"l": 88.125, "t": 13.48, "test": "1005/1006/1007"}]}}, "order": [["shop", 0], ["shop_product", 1], ["shop_product_earplugs", 2], ["shop_situation", 1], ["shop_situation_sleep", 2], ["shop_bundles", 1], ["whatsnew", 0], ["aboutus", 0]], "start": "shop", "ratio": 2.2866, "body": 2.4466, "tests": {"943": {"id": "943", "title": "Move country + language switcher: header to footer", "regions": [{"cvr": "-2.35%", "label": "EU CvR", "result": "Loser"}, {"cvr": "-2.35%", "label": "US CvR", "result": "Loser"}, {"cvr": "-2.35%", "label": "AUS CvR", "result": "Loser"}], "summary": "Removing the header country flag wins where the store auto-detects your country and redirects (USA), but loses where it doesn't \u2014 the footer alone can't carry locale switching in the EU. Additional testing is needed before a decision.", "image": "", "caption": "", "link": "https://www.figma.com/board/JkcvQ76cPCHQ1WNvKa1xr6/CRO-share-results?node-id=298-35&t=KOPo66hkVxuj4iQq-4", "pending": false}, "984/986/987": {"id": "984/986/987", "title": "Mobile nav: Help me choose relocated to level 2", "regions": [{"cvr": "0.66%", "label": "EU CvR", "result": "Inconclusive"}, {"cvr": "1.30%", "label": "US CvR", "result": "Winner"}, {"cvr": "1.40%", "label": "AUS CvR", "result": "Inconclusive"}], "summary": "Pooled across EU, USA and AUS, relocating \u201cHelp me choose\u201d off level 1 lifted purchase conversion (+0.96% pooled, USA a standalone winner at +1.3%), with quiz demand re-routing rather than disappearing and PLP traffic rising. Recommendation: implement the variant.", "image": "", "caption": "", "link": "https://www.figma.com/board/JkcvQ76cPCHQ1WNvKa1xr6/CRO-share-results?node-id=388-2&p=f&t=rtoZ5eb6K1gE1ZGj-0", "pending": false}, "1005/1006/1007": {"id": "1005/1006/1007", "title": "Bundles entry point: nav panel vs panel with images", "regions": [], "summary": "", "image": "Nav-test-screen_shop_bundles-1005variant.png", "caption": "Test variant: Bundle panel with images", "link": "", "pending": true, "imageSrc": "images/Nav-test-screen_shop_bundles-1005variant.png"}}}, "plp": {"screens": {"entry_type": {"src": "images/PLP-clean-screen_entry_type.png", "title": "What brings you here? (by type)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 2.674, "t": 11.15, "w": 94.652, "h": 6.6, "to": "shopall", "label": "All (CTA 1)"}, {"l": 2.674, "t": 41.713, "w": 94.652, "h": 6.588, "to": "shopbundles", "label": "Bundles (CTA 2)"}, {"l": 50.267, "t": 8.125, "w": 35.294, "h": 1.375, "to": "entry_situation", "label": "Shop by situation [extra]"}], "ratio": 8.556149732620321}, "entry_situation": {"src": "images/PLP-clean-screen_entry_situation.png", "title": "What brings you here? (by situation)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 14.973, "t": 7.75, "w": 35.294, "h": 1.5, "to": "entry_type", "label": "Shop by type [extra]"}], "ratio": 8.556149732620321}, "shopall": {"src": "images/PLP-clean-screen_shopall.png", "title": "Shop all", "parent": "entry_type", "pw": 484, "ph": 8000, "iw": 1390, "hot": [{"l": 5.785, "t": 1.5, "w": 36.157, "h": 0.625, "to": "shop_dropdown", "label": "Shop all dropdown (CTA 1)"}, {"l": 83.264, "t": 1.475, "w": 12.397, "h": 0.65, "to": "shop_filter", "label": "Filters (CTA 2)"}], "ratio": 16.52892561983471, "slices": [{"y0": 0, "h": 3201, "sx": false}, {"y0": 3201, "h": 538, "sx": true}, {"y0": 3739, "h": 4261, "sx": false}], "sticky": {"src": "images/PLP-clean-screen_shopall_helpmechoose.png", "w": 72.73, "ratio": 0.2545454545454545}}, "shopbundles": {"src": "images/PLP-clean-screen_shopbundles.png", "title": "Bundles", "parent": "entry_type", "pw": 528, "ph": 8000, "iw": 528, "hot": [{"l": 6.629, "t": 1.65, "w": 37.879, "h": 0.562, "to": "shop_dropdown", "label": "Bundles dropdown [extra]"}, {"l": 85.606, "t": 1.663, "w": 10.417, "h": 0.6, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 15.151515151515152}, "shop_dropdown": {"src": "images/PLP-clean-screen_shop_dropdown.png", "title": "Category dropdown", "parent": "shopall", "pw": 782, "ph": 1792, "iw": 782, "hot": [{"l": 3.581, "t": 10.212, "w": 15.985, "h": 4.185, "to": "shopall", "label": "Close dropdown [extra]"}, {"l": 86.957, "t": 10.603, "w": 7.673, "h": 3.069, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 2.29156010230179}, "shop_filter": {"src": "images/PLP-clean-screen_shop_filter.png", "title": "Filters", "parent": "shopall", "pw": 780, "ph": 2926, "iw": 780, "hot": [{"l": 69.872, "t": 0.957, "w": 26.923, "h": 2.905, "to": "shopall", "label": "Close [extra]"}, {"l": 5.128, "t": 93.643, "w": 89.744, "h": 4.375, "to": "shopall", "label": "See results [extra]"}], "ratio": 3.7512820512820513}}, "order": [["entry_type", 0], ["shopall", 1], ["shop_dropdown", 2], ["shop_filter", 2], ["shopbundles", 1], ["entry_situation", 0]], "start": "entry_type", "ratio": 2.141, "body": 2.301}, "cart": {"screens": {"empty": {"src": "images/Cart-clean-screen_empty.png", "title": "Empty bag", "parent": null, "pw": 780, "ph": 1688, "iw": 780, "hot": [], "ratio": 2.164102564102564, "note": {"text": "Click here to test a cart with items", "to": "bag1"}}, "bag1": {"src": "images/Cart-clean-screen_bag1.png", "title": "1 item in bag", "parent": "empty", "pw": 640, "ph": 1958, "iw": 640, "hot": [{"l": 65.469, "t": 71.859, "w": 24.531, "h": 4.086, "to": "bag2", "label": "Add Loop Eclipse (CTA 1)"}, {"l": 85.938, "t": 2.962, "w": 8.125, "h": 2.656, "to": "empty", "label": "Close [extra]"}], "ratio": 3.059375}, "bag2": {"src": "images/Cart-clean-screen_bag2.png", "title": "2 items in bag", "parent": "bag1", "pw": 640, "ph": 2330, "iw": 640, "hot": [{"l": 65.469, "t": 74.12, "w": 24.531, "h": 3.433, "to": "bag3", "label": "Add Loop Switch (CTA 1)"}, {"l": 85.938, "t": 2.489, "w": 8.125, "h": 2.232, "to": "empty", "label": "Close [extra]"}], "ratio": 3.640625}, "bag3": {"src": "images/Cart-clean-screen_bag3.png", "title": "3 items in bag", "parent": "bag2", "pw": 960, "ph": 2769, "iw": 960, "hot": [{"l": 86.25, "t": 3.322, "w": 7.292, "h": 2.528, "to": "empty", "label": "Close [extra]"}], "ratio": 2.884375}}, "order": [["empty", 0], ["bag1", 1], ["bag2", 2], ["bag3", 3]], "start": "empty", "ratio": 2.141, "body": 2.301}};
 
 const tabBtns=[...document.querySelectorAll('.tabs button')];
 function showTab(id){
@@ -274,9 +323,62 @@ function mount(root,cfg){
 
   const lbl=el('label','toggle'), cb=document.createElement('input');
   cb.type='checkbox'; lbl.append(cb,document.createTextNode(' Show clickable areas'));
-  right.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
+  left.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
   cb.addEventListener('change',()=>vp.classList.toggle('show-hot',cb.checked));
+
+  const hasTests = !!cfg.tests;
+  if(hasTests){
+    root.classList.add('has-tests');
+    left.append(el('p','hint','Circles on the screens mark sections that were tested. Tap one for the result.'));
+    right.className='testpanel';
+    right.innerHTML='';
+    right.append(el('p','placeholder','Tap a circle on the screen to see what was tested there and how it performed.'));
+  }
   root.append(left,mid,right);
+
+  function verdictClass(v){
+    v=(v||'').toLowerCase();
+    return v.startsWith('win')?'win':v.startsWith('los')?'lose':'incon';
+  }
+  function showTest(tid){
+    const t=cfg.tests[tid]; if(!t) return;
+    right.innerHTML='';
+    const h=el('h2',null,t.title); right.appendChild(h);
+    right.appendChild(el('p','tid','Test '+t.id));
+
+    if(t.regions.length){
+      const row=el('div','regions');
+      t.regions.forEach(function(r){
+        const box=el('div','region');
+        const num=el('span','cvr',r.cvr);
+        if(/^-/.test(r.cvr)) num.classList.add('down'); else if(parseFloat(r.cvr)>0) num.classList.add('up');
+        box.appendChild(num);
+        box.appendChild(el('span','rlabel',r.label));
+        if(r.result) box.appendChild(el('span','verdict '+verdictClass(r.result),r.result));
+        row.appendChild(box);
+      });
+      right.appendChild(row);
+    }
+    if(t.summary) right.appendChild(el('p','summary',t.summary));
+    if(!t.regions.length && !t.summary)
+      right.appendChild(el('p','nodata','Results for this test are still being analysed.'));
+
+    if(t.imageSrc){
+      const fig=document.createElement('figure');
+      const im=new Image(); im.src=t.imageSrc; im.alt=t.caption||t.title; im.loading='lazy';
+      fig.appendChild(im);
+      if(t.caption){const c=document.createElement('figcaption');c.textContent=t.caption;fig.appendChild(c);}
+      right.appendChild(fig);
+    }
+    if(t.link){
+      const a=document.createElement('a'); a.className='analysis'; a.href=t.link;
+      a.target='_blank'; a.rel='noopener'; a.textContent='View detailed analysis';
+      right.appendChild(a);
+    } else {
+      const b=el('span','analysis pending','Detailed analysis in progress');
+      right.appendChild(b);
+    }
+  }
 
   function path(k){const p=[];while(k){p.unshift(k);k=S[k].parent;}return p;}
 
@@ -306,6 +408,23 @@ function mount(root,cfg){
       b.addEventListener('click',e=>{e.stopPropagation();go(h.to);});
       shot.appendChild(b);
     });
+    (s.pins||[]).forEach(function(pin){
+      const b=el('button','pin'); b.type='button';
+      b.style.left=pin.l+'%'; b.style.top=pin.t+'%';
+      const t=cfg.tests&&cfg.tests[pin.test];
+      b.setAttribute('aria-label','Test result: '+(t?t.title:pin.test));
+      b.title=t?t.title:pin.test;
+      b.setAttribute('aria-pressed','false');
+      b.classList.add('pulse');
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        shot.querySelectorAll('.pin').forEach(function(x){x.setAttribute('aria-pressed','false');});
+        b.setAttribute('aria-pressed','true');
+        showTest(pin.test);
+      });
+      shot.appendChild(b);
+    });
+
     shot.addEventListener('click',()=>{shot.classList.add('flash');setTimeout(()=>shot.classList.remove('flash'),600);});
 
     vp.replaceChildren(shot); vp.scrollTop=0;
