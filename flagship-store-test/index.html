@@ -58,8 +58,26 @@ section[hidden]{display:none}
 .toggle input{accent-color:var(--violet);width:18px;height:18px}
 .hint{font-size:14px;color:var(--muted);margin-top:8px;max-width:34ch}
 
-.phone{width:344px;max-width:100%;padding:12px;background:#111013;border-radius:44px;box-shadow:0 0 0 1px var(--mid)}
-.viewport{position:relative;height:min(700px,72vh);border-radius:32px;overflow-y:auto;overflow-x:hidden;background:#252427;scrollbar-width:none}
+/* Samsung S23 Ultra: body 78.1 x 163.4 mm, screen approx 71 x 152 mm (19.3:9).
+   --sw is the screen width; bezel and body ratio derive from it. */
+.phone{
+  --sw:min(clamp(240px,30vw,360px), calc(76vh / 2.3013));
+  --bezel-x:calc(var(--sw)*0.05);   /* (78.1 - 71) / 2 / 71 */
+  --bezel-y:calc(var(--sw)*0.08);   /* (163.4 - 152) / 2 / 71 */
+  width:calc(var(--sw) + var(--bezel-x)*2);
+  max-width:100%;
+  padding:var(--bezel-y) var(--bezel-x);
+  background:#111013;
+  border-radius:calc(var(--sw)*0.115);
+  box-shadow:0 0 0 1px var(--mid);
+}
+.viewport{
+  position:relative;
+  width:100%;
+  aspect-ratio:71 / 152;
+  border-radius:calc(var(--sw)*0.075);
+  overflow-y:auto;overflow-x:hidden;background:#252427;scrollbar-width:none;
+}
 .viewport::-webkit-scrollbar{display:none}
 .shot{position:relative;width:100%}
 .shot img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
@@ -76,7 +94,8 @@ section[hidden]{display:none}
 
 @media (max-width:900px){
   .proto{grid-template-columns:1fr;justify-items:center;gap:24px}
-  .side{width:100%;max-width:344px;padding:0}
+  .side{width:100%;max-width:420px;padding:0}
+  .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / 2.3013))}
   .side.right{order:3}
 }
 </style>
