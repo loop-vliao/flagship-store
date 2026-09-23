@@ -144,13 +144,13 @@ section[hidden]{display:none}
       <h2>What this is</h2>
       <p>A clickable version of the flagship site prototype. Each tab holds one part of the site, and you can tap through it the way a shopper would.</p>
       <p>Test results for each section will be pinned to the elements they changed, showing what was tested and how conversion rate moved.</p>
-      <p class="quiet">Nav, PLP and PDP are ready. Test annotations and the remaining pages come next.</p>
+      <p class="quiet">Nav, PLP, PDP and Home are ready. Test annotations and the cart come next.</p>
     </div>
     <div class="pages">
       <button data-go="nav"><strong>Nav</strong><span>8 screens, clickable</span></button>
       <button data-go="plp"><strong>PLP</strong><span>6 screens, clickable</span></button>
       <button data-go="pdp"><strong>PDP</strong><span>Live product page, embedded</span></button>
-      <button data-go="home"><strong>Home</strong><span>Screens not added yet</span></button>
+      <button data-go="home"><strong>Home</strong><span>Live home page, embedded</span></button>
       <button data-go="cart"><strong>Cart</strong><span>Screens not added yet</span></button>
     </div>
   </section>
@@ -163,26 +163,48 @@ section[hidden]{display:none}
         <h2>You're on</h2>
         <p class="meta"><strong>Paris Hilton &times; Loop Engage&trade;</strong><br>Product page</p>
         <h2>About this one</h2>
-        <p class="meta">This page is the live build, loaded straight from the prototype site, so everything works: the gallery, the videos, the carousels and the FAQ. It always shows the current version.</p>
-        <p class="meta"><a id="pdpLink" href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
+        <p class="meta">The live build, loaded straight from the prototype site, so everything works: the gallery, the videos, the carousels and the FAQ. It always shows the current version.</p>
+        <p class="meta"><a href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
       </div>
-      <div class="phone" id="pdpPhone">
+      <div class="phone" data-embed data-src="https://loop-earplugs.github.io/flagship-prototype/product.html">
         <div class="viewport" style="overflow:hidden">
-          <iframe class="embed-frame" id="pdpFrame" title="Paris Hilton x Loop Engage product page"
-            src="https://loop-earplugs.github.io/flagship-prototype/product.html"
+          <iframe class="embed-frame" title="Paris Hilton &times; Loop Engage&trade;" src="https://loop-earplugs.github.io/flagship-prototype/product.html"
             referrerpolicy="no-referrer-when-downgrade" scrolling="yes"></iframe>
-          <div class="embed-fallback" id="pdpFallback">
+          <div class="embed-fallback">
             <p>This viewer wouldn't load the embedded page.</p>
-            <p><a href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open the product page in a new tab</a></p>
+            <p><a href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
           </div>
         </div>
       </div>
       <div class="side right">
-        <p class="hint">Scroll inside the phone to move down the page. The product page has its own scrolling, so the page behind it stays put.</p>
+        <p class="hint">Scroll inside the phone to move down the page. It scrolls on its own, so the page behind it stays put.</p>
       </div>
     </div>
   </section>
-  <section id="home" role="tabpanel" hidden><div class="empty"><h2>Home</h2><p>Send the Home screens using the same naming (Home-clean-screen_…) and they'll go here.</p></div></section>
+  <section id="home" role="tabpanel" hidden>
+    <div class="proto">
+      <div class="side">
+        <h2>You're on</h2>
+        <p class="meta"><strong>Loop</strong><br>Home page</p>
+        <h2>About this one</h2>
+        <p class="meta">The live home page from the prototype site, with its hero, campaign blocks and navigation working as built.</p>
+        <p class="meta"><a href="https://loop-earplugs.github.io/flagship-prototype/" target="_blank" rel="noopener">Open it in a new tab</a></p>
+      </div>
+      <div class="phone" data-embed data-src="https://loop-earplugs.github.io/flagship-prototype/">
+        <div class="viewport" style="overflow:hidden">
+          <iframe class="embed-frame" title="Loop" src="https://loop-earplugs.github.io/flagship-prototype/"
+            referrerpolicy="no-referrer-when-downgrade" scrolling="yes"></iframe>
+          <div class="embed-fallback">
+            <p>This viewer wouldn't load the embedded page.</p>
+            <p><a href="https://loop-earplugs.github.io/flagship-prototype/" target="_blank" rel="noopener">Open it in a new tab</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="side right">
+        <p class="hint">Scroll inside the phone to move down the page. It scrolls on its own, so the page behind it stays put.</p>
+      </div>
+    </div>
+  </section>
   <section id="cart" role="tabpanel" hidden><div class="empty"><h2>Cart</h2><p>Send the Cart screens using the same naming (Cart-clean-screen_…) and they'll go here.</p></div></section>
 </main>
 
@@ -274,28 +296,26 @@ function mount(root,cfg){
 
 document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.proto]));
 
-// PDP: the live product page in the same phone frame (S23 Ultra screen ratio).
+// Live pages embedded in the phone frame. Each is rendered at a real phone width
+// and scaled down, because these pages' layouts break below 320px.
 (function(){
-  const phone=document.getElementById('pdpPhone');
-  if(!phone) return;
-  phone.style.setProperty('--screen-ratio',2.141);
-  phone.style.setProperty('--body-ratio',2.301);
-  // Render at 390 CSS px (a normal phone) and scale to fit; the page's own layout
-  // breaks below 320px, so never hand it a narrower viewport than that.
   const EMBED_W=390;
-  const f=document.getElementById('pdpFrame');
-  const vp=f.parentElement;
-  function fit(){
-    const w=vp.clientWidth, h=vp.clientHeight;
-    if(!w||!h) return;
-    const scale=w/EMBED_W;
-    f.style.width=EMBED_W+'px';
-    f.style.height=(h/scale)+'px';
-    f.style.transform='scale('+scale+')';
-  }
-  fit();
-  if(window.ResizeObserver) new ResizeObserver(fit).observe(vp);
-  window.addEventListener('resize',fit);
+  document.querySelectorAll('[data-embed]').forEach(function(phone){
+    phone.style.setProperty('--screen-ratio',2.141);
+    phone.style.setProperty('--body-ratio',2.301);
+    const f=phone.querySelector('.embed-frame'), vp=f.parentElement;
+    function fit(){
+      const w=vp.clientWidth, h=vp.clientHeight;
+      if(!w||!h) return;
+      const scale=w/EMBED_W;
+      f.style.width=EMBED_W+'px';
+      f.style.height=(h/scale)+'px';
+      f.style.transform='scale('+scale+')';
+    }
+    fit();
+    if(window.ResizeObserver) new ResizeObserver(fit).observe(vp);
+    window.addEventListener('resize',fit);
+  });
 })();
 showTab(location.hash.slice(1)||'intro');
 </script>
