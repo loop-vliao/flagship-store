@@ -10,6 +10,7 @@
 :root{
   --bg:#FBF9F8; --ink:#252427; --muted:#757470; --line:#E5E3DE; --mid:#CDC8BF;
   --violet:#6243B9; --lilac:#E5DCFF; --panel:#FFFFFF;
+  --screen-ratio:2.2866; --body-ratio:2.4466;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
@@ -58,10 +59,11 @@ section[hidden]{display:none}
 .toggle input{accent-color:var(--violet);width:18px;height:18px}
 .hint{font-size:14px;color:var(--muted);margin-top:8px;max-width:34ch}
 
-/* Samsung S23 Ultra: body 78.1 x 163.4 mm, screen approx 71 x 152 mm (19.3:9).
-   --sw is the screen width; bezel and body ratio derive from it. */
+/* Phone frame, S23 Ultra bezel proportions (body 78.1 x 163.4 mm around a 71 mm screen).
+   The screen is taller than the S23's 19.3:9 so the Shop nav screen fits without scrolling:
+   --screen-ratio and --body-ratio are generated from the actual image dimensions. */
 .phone{
-  --sw:min(clamp(240px,30vw,360px), calc(76vh / 2.3013));
+  --sw:min(clamp(240px,30vw,360px), calc(76vh / var(--body-ratio)));
   --bezel-x:calc(var(--sw)*0.05);   /* (78.1 - 71) / 2 / 71 */
   --bezel-y:calc(var(--sw)*0.08);   /* (163.4 - 152) / 2 / 71 */
   width:calc(var(--sw) + var(--bezel-x)*2);
@@ -74,7 +76,7 @@ section[hidden]{display:none}
 .viewport{
   position:relative;
   width:100%;
-  aspect-ratio:71 / 152;
+  aspect-ratio:1 / var(--screen-ratio);
   border-radius:calc(var(--sw)*0.075);
   overflow-y:auto;overflow-x:hidden;background:#252427;scrollbar-width:none;
 }
@@ -95,7 +97,7 @@ section[hidden]{display:none}
 @media (max-width:900px){
   .proto{grid-template-columns:1fr;justify-items:center;gap:24px}
   .side{width:100%;max-width:420px;padding:0}
-  .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / 2.3013))}
+  .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / var(--body-ratio)))}
   .side.right{order:3}
 }
 </style>
