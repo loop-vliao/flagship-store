@@ -103,6 +103,14 @@ section[hidden]{display:none}
 
 @media (prefers-reduced-motion:reduce){.shot.enter{animation:none}}
 
+.embed-frame{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+  background:transparent;z-index:1}
+.embed-fallback{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;gap:12px;
+  align-items:center;justify-content:center;text-align:center;padding:24px;background:transparent}
+.embed-fallback p{margin:0;font-size:14px;color:var(--muted);max-width:26ch}
+.embed-fallback a{color:var(--violet)}
+.side .meta{font-size:15px;margin:0 0 18px;max-width:34ch}
+.side .meta a{color:var(--violet);word-break:break-word}
 .empty{border:1px dashed var(--mid);padding:40px;max-width:62ch}
 .empty h2{margin:0 0 8px;font-size:22px;font-weight:600}
 .empty p{margin:0;color:var(--muted)}
@@ -134,12 +142,12 @@ section[hidden]{display:none}
       <h2>What this is</h2>
       <p>A clickable version of the flagship site prototype. Each tab holds one part of the site, and you can tap through it the way a shopper would.</p>
       <p>Test results for each section will be pinned to the elements they changed, showing what was tested and how conversion rate moved.</p>
-      <p class="quiet">Nav and PLP are ready to click through. Test annotations and the other pages come next.</p>
+      <p class="quiet">Nav, PLP and PDP are ready. Test annotations and the remaining pages come next.</p>
     </div>
     <div class="pages">
       <button data-go="nav"><strong>Nav</strong><span>8 screens, clickable</span></button>
       <button data-go="plp"><strong>PLP</strong><span>6 screens, clickable</span></button>
-      <button data-go="pdp"><strong>PDP</strong><span>Screens not added yet</span></button>
+      <button data-go="pdp"><strong>PDP</strong><span>Live product page, embedded</span></button>
       <button data-go="home"><strong>Home</strong><span>Screens not added yet</span></button>
       <button data-go="cart"><strong>Cart</strong><span>Screens not added yet</span></button>
     </div>
@@ -147,7 +155,31 @@ section[hidden]{display:none}
 
   <section id="nav" role="tabpanel" hidden><div class="proto" data-proto="nav"></div></section>
   <section id="plp" role="tabpanel" hidden><div class="proto" data-proto="plp"></div></section>
-  <section id="pdp" role="tabpanel" hidden><div class="empty"><h2>PDP</h2><p>Send the PDP screens using the same naming (PDP-clean-screen_…) and they'll go here.</p></div></section>
+  <section id="pdp" role="tabpanel" hidden>
+    <div class="proto">
+      <div class="side">
+        <h2>You're on</h2>
+        <p class="meta"><strong>Paris Hilton &times; Loop Engage&trade;</strong><br>Product page</p>
+        <h2>About this one</h2>
+        <p class="meta">This page is the live build, loaded straight from the prototype site, so everything works: the gallery, the videos, the carousels and the FAQ. It always shows the current version.</p>
+        <p class="meta"><a id="pdpLink" href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open it in a new tab</a></p>
+      </div>
+      <div class="phone" id="pdpPhone">
+        <div class="viewport" style="overflow:hidden">
+          <iframe class="embed-frame" id="pdpFrame" title="Paris Hilton x Loop Engage product page"
+            src="https://loop-earplugs.github.io/flagship-prototype/product.html"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <div class="embed-fallback" id="pdpFallback">
+            <p>This viewer wouldn't load the embedded page.</p>
+            <p><a href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open the product page in a new tab</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="side right">
+        <p class="hint">Scroll inside the phone to move down the page. The product page has its own scrolling, so the page behind it stays put.</p>
+      </div>
+    </div>
+  </section>
   <section id="home" role="tabpanel" hidden><div class="empty"><h2>Home</h2><p>Send the Home screens using the same naming (Home-clean-screen_…) and they'll go here.</p></div></section>
   <section id="cart" role="tabpanel" hidden><div class="empty"><h2>Cart</h2><p>Send the Cart screens using the same naming (Cart-clean-screen_…) and they'll go here.</p></div></section>
 </main>
@@ -239,6 +271,14 @@ function mount(root,cfg){
 }
 
 document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.proto]));
+
+// PDP: the live product page in the same phone frame (S23 Ultra screen ratio).
+(function(){
+  const phone=document.getElementById('pdpPhone');
+  if(!phone) return;
+  phone.style.setProperty('--screen-ratio',2.141);
+  phone.style.setProperty('--body-ratio',2.301);
+})();
 showTab(location.hash.slice(1)||'intro');
 </script>
 </body>
