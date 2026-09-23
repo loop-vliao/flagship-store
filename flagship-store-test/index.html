@@ -48,6 +48,20 @@ section[hidden]{display:none}
 .side h2.sechead{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
   color:var(--ink);margin:0 0 12px}
 .side h2.sechead.spaced{margin-top:34px}
+/* The screen list is supporting navigation, so it sits in a quiet neutral block
+   and stays visually below the test list. */
+.side h2.sechead.sub{font-size:12px;font-weight:700;letter-spacing:.09em;color:var(--muted);margin:0 0 6px}
+.quietblock{margin-top:44px;background:rgba(0,0,0,.035);border:1px solid var(--line);padding:16px 16px 14px}
+:root:not([data-theme="light"]) .quietblock{background:rgba(255,255,255,.04)}
+.quietblock .screenlist{border-top:1px solid var(--line)}
+.quietblock .screenlist button{font-size:13.5px;padding:7px 0;border-bottom-color:rgba(0,0,0,.06);
+  display:flex;align-items:baseline;gap:8px}
+:root:not([data-theme="light"]) .quietblock .screenlist button{border-bottom-color:rgba(255,255,255,.07)}
+.quietblock .screenlist button[aria-current="true"]{font-weight:600}
+.quietblock .here{font-style:italic;font-size:12px;color:var(--violet);white-space:nowrap}
+.quietblock .toggle{margin-top:14px;font-size:13.5px}
+.quietblock .toggle input{width:16px;height:16px}
+.quietblock .hint{font-size:12.5px;margin-top:6px}
 .crumbs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 24px;padding:0;list-style:none;font-size:15px}
 .crumbs li+li::before{content:"/";color:var(--mid);margin-right:6px}
 .crumbs button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--mid);text-align:left}
@@ -414,14 +428,15 @@ function mount(root,cfg){
     right.append(el('p','placeholder','Tap a circle on the screen to see what was tested there and how it performed.'));
   }
 
-  left.append(el('h2','sechead'+(hasTests?' spaced':''),"You're on"));
-  const crumbs=el('ol','crumbs'); left.appendChild(crumbs);
-  left.append(el('h2','sechead','Jump to a screen'));
-  const list=el('ul','screenlist'); left.appendChild(list);
+  const crumbs=null;   // breadcrumb removed; the screen list marks where you are
+  const quiet=el('div','quietblock');
+  quiet.append(el('h2','sechead sub','Jump to a screen'));
+  const list=el('ul','screenlist'); quiet.appendChild(list);
 
   const lbl=el('label','toggle'), cb=document.createElement('input');
   cb.type='checkbox'; lbl.append(cb,document.createTextNode(' Show clickable areas'));
-  left.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
+  quiet.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
+  left.appendChild(quiet);
   cb.addEventListener('change',()=>vp.classList.toggle('show-hot',cb.checked));
 
   root.append(left,mid,right);
@@ -505,9 +520,15 @@ function mount(root,cfg){
       if(im){ if(im.complete) setTimeout(onScroll,0); else im.addEventListener('load',onScroll); }
     } else { note.hidden=true; noteTo=null; }
 
-    crumbs.replaceChildren(...path(k).map(function(p){
+    if(crumbs) crumbs.replaceChildren(...path(k).map(function(p){
       const li=el('li'),b=el('button',null,S[p].title);b.onclick=function(){go(p);};li.appendChild(b);return li;}));
-    list.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.k===k));
+    list.querySelectorAll('button').forEach(function(b){
+      const on=b.dataset.k===k;
+      b.setAttribute('aria-current',on);
+      const mark=b.querySelector('.here');
+      if(mark) mark.remove();
+      if(on) b.appendChild(el('span','here','\u2190 You are here'));
+    });
 
     if(openTest){
       const pin=mid.querySelector('.pin[data-test="'+CSS.escape(openTest)+'"]');
@@ -522,7 +543,8 @@ function mount(root,cfg){
 
   cfg.order.forEach(function(pair){
     const k=pair[0],d=pair[1];
-    const li=el('li'),b=el('button',null,S[k].title);
+    const li=el('li'),b=el('button');
+    b.appendChild(el('span','sname',S[k].title));
     b.dataset.k=k; b.className='d'+d; b.onclick=function(){go(k);}; li.appendChild(b); list.appendChild(li);
   });
   go(cfg.start);
