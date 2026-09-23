@@ -103,8 +103,10 @@ section[hidden]{display:none}
 
 @media (prefers-reduced-motion:reduce){.shot.enter{animation:none}}
 
-.embed-frame{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
-  background:transparent;z-index:1}
+/* The product page is rendered at a real phone width (--embed-w) and scaled down to
+   whatever the frame is, so its full width always fits however small the frame gets. */
+.embed-frame{position:absolute;top:0;left:0;border:0;display:block;
+  background:transparent;z-index:1;transform-origin:0 0}
 .embed-fallback{position:absolute;inset:0;z-index:0;display:flex;flex-direction:column;gap:12px;
   align-items:center;justify-content:center;text-align:center;padding:24px;background:transparent}
 .embed-fallback p{margin:0;font-size:14px;color:var(--muted);max-width:26ch}
@@ -168,7 +170,7 @@ section[hidden]{display:none}
         <div class="viewport" style="overflow:hidden">
           <iframe class="embed-frame" id="pdpFrame" title="Paris Hilton x Loop Engage product page"
             src="https://loop-earplugs.github.io/flagship-prototype/product.html"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade" scrolling="yes"></iframe>
           <div class="embed-fallback" id="pdpFallback">
             <p>This viewer wouldn't load the embedded page.</p>
             <p><a href="https://loop-earplugs.github.io/flagship-prototype/product.html" target="_blank" rel="noopener">Open the product page in a new tab</a></p>
@@ -278,6 +280,22 @@ document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.pro
   if(!phone) return;
   phone.style.setProperty('--screen-ratio',2.141);
   phone.style.setProperty('--body-ratio',2.301);
+  // Render at 390 CSS px (a normal phone) and scale to fit; the page's own layout
+  // breaks below 320px, so never hand it a narrower viewport than that.
+  const EMBED_W=390;
+  const f=document.getElementById('pdpFrame');
+  const vp=f.parentElement;
+  function fit(){
+    const w=vp.clientWidth, h=vp.clientHeight;
+    if(!w||!h) return;
+    const scale=w/EMBED_W;
+    f.style.width=EMBED_W+'px';
+    f.style.height=(h/scale)+'px';
+    f.style.transform='scale('+scale+')';
+  }
+  fit();
+  if(window.ResizeObserver) new ResizeObserver(fit).observe(vp);
+  window.addEventListener('resize',fit);
 })();
 showTab(location.hash.slice(1)||'intro');
 </script>
