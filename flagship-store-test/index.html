@@ -10,7 +10,6 @@
 :root{
   --bg:#FBF9F8; --ink:#252427; --muted:#757470; --line:#E5E3DE; --mid:#CDC8BF;
   --violet:#6243B9; --lilac:#E5DCFF; --panel:#FFFFFF;
-  --screen-ratio:2.2866; --body-ratio:2.4466;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
@@ -35,7 +34,7 @@ main{padding:32px clamp(16px,4vw,48px) 64px}
 section[hidden]{display:none}
 .prose{max-width:62ch}
 .prose h2{font-size:24px;font-weight:600;margin:0 0 12px;letter-spacing:-.02em}
-.prose p{margin:0 0 14px;color:var(--ink)}
+.prose p{margin:0 0 14px}
 .prose .quiet{color:var(--muted)}
 .pages{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px;max-width:860px}
 .pages button{background:var(--panel);border:0;text-align:left;padding:18px;cursor:pointer}
@@ -43,13 +42,12 @@ section[hidden]{display:none}
 .pages strong{display:block;font-weight:600}
 .pages span{color:var(--muted);font-size:14px}
 
-/* Nav prototype */
 .proto{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:start}
 .side{padding-top:8px}
 .side h2{font-size:14px;font-weight:600;color:var(--muted);margin:0 0 10px}
 .crumbs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 24px;padding:0;list-style:none;font-size:15px}
 .crumbs li+li::before{content:"/";color:var(--mid);margin-right:6px}
-.crumbs button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--mid)}
+.crumbs button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--mid);text-align:left}
 .crumbs li:last-child button{text-decoration:none;font-weight:600}
 .screenlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .screenlist button{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 0;cursor:pointer;font-size:15px}
@@ -59,13 +57,13 @@ section[hidden]{display:none}
 .toggle input{accent-color:var(--violet);width:18px;height:18px}
 .hint{font-size:14px;color:var(--muted);margin-top:8px;max-width:34ch}
 
-/* Phone frame, S23 Ultra bezel proportions (body 78.1 x 163.4 mm around a 71 mm screen).
-   The screen is taller than the S23's 19.3:9 so the Shop nav screen fits without scrolling:
-   --screen-ratio and --body-ratio are generated from the actual image dimensions. */
+/* Phone frame: S23 Ultra bezel proportions (body 78.1 x 163.4 mm around a 71 mm screen).
+   --screen-ratio and --body-ratio are set per prototype from the real image sizes. */
 .phone{
+  position:relative;
   --sw:min(clamp(240px,30vw,360px), calc(76vh / var(--body-ratio)));
-  --bezel-x:calc(var(--sw)*0.05);   /* (78.1 - 71) / 2 / 71 */
-  --bezel-y:calc(var(--sw)*0.08);   /* (163.4 - 152) / 2 / 71 */
+  --bezel-x:calc(var(--sw)*0.05);
+  --bezel-y:calc(var(--sw)*0.08);
   width:calc(var(--sw) + var(--bezel-x)*2);
   max-width:100%;
   padding:var(--bezel-y) var(--bezel-x);
@@ -74,20 +72,38 @@ section[hidden]{display:none}
   box-shadow:0 0 0 1px var(--mid);
 }
 .viewport{
-  position:relative;
-  width:100%;
+  position:relative;width:100%;
   aspect-ratio:1 / var(--screen-ratio);
   border-radius:calc(var(--sw)*0.075);
-  overflow-y:auto;overflow-x:hidden;background:#252427;scrollbar-width:none;
+  overflow-y:auto;overflow-x:hidden;background:#fff;scrollbar-width:none;
 }
 .viewport::-webkit-scrollbar{display:none}
 .shot{position:relative;width:100%}
-.shot img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.shot > img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
 .shot.enter{animation:in .22s ease-out}
 @keyframes in{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
-.hot{position:absolute;background:transparent;border:0;padding:0;cursor:pointer;border-radius:6px}
+
+/* A slice shows one horizontal band of a tall export. Its track can be wider than the
+   page, which is how the Bundles carousel scrolls sideways without moving the page. */
+.slice{overflow:hidden;width:100%;scrollbar-width:none;position:relative}
+.slice::-webkit-scrollbar{display:none}
+.slice.sx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.slice .track{position:relative}
+.slice img{display:block;width:100%;height:auto;user-select:none;-webkit-user-drag:none}
+.sx-note{position:absolute;z-index:3;transform:translate(-100%,0);
+  background:var(--violet);color:#fff;font-size:10px;font-weight:600;letter-spacing:0;
+  padding:3px 7px;border-radius:999px;pointer-events:none;opacity:.92;white-space:nowrap}
+
+.hot{position:absolute;background:transparent;border:0;padding:0;cursor:pointer;border-radius:6px;z-index:2}
 .show-hot .hot,.flash .hot{background:rgba(98,67,185,.28);box-shadow:inset 0 0 0 2px #8B6FE0}
 .flash .hot{transition:background .5s}
+
+/* Sticky CTA pinned inside the phone screen, clear of the bottom edge */
+.sticky-cta{position:absolute;left:50%;transform:translateX(-50%);
+  bottom:calc(var(--bezel-y) + var(--sw)*0.04);z-index:4;pointer-events:none;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.25))}
+.sticky-cta img{display:block;width:100%;height:auto}
+
 @media (prefers-reduced-motion:reduce){.shot.enter{animation:none}}
 
 .empty{border:1px dashed var(--mid);padding:40px;max-width:62ch}
@@ -97,8 +113,8 @@ section[hidden]{display:none}
 @media (max-width:900px){
   .proto{grid-template-columns:1fr;justify-items:center;gap:24px}
   .side{width:100%;max-width:420px;padding:0}
-  .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / var(--body-ratio)))}
   .side.right{order:3}
+  .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / var(--body-ratio)))}
 }
 </style>
 </head>
@@ -121,44 +137,27 @@ section[hidden]{display:none}
       <h2>What this is</h2>
       <p>A clickable version of the flagship site prototype. Each tab holds one part of the site, and you can tap through it the way a shopper would.</p>
       <p>Test results for each section will be pinned to the elements they changed, showing what was tested and how conversion rate moved.</p>
-      <p class="quiet">Nav is ready to click through. Test annotations and the other pages are coming next.</p>
+      <p class="quiet">Nav and PLP are ready to click through. Test annotations and the other pages come next.</p>
     </div>
     <div class="pages">
       <button data-go="nav"><strong>Nav</strong><span>8 screens, clickable</span></button>
+      <button data-go="plp"><strong>PLP</strong><span>6 screens, clickable</span></button>
       <button data-go="pdp"><strong>PDP</strong><span>Screens not added yet</span></button>
-      <button data-go="plp"><strong>PLP</strong><span>Screens not added yet</span></button>
       <button data-go="home"><strong>Home</strong><span>Screens not added yet</span></button>
       <button data-go="cart"><strong>Cart</strong><span>Screens not added yet</span></button>
     </div>
   </section>
 
-  <section id="nav" role="tabpanel" hidden>
-    <div class="proto">
-      <div class="side">
-        <h2>You're on</h2>
-        <ol class="crumbs" id="crumbs"></ol>
-        <h2>Jump to a screen</h2>
-        <ul class="screenlist" id="screenlist"></ul>
-      </div>
-      <div class="phone"><div class="viewport" id="viewport"></div></div>
-      <div class="side right">
-        <label class="toggle"><input type="checkbox" id="showHot"> Show clickable areas</label>
-        <p class="hint">Tap anywhere that isn't clickable and the clickable areas light up briefly. Back arrows and the close icon work too.</p>
-      </div>
-    </div>
-  </section>
-
+  <section id="nav" role="tabpanel" hidden><div class="proto" data-proto="nav"></div></section>
+  <section id="plp" role="tabpanel" hidden><div class="proto" data-proto="plp"></div></section>
   <section id="pdp" role="tabpanel" hidden><div class="empty"><h2>PDP</h2><p>Send the PDP screens using the same naming (PDP-clean-screen_…) and they'll go here.</p></div></section>
-  <section id="plp" role="tabpanel" hidden><div class="empty"><h2>PLP</h2><p>Send the PLP screens using the same naming (PLP-clean-screen_…) and they'll go here.</p></div></section>
   <section id="home" role="tabpanel" hidden><div class="empty"><h2>Home</h2><p>Send the Home screens using the same naming (Home-clean-screen_…) and they'll go here.</p></div></section>
   <section id="cart" role="tabpanel" hidden><div class="empty"><h2>Cart</h2><p>Send the Cart screens using the same naming (Cart-clean-screen_…) and they'll go here.</p></div></section>
 </main>
 
 <script>
-const S = {"shop": {"src": "images/Nav-clean-screen_shop.png", "title": "Shop", "parent": null, "ratio": 2.286610878661088, "hot": [{"l": 0.0, "t": 21.23, "w": 100.0, "h": 5.12, "to": "shop_product", "label": "Shop by product (CTA 1)"}, {"l": 0.0, "t": 27.26, "w": 100.0, "h": 5.12, "to": "shop_situation", "label": "Shop by situation (CTA 2)"}, {"l": 0.0, "t": 39.52, "w": 100.0, "h": 5.12, "to": "shop_bundles", "label": "Bundles (CTA 3)"}, {"l": 20.92, "t": 12.63, "w": 29.29, "h": 4.57, "to": "whatsnew", "label": "What's new (CTA 4)"}, {"l": 51.88, "t": 12.63, "w": 25.1, "h": 4.57, "to": "aboutus", "label": "About us (CTA 5)"}, {"l": 2.5, "t": 2.19, "w": 16.88, "h": 6.01, "to": "shop", "label": "Close (reset to Shop)"}]}, "whatsnew": {"src": "images/Nav-clean-screen_whatsnew.png", "title": "What's new", "parent": null, "ratio": 4.875, "hot": [{"l": 3.75, "t": 5.9, "w": 15.62, "h": 2.05, "to": "shop", "label": "Shop tab"}, {"l": 52.5, "t": 5.9, "w": 23.75, "h": 2.05, "to": "aboutus", "label": "About us tab"}, {"l": 2.5, "t": 1.03, "w": 16.88, "h": 2.82, "to": "shop", "label": "Close (reset to Shop)"}]}, "aboutus": {"src": "images/Nav-clean-screen_aboutus.png", "title": "About us", "parent": null, "ratio": 2.271875, "hot": [{"l": 3.75, "t": 12.65, "w": 15.62, "h": 4.4, "to": "shop", "label": "Shop tab"}, {"l": 21.25, "t": 12.65, "w": 29.38, "h": 4.4, "to": "whatsnew", "label": "What's new tab"}, {"l": 2.5, "t": 2.2, "w": 16.88, "h": 6.05, "to": "shop", "label": "Close (reset to Shop)"}]}, "shop_product": {"src": "images/Nav-clean-screen_shop_product.png", "title": "Shop by product", "parent": "shop", "ratio": 2.271875, "hot": [{"l": 0.0, "t": 22.01, "w": 100.0, "h": 7.7, "to": "shop_product_earplugs", "label": "Earplugs (CTA 1)"}, {"l": 0.0, "t": 12.1, "w": 62.5, "h": 5.5, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.2, "w": 16.88, "h": 6.05, "to": "shop", "label": "Close (reset to Shop)"}]}, "shop_product_earplugs": {"src": "images/Nav-clean-screen_shop_product_earplugs.png", "title": "Earplugs", "parent": "shop_product", "ratio": 2.6875, "hot": [{"l": 0.0, "t": 10.23, "w": 62.5, "h": 4.65, "to": "shop_product", "label": "Back"}, {"l": 2.5, "t": 1.86, "w": 16.88, "h": 5.12, "to": "shop", "label": "Close (reset to Shop)"}]}, "shop_situation": {"src": "images/Nav-clean-screen_shop_situation.png", "title": "Shop by situation", "parent": "shop", "ratio": 2.271875, "hot": [{"l": 0.0, "t": 20.91, "w": 100.0, "h": 5.78, "to": "shop_situation_sleep", "label": "Sleep (CTA 1)"}, {"l": 0.0, "t": 12.1, "w": 62.5, "h": 5.5, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.2, "w": 16.88, "h": 6.05, "to": "shop", "label": "Close (reset to Shop)"}]}, "shop_situation_sleep": {"src": "images/Nav-clean-screen_shop_situation_sleep.png", "title": "Sleep", "parent": "shop_situation", "ratio": 3.328125, "hot": [{"l": 0.0, "t": 8.26, "w": 62.5, "h": 3.76, "to": "shop_situation", "label": "Back"}, {"l": 2.5, "t": 1.5, "w": 16.88, "h": 4.13, "to": "shop", "label": "Close (reset to Shop)"}]}, "shop_bundles": {"src": "images/Nav-clean-screen_shop_bundles.png", "title": "Bundles", "parent": "shop", "ratio": 2.271875, "hot": [{"l": 0.0, "t": 12.1, "w": 62.5, "h": 5.5, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.2, "w": 16.88, "h": 6.05, "to": "shop", "label": "Close (reset to Shop)"}]}};
-const ORDER=[["shop",0],["shop_product",1],["shop_product_earplugs",2],["shop_situation",1],["shop_situation_sleep",2],["shop_bundles",1],["whatsnew",0],["aboutus",0]];
+const PAGES = {"nav": {"screens": {"shop": {"src": "images/Nav-clean-screen_shop.png", "title": "Shop", "parent": null, "pw": 478, "ph": 1093, "iw": 478, "hot": [{"l": 0.0, "t": 21.226, "w": 100.0, "h": 5.124, "to": "shop_product", "label": "Shop by product (CTA 1)"}, {"l": 0.0, "t": 27.264, "w": 100.0, "h": 5.124, "to": "shop_situation", "label": "Shop by situation (CTA 2)"}, {"l": 0.0, "t": 39.524, "w": 100.0, "h": 5.124, "to": "shop_bundles", "label": "Bundles (CTA 3)"}, {"l": 20.921, "t": 12.626, "w": 29.289, "h": 4.575, "to": "whatsnew", "label": "What's new (CTA 4)"}, {"l": 51.883, "t": 12.626, "w": 25.105, "h": 4.575, "to": "aboutus", "label": "About us (CTA 5)"}, {"l": 2.5, "t": 2.187, "w": 16.875, "h": 6.013, "to": "shop", "label": "Close (reset)"}], "ratio": 2.286610878661088}, "whatsnew": {"src": "images/Nav-clean-screen_whatsnew.png", "title": "What's new", "parent": null, "pw": 320, "ph": 1560, "iw": 320, "hot": [{"l": 3.75, "t": 5.897, "w": 15.625, "h": 2.051, "to": "shop", "label": "Shop tab"}, {"l": 52.5, "t": 5.897, "w": 23.75, "h": 2.051, "to": "aboutus", "label": "About us tab"}, {"l": 2.5, "t": 1.026, "w": 16.875, "h": 2.821, "to": "shop", "label": "Close (reset)"}], "ratio": 4.875}, "aboutus": {"src": "images/Nav-clean-screen_aboutus.png", "title": "About us", "parent": null, "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 3.75, "t": 12.655, "w": 15.625, "h": 4.402, "to": "shop", "label": "Shop tab"}, {"l": 21.25, "t": 12.655, "w": 29.375, "h": 4.402, "to": "whatsnew", "label": "What's new tab"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_product": {"src": "images/Nav-clean-screen_shop_product.png", "title": "Shop by product", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 22.008, "w": 100.0, "h": 7.703, "to": "shop_product_earplugs", "label": "Earplugs (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_product_earplugs": {"src": "images/Nav-clean-screen_shop_product_earplugs.png", "title": "Earplugs", "parent": "shop_product", "pw": 320, "ph": 860, "iw": 320, "hot": [{"l": 0.0, "t": 10.233, "w": 62.5, "h": 4.651, "to": "shop_product", "label": "Back"}, {"l": 2.5, "t": 1.86, "w": 16.875, "h": 5.116, "to": "shop", "label": "Close (reset)"}], "ratio": 2.6875}, "shop_situation": {"src": "images/Nav-clean-screen_shop_situation.png", "title": "Shop by situation", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 20.908, "w": 100.0, "h": 5.777, "to": "shop_situation_sleep", "label": "Sleep (CTA 1)"}, {"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}, "shop_situation_sleep": {"src": "images/Nav-clean-screen_shop_situation_sleep.png", "title": "Sleep", "parent": "shop_situation", "pw": 320, "ph": 1065, "iw": 320, "hot": [{"l": 0.0, "t": 8.263, "w": 62.5, "h": 3.756, "to": "shop_situation", "label": "Back"}, {"l": 2.5, "t": 1.502, "w": 16.875, "h": 4.131, "to": "shop", "label": "Close (reset)"}], "ratio": 3.328125}, "shop_bundles": {"src": "images/Nav-clean-screen_shop_bundles.png", "title": "Bundles", "parent": "shop", "pw": 320, "ph": 727, "iw": 320, "hot": [{"l": 0.0, "t": 12.105, "w": 62.5, "h": 5.502, "to": "shop", "label": "Back"}, {"l": 2.5, "t": 2.201, "w": 16.875, "h": 6.052, "to": "shop", "label": "Close (reset)"}], "ratio": 2.271875}}, "order": [["shop", 0], ["shop_product", 1], ["shop_product_earplugs", 2], ["shop_situation", 1], ["shop_situation_sleep", 2], ["shop_bundles", 1], ["whatsnew", 0], ["aboutus", 0]], "start": "shop", "ratio": 2.2866, "body": 2.4466}, "plp": {"screens": {"entry_type": {"src": "images/PLP-clean-screen_entry_type.png", "title": "What brings you here? (by type)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 2.674, "t": 11.15, "w": 94.652, "h": 6.6, "to": "shopall", "label": "All (CTA 1)"}, {"l": 2.674, "t": 41.713, "w": 94.652, "h": 6.588, "to": "shopbundles", "label": "Bundles (CTA 2)"}, {"l": 50.267, "t": 8.125, "w": 35.294, "h": 1.375, "to": "entry_situation", "label": "Shop by situation [extra]"}], "ratio": 8.556149732620321}, "entry_situation": {"src": "images/PLP-clean-screen_entry_situation.png", "title": "What brings you here? (by situation)", "parent": null, "pw": 935, "ph": 8000, "iw": 935, "hot": [{"l": 14.973, "t": 7.75, "w": 35.294, "h": 1.5, "to": "entry_type", "label": "Shop by type [extra]"}], "ratio": 8.556149732620321}, "shopall": {"src": "images/PLP-clean-screen_shopall.png", "title": "Shop all", "parent": "entry_type", "pw": 484, "ph": 8000, "iw": 1390, "hot": [{"l": 5.785, "t": 1.5, "w": 36.157, "h": 0.625, "to": "shop_dropdown", "label": "Shop all dropdown (CTA 1)"}, {"l": 83.264, "t": 1.475, "w": 12.397, "h": 0.65, "to": "shop_filter", "label": "Filters (CTA 2)"}], "ratio": 16.52892561983471, "slices": [{"y0": 0, "h": 3201, "sx": false}, {"y0": 3201, "h": 538, "sx": true}, {"y0": 3739, "h": 4261, "sx": false}], "sticky": {"src": "images/PLP-clean-screen_shopall_helpmechoose.png", "w": 90.91, "ratio": 0.2545454545454545}}, "shopbundles": {"src": "images/PLP-clean-screen_shopbundles.png", "title": "Bundles", "parent": "entry_type", "pw": 528, "ph": 8000, "iw": 528, "hot": [{"l": 6.629, "t": 1.65, "w": 37.879, "h": 0.562, "to": "shop_dropdown", "label": "Bundles dropdown [extra]"}, {"l": 85.606, "t": 1.663, "w": 10.417, "h": 0.6, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 15.151515151515152}, "shop_dropdown": {"src": "images/PLP-clean-screen_shop_dropdown.png", "title": "Category dropdown", "parent": "shopall", "pw": 782, "ph": 1792, "iw": 782, "hot": [{"l": 3.581, "t": 10.212, "w": 15.985, "h": 4.185, "to": "shopall", "label": "Close dropdown [extra]"}, {"l": 86.957, "t": 10.603, "w": 7.673, "h": 3.069, "to": "shop_filter", "label": "Filters [extra]"}], "ratio": 2.29156010230179}, "shop_filter": {"src": "images/PLP-clean-screen_shop_filter.png", "title": "Filters", "parent": "shopall", "pw": 780, "ph": 2926, "iw": 780, "hot": [{"l": 69.872, "t": 0.957, "w": 26.923, "h": 2.905, "to": "shopall", "label": "Close [extra]"}, {"l": 5.128, "t": 93.643, "w": 89.744, "h": 4.375, "to": "shopall", "label": "See results [extra]"}], "ratio": 3.7512820512820513}}, "order": [["entry_type", 0], ["shopall", 1], ["shop_dropdown", 2], ["shop_filter", 2], ["shopbundles", 1], ["entry_situation", 0]], "start": "entry_type", "ratio": 2.141, "body": 2.301}};
 
-// Tabs
 const tabBtns=[...document.querySelectorAll('.tabs button')];
 function showTab(id){
   if(!document.getElementById(id)) id='intro';
@@ -168,31 +167,87 @@ function showTab(id){
 }
 tabBtns.forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.go)));
-showTab(location.hash.slice(1)||'intro');
 
-// Nav prototype
-const vp=document.getElementById('viewport'), crumbs=document.getElementById('crumbs'), list=document.getElementById('screenlist');
-let current=null;
-function path(k){const p=[];while(k){p.unshift(k);k=S[k].parent;}return p;}
-function go(k){
-  const s=S[k]; current=k;
-  const shot=document.createElement('div'); shot.className='shot enter';
-  const img=new Image(); img.src=s.src; img.alt='Nav screen: '+s.title; shot.appendChild(img);
-  s.hot.forEach(h=>{
-    const b=document.createElement('button'); b.className='hot';
-    b.style.cssText=`left:${h.l}%;top:${h.t}%;width:${h.w}%;height:${h.h}%`;
-    b.setAttribute('aria-label',h.label); b.title=h.label;
-    b.addEventListener('click',e=>{e.stopPropagation();go(h.to);});
-    shot.appendChild(b);
+function el(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e;}
+
+function mount(root,cfg){
+  const S=cfg.screens;
+  root.innerHTML='';
+  const left=el('div','side'), mid=el('div','phone'), right=el('div','side right');
+  mid.style.setProperty('--screen-ratio',cfg.ratio);
+  mid.style.setProperty('--body-ratio',cfg.body);
+  const vp=el('div','viewport');
+  const stick=el('div','sticky-cta'); stick.hidden=true; stick.appendChild(new Image());
+  mid.append(vp,stick);
+
+  left.append(el('h2',null,"You're on"));
+  const crumbs=el('ol','crumbs'); left.appendChild(crumbs);
+  left.append(el('h2',null,'Jump to a screen'));
+  const list=el('ul','screenlist'); left.appendChild(list);
+
+  const lbl=el('label','toggle'), cb=document.createElement('input');
+  cb.type='checkbox'; lbl.append(cb,document.createTextNode(' Show clickable areas'));
+  right.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
+  cb.addEventListener('change',()=>vp.classList.toggle('show-hot',cb.checked));
+  root.append(left,mid,right);
+
+  function path(k){const p=[];while(k){p.unshift(k);k=S[k].parent;}return p;}
+
+  function go(k){
+    const s=S[k];
+    const shot=el('div','shot enter');
+
+    if(s.slices){
+      const trackPct=s.iw/s.pw*100;
+      s.slices.forEach(sl=>{
+        const clip=el('div','slice'+(sl.sx?' sx':''));
+        clip.style.aspectRatio=s.pw+' / '+sl.h;
+        const track=el('div','track'); track.style.width=trackPct+'%';
+        const img=new Image(); img.src=s.src; img.alt=''; img.setAttribute('aria-hidden','true');
+        img.style.marginTop='-'+(sl.y0/s.iw*100)+'%';
+        track.appendChild(img); clip.appendChild(track);
+        shot.appendChild(clip);
+        if(sl.sx){
+          const n=el('div','sx-note','scrolls sideways \u2192');
+          n.style.left='97%'; n.style.top=((sl.y0+14)/s.ph*100)+'%';
+          shot.appendChild(n);
+        }
+      });
+    }else{
+      const img=new Image(); img.src=s.src; img.alt='Screen: '+s.title; shot.appendChild(img);
+    }
+
+    s.hot.forEach(h=>{
+      const b=el('button','hot');
+      b.style.cssText='left:'+h.l+'%;top:'+h.t+'%;width:'+h.w+'%;height:'+h.h+'%';
+      b.setAttribute('aria-label',h.label); b.title=h.label;
+      b.addEventListener('click',e=>{e.stopPropagation();go(h.to);});
+      shot.appendChild(b);
+    });
+    shot.addEventListener('click',()=>{shot.classList.add('flash');setTimeout(()=>shot.classList.remove('flash'),600);});
+
+    vp.replaceChildren(shot); vp.scrollTop=0;
+
+    if(s.sticky){
+      stick.hidden=false; stick.style.width='calc(var(--sw) * '+(s.sticky.w/100)+')';
+      const i=stick.querySelector('img'); i.src=s.sticky.src; i.alt='Help me choose';
+    } else stick.hidden=true;
+
+    crumbs.replaceChildren(...path(k).map(function(p){
+      const li=el('li'),b=el('button',null,S[p].title);b.onclick=function(){go(p);};li.appendChild(b);return li;}));
+    list.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.k===k));
+  }
+
+  cfg.order.forEach(function(pair){
+    const k=pair[0],d=pair[1];
+    const li=el('li'),b=el('button',null,S[k].title);
+    b.dataset.k=k; b.className='d'+d; b.onclick=function(){go(k);}; li.appendChild(b); list.appendChild(li);
   });
-  shot.addEventListener('click',()=>{shot.classList.add('flash');setTimeout(()=>shot.classList.remove('flash'),600);});
-  vp.replaceChildren(shot); vp.scrollTop=0;
-  crumbs.replaceChildren(...path(k).map(p=>{const li=document.createElement('li'),b=document.createElement('button');b.textContent=S[p].title;b.onclick=()=>go(p);li.appendChild(b);return li;}));
-  list.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.k===k));
+  go(cfg.start);
 }
-ORDER.forEach(([k,d])=>{const li=document.createElement('li'),b=document.createElement('button');b.textContent=S[k].title;b.dataset.k=k;b.className='d'+d;b.onclick=()=>go(k);li.appendChild(b);list.appendChild(li);});
-document.getElementById('showHot').addEventListener('change',e=>vp.classList.toggle('show-hot',e.target.checked));
-go('shop');
+
+document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.proto]));
+showTab(location.hash.slice(1)||'intro');
 </script>
 </body>
 </html>
