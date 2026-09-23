@@ -45,13 +45,19 @@ section[hidden]{display:none}
 .proto{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:start}
 .side{padding-top:8px}
 .side h2{font-size:14px;font-weight:600;color:var(--muted);margin:0 0 10px}
+.side h2.sechead{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--ink);margin:0 0 12px}
+.side h2.sechead.spaced{margin-top:34px}
 .crumbs{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 24px;padding:0;list-style:none;font-size:15px}
 .crumbs li+li::before{content:"/";color:var(--mid);margin-right:6px}
 .crumbs button{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--mid);text-align:left}
 .crumbs li:last-child button{text-decoration:none;font-weight:600}
 .screenlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.screenlist button{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 0;cursor:pointer;font-size:15px}
+.screenlist button{width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);
+  padding:9px 0;cursor:pointer;font-size:15px;color:var(--muted)}
+.screenlist button:hover{color:var(--ink)}
 .screenlist button[aria-current="true"]{color:var(--violet);font-weight:600}
+.testlist button{color:var(--ink)}
 .screenlist .d1{padding-left:16px}.screenlist .d2{padding-left:32px}
 .toggle{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:15px;cursor:pointer}
 .toggle input{accent-color:var(--violet);width:18px;height:18px}
@@ -335,18 +341,10 @@ function mount(root,cfg){
   mid.append(vp,stick,note);
   let noteTo=null, onScroll=null;
 
-  left.append(el('h2',null,"You're on"));
-  const crumbs=el('ol','crumbs'); left.appendChild(crumbs);
-  left.append(el('h2',null,'Jump to a screen'));
-  const list=el('ul','screenlist'); left.appendChild(list);
-
-  const lbl=el('label','toggle'), cb=document.createElement('input');
-  cb.type='checkbox'; lbl.append(cb,document.createTextNode(' Show clickable areas'));
-  left.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
-  cb.addEventListener('change',()=>vp.classList.toggle('show-hot',cb.checked));
-
+  // Left column order: tests first, then where you are and the screen list.
   const hasTests = !!cfg.tests;
   let testList=null;
+
   if(hasTests){
     root.classList.add('has-tests');
     // Where each test's pin lives, so the list can jump straight to it.
@@ -356,9 +354,8 @@ function mount(root,cfg){
         if(!homeScreen[pin.test]) homeScreen[pin.test]=pair[0];
       });
     });
-    const th=el('h2',null,'Jump to a test'); th.style.marginTop='26px';
-    left.insertBefore(th,lbl);
-    testList=el('ul','screenlist testlist'); left.insertBefore(testList,lbl);
+    left.append(el('h2','sechead','Jump to a test'));
+    testList=el('ul','screenlist testlist'); left.appendChild(testList);
     Object.keys(homeScreen).forEach(function(tid){
       const t=cfg.tests[tid]; if(!t) return;
       const li=el('li'), b=el('button');
@@ -374,11 +371,22 @@ function mount(root,cfg){
       b.onclick=function(){ go(homeScreen[tid], tid); };
       li.appendChild(b); testList.appendChild(li);
     });
-    left.insertBefore(el('p','hint','Circles on the screens mark sections that were tested. Tap one for the result.'),lbl);
+    left.append(el('p','hint','Circles on the screens mark sections that were tested. Tap one for the result.'));
     right.className='testpanel';
     right.innerHTML='';
     right.append(el('p','placeholder','Tap a circle on the screen to see what was tested there and how it performed.'));
   }
+
+  left.append(el('h2','sechead'+(hasTests?' spaced':''),"You're on"));
+  const crumbs=el('ol','crumbs'); left.appendChild(crumbs);
+  left.append(el('h2','sechead','Jump to a screen'));
+  const list=el('ul','screenlist'); left.appendChild(list);
+
+  const lbl=el('label','toggle'), cb=document.createElement('input');
+  cb.type='checkbox'; lbl.append(cb,document.createTextNode(' Show clickable areas'));
+  left.append(lbl, el('p','hint',"Tap anywhere that isn't clickable and the clickable areas light up briefly."));
+  cb.addEventListener('change',()=>vp.classList.toggle('show-hot',cb.checked));
+
   root.append(left,mid,right);
 
   function verdictClass(v){
