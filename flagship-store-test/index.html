@@ -52,11 +52,11 @@ section[hidden]{display:none}
    and stays visually below the test list. */
 .side h2.sechead.sub{font-size:12px;font-weight:700;letter-spacing:.09em;color:var(--muted);margin:0 0 6px}
 .quietblock{margin-top:44px;background:rgba(0,0,0,.035);border:1px solid var(--line);padding:16px 16px 14px}
-:root:not([data-theme="light"]) .quietblock{background:rgba(255,255,255,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .quietblock{background:rgba(255,255,255,.04)}}
 .quietblock .screenlist{border-top:1px solid var(--line)}
 .quietblock .screenlist button{font-size:13.5px;padding:7px 0;border-bottom-color:rgba(0,0,0,.06);
   display:flex;align-items:baseline;gap:8px}
-:root:not([data-theme="light"]) .quietblock .screenlist button{border-bottom-color:rgba(255,255,255,.07)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .quietblock .screenlist button{border-bottom-color:rgba(255,255,255,.07)}}
 .quietblock .screenlist button[aria-current="true"]{font-weight:600}
 .quietblock .here{font-style:italic;font-size:12px;color:var(--violet);white-space:nowrap}
 .quietblock .toggle{margin-top:14px;font-size:13.5px}
@@ -143,8 +143,8 @@ section[hidden]{display:none}
 .chip.win{background:#DCF3E6;color:#14603A}
 .chip.lose{background:#FBE0E8;color:#8E1C3C}
 .chip.incon{background:var(--line);color:var(--muted)}
-:root:not([data-theme="light"]) .chip.win{background:#17402C;color:#8FE0B4}
-:root:not([data-theme="light"]) .chip.lose{background:#43182A;color:#F4A3BD}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip.win{background:#17402C;color:#8FE0B4}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chip.lose{background:#43182A;color:#F4A3BD}}
 
 /* Overview dashboard */
 .ov-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;
@@ -179,10 +179,13 @@ section[hidden]{display:none}
 .st.b-active{background:#E4DCFF;color:#3E2A8C}
 .st.b-finished{background:#DCF3E6;color:#14603A}
 .st.b-other{background:var(--line);color:var(--muted)}
-:root:not([data-theme="light"]) .st.b-active{background:#2E2748;color:#C4B4FF}
-:root:not([data-theme="light"]) .st.b-finished{background:#17402C;color:#8FE0B4}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st.b-active{background:#2E2748;color:#C4B4FF}}
+/* Tests still being built read as blue, distinct from the ones already running */
+.st.s-building-the-test{background:#D9E8F7;color:#14456F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st.s-building-the-test{background:#1B3350;color:#9CC7EF}}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .st.b-finished{background:#17402C;color:#8FE0B4}}
 .ov-big{margin-top:16px;padding:14px 16px;background:rgba(0,0,0,.035);border:1px solid var(--line)}
-:root:not([data-theme="light"]) .ov-big{background:rgba(255,255,255,.04)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ov-big{background:rgba(255,255,255,.04)}}
 .ov-big .lbl{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
   color:var(--muted);margin:0 0 6px}
 .ov-big .ov-row:last-child{border-bottom:0}
@@ -644,7 +647,8 @@ function mount(root,cfg){
     ids.appendChild(document.createTextNode(')'));
     left.appendChild(ids);
     r.appendChild(left);
-    r.appendChild(el('span','st b-'+t.bucket, t.status||'\u2014'));
+    const slug=(t.status||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+    r.appendChild(el('span','st b-'+t.bucket+(slug?' s-'+slug:''), t.status||'\u2014'));
     return r;
   }
   d.pages.forEach(function(p){
