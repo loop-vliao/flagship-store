@@ -6,6 +6,7 @@
  *   drift      they lean toward the cursor (desktop pointers only)
  *   parallax   they lag the page as their section crosses the viewport
  *   tilt       they turn a few degrees with the same two inputs
+ *   spin       optionally, they turn through a set angle across the scroll
  *
  * All three resolve into the same --dx / --dy / --rz that each section's CSS
  * folds into its own transform, so nothing here needs to know about the drawn
@@ -19,6 +20,13 @@
  * The distances, the turn and the easing live in CSS (--bud-drift,
  * --bud-parallax, --bud-tilt, --bud-ease), set once for every section that
  * uses this so the try-me band and social proof cannot drift apart.
+ *
+ * The spin is per earplug: --bud-spin on the earplug itself (unset, none) is
+ * the angle it turns through while its section crosses the viewport, from
+ * entering below to leaving above. It is centred on the drawn angle — half
+ * the spin back as the section enters, the drawn pose as it passes through
+ * the middle of the screen, half forward as it leaves — so the artboard's
+ * composition is what you see with the section in view.
  *
  * One rAF loop runs while any section with earplugs is on screen.
  */
@@ -37,6 +45,7 @@
         el: el,
         section: el.closest('section'),
         rate: RATE[el.getAttribute('data-drift')] || 1,
+        spin: parseFloat(getComputedStyle(el).getPropertyValue('--bud-spin')) || 0,
         at: { x: 0, y: 0, r: 0 },
       };
     })
@@ -79,13 +88,15 @@
       // The turn rides the two inputs that are already there rather than
       // adding a third: how far across the section the cursor is, and how far
       // through its travel the section is. Clamped so --bud-tilt is a true
-      // maximum however the two line up.
-      var lean = (leaning ? pointer.x : 0) + progress * bud.rate;
+      // maximum however the two line up. An earplug with a spin takes that
+      // as its whole turn across the scroll, so its angle is the spin asked
+      // for; the cursor still tilts it.
+      var lean = (leaning ? pointer.x : 0) + (bud.spin ? 0 : progress * bud.rate);
 
       var target = {
         x: leaning ? pointer.x * drift : 0,
         y: (leaning ? pointer.y * drift : 0) + progress * parallax * bud.rate,
-        r: Math.max(-1, Math.min(1, lean)) * tilt,
+        r: Math.max(-1, Math.min(1, lean)) * tilt - progress * bud.spin / 2,
       };
 
       bud.at.x += (target.x - bud.at.x) * ease;
@@ -132,5 +143,11 @@
   }, { passive: true });
 
   window.addEventListener('scroll', wake, { passive: true });
-  window.addEventListener('resize', wake);
+  window.addEventListener('resize', function () {
+    // The spin can differ between artboards.
+    buds.forEach(function (bud) {
+      bud.spin = parseFloat(getComputedStyle(bud.el).getPropertyValue('--bud-spin')) || 0;
+    });
+    wake();
+  });
 })();

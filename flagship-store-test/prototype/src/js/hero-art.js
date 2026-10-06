@@ -9,16 +9,20 @@
  *
  * Below lg the 958 x 3200 artboard's safe box (958 x 897, at the top) is made
  * to fill the band above the buy card: the artwork grows until the box ends
- * 16px above the card, and the overflow is trimmed evenly off both sides —
- * 8.8% a side at most, on a phone; nothing once the box already reaches the
- * card (about 880 up), where it stays as wide as the plate.
+ * 60px above the card, and the overflow is trimmed evenly off both sides —
+ * 1.8% a side at 320; nothing once the box already reaches that far, where it
+ * stays as wide as the plate. And it never ends short of the plate's foot: a
+ * taller buy card (the personalization row, a longer translation) grows the
+ * plate past the artboard's 3200, so the artwork grows on until it reaches
+ * it — scaled, never stretched, the extra trimmed off the sides with the
+ * rest (2.5% a side at 320 with the personalization row, from 1.8%).
  *
  * From lg:
  *
  *   The 2640 x 1080 artboard's safe box (1153 x 1080, 360 in from its left)
- *   is centred in the space left of the buy card, less a 24px gap. On a small
+ *   is centred in the space left of the buy card, less a 60px gap. On a small
  *   laptop that space is narrower than the box, so the box loses a little from
- *   each side — 13% a side at 1024, nothing from about 1344. The artboard is
+ *   each side — 15.5% a side at 1024, nothing from about 1360. The artboard is
  *   then held to cover the plate: its left edge never inside the plate's, its
  *   right edge never short of the plate's.
  *
@@ -39,10 +43,13 @@
 (function () {
   'use strict';
 
+  // The clearance between the safe box and the card is 60px at both artboards:
+  // it is what places the artwork exactly as the harmonised Echo frames draw it
+  // (at 1512 the artboard 207px left of the plate, at 320 331.7px wide).
   var ARTBOARD = { width: 2640, height: 1080 };
   var SAFE = { left: 360, width: 1153 };
-  var GAP = 24;
-  var MOBILE = { width: 958, safeHeight: 897, gap: 16 };
+  var GAP = 60;
+  var MOBILE = { width: 958, height: 3200, safeHeight: 897, gap: 60 };
   var ZOOM = { x: 0.5367, y: 0.9326 };
 
   var img = document.querySelector('[data-hero-art]');
@@ -69,7 +76,11 @@
       plate.style.removeProperty('--hero-art-w');
     } else {
       var cardTop = card.getBoundingClientRect().top - box.top;
-      var grown = Math.max(box.width, MOBILE.width * (cardTop - MOBILE.gap) / MOBILE.safeHeight);
+      var grown = Math.max(
+        box.width,
+        MOBILE.width * (cardTop - MOBILE.gap) / MOBILE.safeHeight, // the safe box reaches the card
+        box.height * MOBILE.width / MOBILE.height // the artwork reaches the plate's foot
+      );
       left = (box.width - grown) / 2;
       plate.style.setProperty('--hero-art-w', grown + 'px');
       plate.style.setProperty('--hero-art-x', left + 'px');

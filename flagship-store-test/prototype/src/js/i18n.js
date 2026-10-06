@@ -23,8 +23,11 @@
  * In <head> and not deferred: it sets data-i18n="loading" on <html> before the
  * first paint, and src/css/components/i18n.css holds every [data-t] invisible
  * while that is set, so the English never flashes. The hold comes off when the
- * swap lands, when the file fails to load — a browser will not fetch JSON from
- * file://, so a page opened from disk stays English — or after 3s regardless.
+ * swap lands, when the locale fails to load, or after 3s regardless. A served
+ * page fetches locales/<code>.json; a page opened from disk, where a browser
+ * won't fetch JSON, loads locales/<code>.js instead — the same table as a
+ * script, written from the JSON by build/locales.py — and a served page falls
+ * back to it too.
  *
  * window.i18n = { lang, t(key, vars) }: t returns the loaded translation with
  * its {{ placeholders }} filled from vars, or null when there is none, so a
@@ -162,12 +165,33 @@
     root.removeAttribute('data-i18n');
   }
 
-  var request = window.fetch
+  // The same table as a script (locales/<code>.js, written by build/locales.py
+  // from the JSON): a browser won't fetch the JSON from file://, but it will run
+  // a script, so a page opened from disk loads this, and a served page falls
+  // back to it if the fetch fails.
+  function fromScript() {
+    return new Promise(function (resolve, reject) {
+      var script = document.createElement('script');
+      script.src = 'locales/' + lang + '.js';
+      script.onload = function () {
+        var loaded = window.i18nLocales && window.i18nLocales[lang];
+        if (loaded) resolve(loaded);
+        else reject(new Error('locales/' + lang + '.js set no table'));
+      };
+      script.onerror = function () {
+        reject(new Error('locales/' + lang + '.js did not load either'));
+      };
+      document.head.appendChild(script);
+    });
+  }
+
+  var fromDisk = window.location.protocol === 'file:';
+  var request = !fromDisk && window.fetch
     ? window.fetch('locales/' + lang + '.json', { cache: 'no-cache' }).then(function (response) {
         if (!response.ok) throw new Error(response.status + ' ' + response.statusText);
         return response.json();
-      })
-    : Promise.reject(new Error('fetch is not available'));
+      }).catch(fromScript)
+    : fromScript();
 
   request.then(function (json) {
     table = json;
@@ -181,9 +205,6 @@
     release();
     window.i18n.lang = DEFAULT;
     whenParsed(propagate);
-    console.warn(
-      '[i18n] locales/' + lang + '.json did not load (' + error.message + '), so the page stays English.' +
-      (window.location.protocol === 'file:' ? ' A browser will not fetch it from file:// — serve the page (npm run dev).' : '')
-    );
+    console.warn('[i18n] the ' + lang + ' locale did not load (' + error.message + '), so the page stays English.');
   });
 })();

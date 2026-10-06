@@ -6,8 +6,10 @@
  * edge, on the house curve (--ease-loop) over --hero-gallery-dur. It runs
  * round: after the last slide comes the first. (Figma 162:7387.)
  *
- *   Pointer   from lg on a device with hover, previous / next buttons fade in
- *             over the gallery (their look is utilities on the markup).
+ *   Buttons   previous / next (their look is utilities on the markup): always
+ *             shown below lg and on a touch screen — Echo renders every
+ *             control on mobile, for AA (1360:19874); from lg on a device
+ *             with hover they fade in over the gallery.
  *   Touch     a horizontal swipe drags the slides with the finger; let go past
  *             a fifth of the plate, or with a flick, and it moves on,
  *             otherwise it settles back. A vertical swipe scrolls the page.

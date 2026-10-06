@@ -2,15 +2,20 @@
  * Footer link groups
  * ------------------
  * Below 1024 the four link groups are accordions; from 1024 they are plain
- * columns, always open. Same motion as the FAQ: the panel's height animates with
- * the Web Animations API and a closing panel waits for its fold before hiding.
+ * columns, always open. The FAQ's motion exactly (src/js/faq.js): the panel's
+ * height animates with the Web Animations API over 360ms on the same curve,
+ * held at its last frame until the panel is settled, and a closing panel waits
+ * for its fold before hiding. The plus turns and folds into a minus, and a
+ * line draws over the rule above a hovered or open group, as on the FAQ
+ * (disclosure.css, faq.css).
  *
  * Without script every group is simply open. From 1024 the toggles stay in the
  * markup as the column headings but are taken out of the tab order and marked
  * aria-disabled, since there is nothing for them to do there.
  *
  * Hooks: [data-footer-group], [data-footer-toggle], [data-footer-panel]; the
- * plus/minus follows the group's data-state (src/css/components/disclosure.css).
+ * plus and the line follow the group's data-state. The sign-up field's states
+ * are the second script below.
  */
 (function () {
   'use strict';
@@ -30,13 +35,19 @@
   });
   if (!groups.length) return;
 
+  // faq.js's grow(): held at its last frame until `done` has run, then
+  // dropped, so a closing panel doesn't flash back open for the frame between
+  // the animation ending and its callback.
   function grow(g, from, to, done) {
     if (reduce.matches) { done(); return null; }
     var anim = g.panel.animate(
       [{ height: from + 'px', opacity: from ? 1 : 0 }, { height: to + 'px', opacity: to ? 1 : 0 }],
-      { duration: DURATION, easing: EASE }
+      { duration: DURATION, easing: EASE, fill: 'forwards' }
     );
-    anim.onfinish = done;
+    anim.onfinish = function () {
+      done();
+      anim.cancel();
+    };
     return anim;
   }
 
@@ -84,4 +95,81 @@
 
   apply();
   desktop.addEventListener('change', apply);
+})();
+
+/**
+ * Footer sign-up — a stand-in that answers and sends nothing
+ * ----------------------------------------------------------
+ * The field checks for a whole address (something, an @, a domain with a
+ * dot, and two or more letters after the last dot) and shows Echo's states
+ * (components/signup.css) as data-signup-state on [data-signup]:
+ *
+ *   error     the field is left with a part-typed address, or sent without a
+ *             whole one (the field keeps focus then). It clears the moment
+ *             the address is whole, or the field is emptied.
+ *   success   sent with a whole address, by the disc or Enter: the field lets
+ *             go of focus, as drawn, and the answer is read out from the live
+ *             region. Typing again puts the field back to where it was.
+ *
+ * There is no <form>, so without script the field is only typeable, and the
+ * address never reaches a URL.
+ *
+ * Hooks: [data-signup], [data-signup-send], [data-signup-message="error"] (its
+ * id is what the input is described by while in error; otherwise the consent
+ * line, the input's own aria-describedby).
+ */
+(function () {
+  'use strict';
+
+  var root = document.querySelector('[data-signup]');
+  if (!root) return;
+  var input = root.querySelector('input[type="email"]');
+  var send = root.querySelector('[data-signup-send]');
+  var error = root.querySelector('[data-signup-message="error"]');
+  if (!input || !send) return;
+
+  var WHOLE = /^[^\s@]+@[^\s@.]+(\.[^\s@.]+)*\.[^\s@.]{2,}$/;
+  var note = input.getAttribute('aria-describedby');
+
+  function state(next) {
+    if (next === undefined) return root.getAttribute('data-signup-state') || '';
+    if (next) root.setAttribute('data-signup-state', next);
+    else root.removeAttribute('data-signup-state');
+    var bad = next === 'error';
+    if (bad) input.setAttribute('aria-invalid', 'true');
+    else input.removeAttribute('aria-invalid');
+    if (error && note) input.setAttribute('aria-describedby', bad ? error.id : note);
+  }
+
+  function whole() {
+    return WHOLE.test(input.value.trim());
+  }
+
+  function submit() {
+    if (state() === 'success') return;
+    if (!whole()) {
+      state('error');
+      input.focus();
+      return;
+    }
+    state('success');
+    input.blur();
+  }
+
+  input.addEventListener('blur', function () {
+    if (!state() && input.value.trim() && !whole()) state('error');
+  });
+
+  input.addEventListener('input', function () {
+    if (state() === 'success' || (state() === 'error' && (whole() || !input.value.trim()))) state('');
+  });
+
+  input.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter' && !event.isComposing) {
+      event.preventDefault();
+      submit();
+    }
+  });
+
+  send.addEventListener('click', submit);
 })();

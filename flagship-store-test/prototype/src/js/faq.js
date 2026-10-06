@@ -5,7 +5,10 @@
  * this adds the motion, and the show-more that keeps the list to seven
  * questions until it is asked for, as the live product page does.
  *
- * Both animate height with the Web Animations API. <details> content cannot be
+ * Both animate height with the Web Animations API, on a box with no padding
+ * of its own (an answer's padding is on its inner box): a border-box can't be
+ * shorter than its padding, so a padded one stuck at that height and then
+ * snapped shut at the end of every close. <details> content cannot be
  * transitioned in CSS in every browser this has to run in yet (Safari and
  * Firefox lack ::details-content), and a transition on max-height eases against
  * the wrong number. Closing waits for its animation before dropping `open`, so
@@ -34,11 +37,18 @@
 
   function grow(el, from, to, done) {
     if (reduce.matches) { done && done(); return null; }
+    // Held at its last frame until `done` has run, then dropped. Without the
+    // hold, the frame between the animation ending and its finish callback
+    // shows the element at its natural height — a closing answer flashed
+    // back open for a frame before `open` came off.
     var anim = el.animate(
       [{ height: from + 'px', opacity: from ? 1 : 0 }, { height: to + 'px', opacity: to ? 1 : 0 }],
-      { duration: DURATION, easing: EASE }
+      { duration: DURATION, easing: EASE, fill: 'forwards' }
     );
-    anim.onfinish = function () { done && done(); };
+    anim.onfinish = function () {
+      done && done();
+      anim.cancel();
+    };
     return anim;
   }
 

@@ -17,7 +17,8 @@
  *
  * Hooks: [data-fans] on the section, [data-fans-arrival] on the element whose
  * visibility starts the arrival, [data-fans-video] on each video tile holding a
- * <video> and a [data-fans-video-toggle] button.
+ * <video> and a [data-fans-video-toggle] button. The chips (links that open
+ * into "Discover" on hover from lg) are CSS only.
  */
 (function () {
   'use strict';
@@ -74,5 +75,6 @@
         });
       }
     });
+
   });
 })();

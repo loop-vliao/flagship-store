@@ -22,6 +22,9 @@
  *
  * Progress is the section's travel across the viewport, +1 entering from
  * below to -1 once it has left above — the same measure earplug-drift.js uses.
+ * A layer inside something smaller than its section that should be measured
+ * on its own (the hero's messaging block) finds the nearest
+ * [data-parallax-frame] instead.
  *
  * rAF is only entered while a section is on screen, and `prefers-reduced-motion`
  * leaves everything at its drawn position.
@@ -33,7 +36,7 @@
 
   var items = Array.prototype.slice.call(document.querySelectorAll('[data-parallax]'))
     .map(function (el) {
-      var section = el.closest('section');
+      var section = el.closest('[data-parallax-frame]') || el.closest('section');
       return { el: el, section: section, on: false };
     })
     .filter(function (item) { return item.section; });

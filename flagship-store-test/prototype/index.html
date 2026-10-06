@@ -13,11 +13,11 @@
 <!-- Localization: ?lang=de swaps the page's English for locales/de.json (src/js/i18n.js).
      In <head> and not deferred, so it holds the strings before the first paint and the
      English never flashes; without the parameter it does nothing. -->
-<script src="src/js/i18n.js?v=ccf56d52"></script>
+<script src="src/js/i18n.js?v=c9a7bfa3"></script>
 
 <!-- Tailwind 4, compiled from src/css/main.css: the theme in src/css/theme.css,
      components in src/css/components/, utilities on the markup. -->
-<link rel="stylesheet" href="dist/css/main.css?v=1b74899c">
+<link rel="stylesheet" href="dist/css/main.css?v=477af95f">
 
 <!-- Hero intro: holds the nav and hero at their starting positions before the
      first paint, so they build in rather than flash (src/js/hero-intro.js
@@ -74,6 +74,8 @@
 </g></symbol>
   <symbol id="i-play" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="2"/>
 <path d="M15.5626 11.1415C16.2122 11.5295 16.2122 12.4706 15.5626 12.8586L11.2628 15.4267C10.5962 15.8248 9.75 15.3445 9.75 14.5681L9.75 9.43196C9.75 8.65557 10.5962 8.17533 11.2628 8.57343L15.5626 11.1415Z" fill="currentColor"/></symbol>
+  <symbol id="i-pause-bare" viewBox="0 0 24 24" fill="none"><rect x="8" y="6" width="2" height="12" rx="1" fill="currentColor"/><rect x="14" y="6" width="2" height="12" rx="1" fill="currentColor"/></symbol>
+  <symbol id="i-play-bare" viewBox="0 0 24 24" fill="none"><path transform="matrix(1.68 0 0 1.68 -9.17 -8.16)" d="M15.5626 11.1415C16.2122 11.5295 16.2122 12.4706 15.5626 12.8586L11.2628 15.4267C10.5962 15.8248 9.75 15.3445 9.75 14.5681L9.75 9.43196C9.75 8.65557 10.5962 8.17533 11.2628 8.57343L15.5626 11.1415Z" fill="currentColor"/></symbol>
   <symbol id="i-star" viewBox="0 0 20 20" fill="none"><g>
 <path d="M9.0109 3.04413C9.32223 2.08597 10.6778 2.08597 10.9891 3.04413L12.0116 6.19121C12.1509 6.61971 12.5502 6.90983 13.0007 6.90983H16.3098C17.3172 6.90983 17.7361 8.19903 16.9211 8.79121L14.244 10.7362C13.8795 11.001 13.727 11.4705 13.8662 11.899L14.8888 15.046C15.2001 16.0042 14.1034 16.801 13.2884 16.2088L10.6113 14.2638C10.2468 13.999 9.75321 13.999 9.3887 14.2638L6.71164 16.2088C5.89658 16.801 4.79992 16.0042 5.11125 15.046L6.13379 11.899C6.27302 11.4705 6.1205 11.001 5.75599 10.7362L3.07893 8.79121C2.26387 8.19903 2.68275 6.90983 3.69023 6.90983H6.99926C7.44981 6.90983 7.84913 6.61971 7.98835 6.19121L9.0109 3.04413Z" fill="currentColor"/>
 </g></symbol>
@@ -117,6 +119,8 @@
 <path id="use-parenting-Vector_6" fill-rule="evenodd" clip-rule="evenodd" d="M16.2207 8.27828C15.9575 8.01757 15.6064 7.875 15.2345 7.875C14.8626 7.875 14.5116 8.01757 14.2526 8.27828C14.1481 8.38012 14.0645 8.49418 14.0018 8.61639C13.9391 8.49418 13.8514 8.37605 13.7511 8.27828C13.4879 8.01757 13.141 7.875 12.7649 7.875C12.393 7.875 12.042 8.01757 11.7788 8.27828C11.2397 8.81192 11.2397 9.68366 11.7829 10.2214L13.9977 12.25L16.2207 10.2173C16.7598 9.68366 16.7598 8.81192 16.2207 8.27828Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-use-conversations" viewBox="0 0 28 28" fill="none"><path d="M12.2883 3.5C7.05362 3.5 3.5 6.53153 3.5 11.2434C3.5 14.145 4.56396 16.4663 6.61527 17.9604C6.75146 18.06 6.91318 18.0773 6.8536 18.3632C6.61102 19.5238 6.18543 21.5939 6.18543 21.5939C6.16841 21.6805 6.1982 21.7715 6.25778 21.8278C6.32162 21.8841 6.40674 21.8884 6.47483 21.8494C6.47483 21.8494 9.47945 19.8313 9.8795 19.5758C10.8115 18.9695 11.6201 18.8525 12.2202 18.8525C16.3696 18.8525 21 16.9687 21 11.1914C21 6.71342 17.8209 3.5 12.2926 3.5H12.2883Z" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/>
 <path id="use-conversations-Vector_2" d="M14 21.0001C15.1863 22.0626 16.9062 22.4705 18.522 22.4705C18.9363 22.4705 19.4902 22.5506 20.1286 22.9551C20.4034 23.1237 22.4622 24.4806 22.4622 24.4806C22.5088 24.5101 22.5679 24.5059 22.6102 24.468C22.6525 24.4301 22.6736 24.3711 22.6609 24.3121C22.6609 24.3121 22.3692 22.9214 22.2001 22.1418C22.1579 21.9479 22.2678 21.9395 22.365 21.8721C23.7728 20.8691 24.5 19.3056 24.5 17.3587C24.5 16.0454 24.0537 14.8836 23.2624 14" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-use-sleep" viewBox="0 0 28 28" fill="none"><path d="M14.12 3.5C17.679 3.5 20.8243 5.24177 22.75 7.90027C21.4805 6.98355 19.9256 6.43351 18.2353 6.43351C14.0058 6.43351 10.5823 9.81833 10.5823 14C10.5823 18.1817 14.0058 21.5665 18.2353 21.5665C19.9256 21.5665 21.4876 21.0165 22.75 20.0997C20.8243 22.7582 17.679 24.5 14.12 24.5C8.25723 24.5 3.5 19.7965 3.5 14C3.5 8.20349 8.25723 3.5 14.12 3.5Z" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/><path d="M15.75 14.875L18.375 14.875L15.75 17.5H18.375" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/><path d="M21.875 10.5L24.5 10.5L21.875 13.125H24.5" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-use-side-sleeping" viewBox="0 0 28 28" fill="none"><g clip-path="url(#use-side-sleeping-clip0_395_10440)"><path d="M7.74413 16.0146C9.60485 16.0146 11.1133 14.5062 11.1133 12.6455C11.1133 10.7848 9.60485 9.27637 7.74413 9.27637C5.88341 9.27637 4.375 10.7848 4.375 12.6455C4.375 14.5062 5.88341 16.0146 7.74413 16.0146Z" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/><path d="M10.8857 14.835C13.0757 16.5195 14.1987 15.7334 17.2871 15.7334C20.937 15.7334 23.1831 17.9795 23.1831 20.7871" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.8125 20.7871H24.0273" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.21729 20.7871V23.314M22.6245 20.7871V23.314" stroke="currentColor" stroke-width="1.575" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="use-side-sleeping-clip0_395_10440"><rect width="21.875" height="21.875" fill="currentColor" transform="translate(2.9375 2.28125)"/></clipPath></defs></symbol>
   <symbol id="i-play-triangle" viewBox="0 0 16.5327 13.3944" fill="none"><path d="M7.4343 1.44523C7.83012 0.851573 8.70253 0.851572 9.09836 1.44523L15.3611 10.8398C15.8041 11.5043 15.3277 12.3944 14.529 12.3944H2.00363C1.20494 12.3944 0.728565 11.5043 1.1716 10.8398L7.4343 1.44523Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
   <symbol id="i-benefit-speech" viewBox="0 0 80 80" fill="none"><g>
 <path d="M11.6667 11.6667H68.3333C70.1014 11.6667 71.7971 12.369 73.0474 13.6193C74.2976 14.8695 75 16.5652 75 18.3333V48.3333C75 50.1014 74.2976 51.7971 73.0474 53.0474C71.7971 54.2976 70.1014 55 68.3333 55H35L20 65V55H11.6667C9.89856 55 8.20286 54.2976 6.95262 53.0474C5.70238 51.7971 5 50.1014 5 48.3333V18.3333C5 16.5652 5.70238 14.8695 6.95262 13.6193C8.20286 12.369 9.89856 11.6667 11.6667 11.6667Z" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -138,18 +142,20 @@
 <rect width="80" height="80" fill="currentColor"/>
 </clipPath>
 </defs></symbol>
-  <symbol id="i-heart" viewBox="0 0 59.937 64.6148" fill="none"><path d="M30.1439 36.1512C32.8397 29.3672 35.0493 -1.82561 49.1326 3.59918C66.7475 10.3843 50.4863 47.0019 40.9946 60.5628C36.4609 67.0401 4.37627 42.93 3.01722 29.3672C2.06608 19.8752 15.2074 6.31185 30.1439 25.2982" stroke="#F45096" stroke-width="5.93768" stroke-linecap="round"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 60 60" fill="none"><g>
+<path d="M30.1542 32.9378C32.5255 26.9704 34.4691 -0.467694 46.8572 4.3041C62.3518 10.2725 48.048 42.4824 39.6988 54.411C35.7108 60.1086 7.48824 38.9006 6.29278 26.9704C5.45612 18.621 17.0156 6.69025 30.1542 23.3912" stroke="#F45096" stroke-width="5.22296" stroke-linecap="round"/>
+</g></symbol>
   <symbol id="i-star-social" viewBox="0 0 27.8065 27.8065" fill="none"><g>
 <path d="M12.5492 5.81536C12.8829 4.38199 14.9236 4.38199 15.2574 5.81535L16.0818 9.35622C16.2386 10.0293 16.8659 10.4851 17.5545 10.4262L21.1769 10.1161C22.6432 9.99062 23.2738 11.9314 22.0137 12.6918L18.901 14.5701C18.3092 14.9272 18.0696 15.6647 18.3385 16.3013L19.7527 19.6506C20.3252 21.0064 18.6742 22.2059 17.5617 21.2424L14.8134 18.8624C14.291 18.41 13.5155 18.41 12.9931 18.8624L10.2448 21.2424C9.13227 22.2059 7.48132 21.0064 8.05382 19.6506L9.46806 16.3013C9.7369 15.6647 9.49728 14.9272 8.90555 14.5701L5.79277 12.6918C4.53269 11.9314 5.1633 9.99062 6.62964 10.1161L10.252 10.4262C10.9406 10.4851 11.5679 10.0293 11.7247 9.35622L12.5492 5.81536Z" fill="currentColor"/>
 </g></symbol>
   <symbol id="i-verified" viewBox="0 0 17.0512 17.0512" fill="none"><g>
 <circle cx="8.52558" cy="8.52558" r="8.52558" fill="currentColor"/>
-<path d="M5.25 9.18185L7.21744 11.1493L11.8081 6.55859" stroke="white" stroke-width="2.62326" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.25 9.18185L7.21744 11.1493L11.8081 6.55859" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </g></symbol>
   <symbol id="i-reassure-days" viewBox="0 0 64 64" fill="none"><g>
-<path d="M4.38467 15.1929L7.18977 24.8492L16.9159 22.386" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6.60827 32C6.60827 34.0684 6.84289 36.0821 7.28695 38.0158M7.64399 24.6009C10.8542 13.4161 21.1595 5.2319 33.3764 5.2319C48.16 5.2319 60.1444 17.2164 60.1444 32C60.1444 44.292 51.8592 54.6489 40.5687 57.7908C38.66 58.3219 36.6656 58.6468 34.6107 58.7401C34.2016 58.7587 33.7901 58.7681 33.3764 58.7681C31.7499 58.7681 30.1572 58.623 28.6107 58.3451M9.28986 43.6917C10.1425 45.445 11.1809 47.0913 12.3795 48.6049M17.521 53.5692C19.1253 54.7506 20.8663 55.7572 22.7157 56.561" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-<path d="M32 19.667V34.0739L44.0257 44.0621" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.38467 15.1929L7.18977 24.8492L16.9159 22.386" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M6.60827 32C6.60827 34.0684 6.84289 36.0821 7.28695 38.0158M7.64399 24.6009C10.8542 13.4161 21.1595 5.2319 33.3764 5.2319C48.16 5.2319 60.1444 17.2164 60.1444 32C60.1444 44.292 51.8592 54.6489 40.5687 57.7908C38.66 58.3219 36.6656 58.6468 34.6107 58.7401C34.2016 58.7587 33.7901 58.7681 33.3764 58.7681C31.7499 58.7681 30.1572 58.623 28.6107 58.3451M9.28986 43.6917C10.1425 45.445 11.1809 47.0913 12.3795 48.6049M17.521 53.5692C19.1253 54.7506 20.8663 55.7572 22.7157 56.561" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M32 19.667V34.0739L44.0257 44.0621" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
 </g></symbol>
   <symbol id="i-reassure-reviews" viewBox="0 0 64 64" fill="none"><g>
 <circle cx="32" cy="32" r="26.75" stroke="currentColor" stroke-width="2.5"/>
@@ -179,9 +185,8 @@
 <stop offset="1" stop-color="#86828D"/>
 </linearGradient>
 </defs></symbol>
-  <symbol id="i-plus" viewBox="0 0 20 20" fill="none"><path d="M10 0C10.5523 0 11 0.447716 11 1V19C11 19.5523 10.5523 20 10 20C9.44771 20 9 19.5523 9 19V1C9 0.447716 9.44772 0 10 0Z" fill="currentColor"/>
-<path d="M0 10C0 9.44772 0.447715 9 1 9H19C19.5523 9 20 9.44772 20 10C20 10.5523 19.5523 11 19 11H1C0.447716 11 0 10.5523 0 10Z" fill="currentColor"/></symbol>
-  <symbol id="i-minus" viewBox="0 0 20 20" fill="none"><path d="M0 10C0 9.44772 0.447715 9 1 9H19C19.5523 9 20 9.44772 20 10C20 10.5523 19.5523 11 19 11H1C0.447716 11 0 10.5523 0 10Z" fill="currentColor"/></symbol>
+  <symbol id="i-disclosure-bar" viewBox="0 0 32 32" fill="none"><path d="M7 16.5L26 16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-disclosure-stem" viewBox="0 0 32 32" fill="none"><path d="M16.5 26L16.5 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
   <symbol id="i-social-x" viewBox="0 0 24 24" fill="none"><g>
 <path d="M17.3849 5H19.9909L14.2974 11.2834L20.9954 19.8336H15.7509L11.6433 14.6479L6.94325 19.8336H4.33561L10.4254 13.1128L4 5H9.37758L13.0905 9.7399L17.3849 5ZM16.4702 18.3274H17.9143L8.59292 6.42707H7.0433L16.4702 18.3274Z" fill="currentColor"/>
 </g></symbol>
@@ -197,61 +202,109 @@
   <symbol id="i-social-tiktok" viewBox="0 0 24 24" fill="none"><g>
 <path d="M15.6579 2H12.2611V15.2564C12.2611 16.8359 10.9547 18.1333 9.32894 18.1333C7.70315 18.1333 6.39672 16.8359 6.39672 15.2564C6.39672 13.7051 7.67412 12.4359 9.24186 12.3795V9.05129C5.78705 9.10768 3 11.8436 3 15.2564C3 18.6975 5.84511 21.4615 9.35798 21.4615C12.8708 21.4615 15.7159 18.6692 15.7159 15.2564V8.45896C16.9933 9.36154 18.561 9.89744 20.2159 9.92566V6.59744C17.6611 6.51282 15.6579 4.48205 15.6579 2Z" fill="currentColor"/>
 </g></symbol>
+  <symbol id="i-social-reddit" viewBox="0 0 21 18" fill="none"><path d="M13.1698 2.63542C13.3974 3.58052 14.2634 4.28457 15.2975 4.28457C16.5048 4.28457 17.4836 3.32541 17.4836 2.14228C17.4836 0.959157 16.5048 0 15.2975 0C14.2419 0 13.3615 0.733177 13.1565 1.7084C11.3886 1.89421 10.0081 3.36358 10.0081 5.14429C10.0081 5.14831 10.0081 5.15132 10.0081 5.15534C8.08536 5.23468 6.32972 5.77101 4.93587 6.61768C4.4183 6.22497 3.76852 5.99096 3.0634 5.99096C1.3713 5.99096 0 7.33478 0 8.99297C0 10.1962 0.721523 11.2327 1.76384 11.7118C1.8653 15.1969 5.74041 18 10.5072 18C15.2739 18 19.1542 15.1938 19.2505 11.7057C20.2846 11.2236 21 10.1902 21 8.99397C21 7.33579 19.6287 5.99197 17.9366 5.99197C17.2346 5.99197 16.5878 6.22397 16.0713 6.61366C14.6652 5.76096 12.89 5.22464 10.9479 5.15333C10.9479 5.15032 10.9479 5.14831 10.9479 5.1453C10.9479 3.86977 11.9154 2.81118 13.1698 2.63743V2.63542ZM4.81288 10.8982C4.86413 9.80951 5.60205 8.97389 6.45988 8.97389C7.31772 8.97389 7.97365 9.85671 7.9224 10.9454C7.87116 12.0341 7.2306 12.4299 6.37174 12.4299C5.51288 12.4299 4.76164 11.9869 4.81288 10.8982ZM14.5555 8.97389C15.4143 8.97389 16.1523 9.80951 16.2025 10.8982C16.2537 11.9869 15.5015 12.4299 14.6436 12.4299C13.7858 12.4299 13.1442 12.0352 13.093 10.9454C13.0417 9.85671 13.6966 8.97389 14.5555 8.97389ZM13.5347 13.4171C13.6956 13.4332 13.7981 13.5969 13.7356 13.7436C13.2078 14.9799 11.9615 15.8487 10.5072 15.8487C9.05286 15.8487 7.80761 14.9799 7.27877 13.7436C7.21625 13.5969 7.31874 13.4332 7.47965 13.4171C8.42255 13.3237 9.44231 13.2725 10.5072 13.2725C11.572 13.2725 12.5908 13.3237 13.5347 13.4171Z" fill="currentColor"/></symbol>
   <symbol id="i-arrow-right" viewBox="0 0 16.4142 11.4142" fill="none"><g>
 <path d="M0 5.70711H15" stroke="currentColor" stroke-width="2"/>
 <path d="M10 0.707107L15 5.70711L10 10.7071" stroke="currentColor" stroke-width="2"/>
 </g></symbol>
   <symbol id="i-chevron-down" viewBox="0 0 11.4142 7.12132" fill="none"><path d="M0.707107 0.707107L5.70711 5.70711L10.7071 0.707107" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="i-chevron-right" viewBox="0 0 9 16" fill="none"><path d="M1 1L8 8L1 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="i-plus-sm" viewBox="0 0 16 16" fill="none"><g>
-<path d="M8 9.33813e-07C8.55228 9.57954e-07 9 0.447716 9 1L9 15C9 15.5523 8.55228 16 8 16C7.44771 16 7 15.5523 7 15L7 1C7 0.447716 7.44772 9.09672e-07 8 9.33813e-07Z" fill="currentColor"/>
-<path d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447715 9 0 8.55228 0 8Z" fill="currentColor"/>
-</g></symbol>
-  <symbol id="i-minus-sm" viewBox="0 0 16 16" fill="none"><path d="M0 8C0 7.44772 0.447715 7 1 7H15C15.5523 7 16 7.44772 16 8C16 8.55228 15.5523 9 15 9H1C0.447716 9 0 8.55228 0 8Z" fill="currentColor"/></symbol>
+  <symbol id="i-chevron-sm" viewBox="0 0 8 14" fill="none"><path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-squiggle-arrow" viewBox="0 0 35.8492 28.6968" fill="none"><path d="M0.292893 6.65685C-0.0976311 7.04738 -0.0976311 7.68054 0.292893 8.07107L6.65685 14.435C7.04738 14.8256 7.68054 14.8256 8.07107 14.435C8.46159 14.0445 8.46159 13.4113 8.07107 13.0208L2.41421 7.36396L8.07107 1.70711C8.46159 1.31658 8.46159 0.683418 8.07107 0.292893C7.68054 -0.097631 7.04738 -0.097631 6.65685 0.292893L0.292893 6.65685ZM34.9062 28.364L35.8492 28.0311C34.2988 23.6381 31.2002 18.2151 25.6584 13.8883C20.104 9.55159 12.156 6.36396 1 6.36396V7.36396V8.36396C11.7503 8.36396 19.2553 11.4263 24.4276 15.4647C29.6123 19.5128 32.5137 24.5898 33.9633 28.6968L34.9062 28.364Z" fill="currentColor"/></symbol>
+  <symbol id="i-check" viewBox="0 0 16 12" fill="none"><path d="M1 7L5 11L15 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-status-success" viewBox="0 0 21 21" fill="none"><circle cx="10.5" cy="10.5" r="9.5" stroke="currentColor" stroke-width="2"/>
+<path d="M7.23425 11.1544L9.19579 13.116L13.7727 8.53906" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-status-error" viewBox="0 0 21 21" fill="none"><circle cx="10.5" cy="10.5" r="9.5" stroke="currentColor" stroke-width="2"/>
+<path d="M10.5 5.5V11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.5 15V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="i-swatch-core-1" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-core-1-g)"/><defs><linearGradient id="swatch-core-1-g" x1="19.875" y1="21.375" x2="3.375" y2="3.375" gradientUnits="userSpaceOnUse"><stop stop-color="#C5C5C5"/><stop offset="1" stop-color="#E9E9E9"/></linearGradient></defs></symbol>
   <symbol id="i-swatch-core-2" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-core-2-g)"/><defs><linearGradient id="swatch-core-2-g" x1="19.875" y1="21.375" x2="3.375" y2="3.375" gradientUnits="userSpaceOnUse"><stop stop-color="#3E3E3E"/><stop offset="1" stop-color="#CED6D6"/></linearGradient></defs></symbol>
   <symbol id="i-swatch-core-3" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-core-3-g)"/><defs><linearGradient id="swatch-core-3-g" x1="6.75" y1="1.125" x2="17.25" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0.118553" stop-color="#DEA6A6"/><stop offset="0.5" stop-color="#C27A7A"/><stop offset="0.922515" stop-color="#DD9E9E"/></linearGradient></defs></symbol>
   <symbol id="i-swatch-paris" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-paris-g)"/><defs><linearGradient id="swatch-paris-g" x1="6.75" y1="1.125" x2="17.25" y2="24" gradientUnits="userSpaceOnUse"><stop stop-color="#EEC1D1"/><stop offset="0.5" stop-color="#F45096"/><stop offset="1" stop-color="#EEC1D1"/></linearGradient></defs></symbol>
+  <symbol id="i-swatch-dream-black" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#252427"/></symbol>
+  <symbol id="i-swatch-dream-lilac" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#C5B4E3"/></symbol>
+  <symbol id="i-swatch-dream-peach" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#FFB990"/></symbol>
+  <symbol id="i-swatch-dream-blue" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="#B9C8DA"/></symbol>
+  <symbol id="i-swatch-eclipse-black" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-eclipse-black-g)"/><defs><linearGradient id="swatch-eclipse-black-g" x1="6.75" y1="1.125" x2="17.25" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0.118553" stop-color="#3F3F3F"/><stop offset="0.5" stop-color="#000000"/><stop offset="0.922515" stop-color="#3F3F3F"/></linearGradient></defs></symbol>
+  <symbol id="i-swatch-eclipse-teal" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="12" fill="url(#swatch-eclipse-teal-g)"/><defs><linearGradient id="swatch-eclipse-teal-g" x1="6.75" y1="1.125" x2="17.25" y2="24" gradientUnits="userSpaceOnUse"><stop offset="0.118553" stop-color="#005564"/><stop offset="0.5" stop-color="#002D37"/><stop offset="0.922515" stop-color="#005564"/></linearGradient></defs></symbol>
 </svg>
 <!-- sprite:end -->
 
 <!-- partial:header:start — GENERATED from src/partials/header.html by build/include-partials.py (npm run partials); edit the partial, not this copy. -->
 <a class="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:top-0 focus-visible:left-0 focus-visible:z-10 focus-visible:bg-black focus-visible:px-5 focus-visible:py-3 focus-visible:text-base focus-visible:font-semibold focus-visible:text-white" href="#main" data-t="header.skip_to_content">Skip to content</a>
 
+<!-- Announcement bar (Echo 1186:23987 / 1186:23169; content types 1186:26292): messages taking
+     turns, over the nav. The site shows two: Generic — "Free shipping over £39" on charcoal — then
+     Collaborations. Each is a slide, and a link filling the bar; the bar rolls from one to the next
+     and each message's words rise in one by one, its art behind them — or a swipe rolls it
+     (components/announcement.css, src/js/announcement.js). The pause holds it. A campaign sets its slide's fill and ink (--announcement-fill,
+     --announcement-ink); states.html has every content type.
+     It sits behind the page: sticky at the top, under the nav, so as the page scrolls the nav
+     slides up over it and scrolling back to the top reveals it (data-announcement-behind). Once
+     the nav has covered it, it hides and holds its turn. -->
+<aside class="announcement" aria-label="Announcements" aria-roledescription="carousel" data-announcement data-announcement-behind data-t-attr="aria-label:header.announcements_label">
+  <div class="announcement-slide" role="group" aria-roledescription="slide" aria-label="1 of 2" data-t-attr="aria-label:header.n_1_of_2_label" data-announcement-slide data-state="current">
+    <a class="announcement-link" href="collection.html" draggable="false">
+      <div class="announcement-message">
+        <p data-t="header.free_shipping_over_39" data-t-words><span class="announcement-word"><span>Free</span></span> <span class="announcement-word [--at:0.1s]"><span>shipping</span></span> <span class="announcement-word [--at:0.2s]"><span>over</span></span> <span class="announcement-word [--at:0.3s]"><span>£39</span></span></p>
+      </div>
+    </a>
+  </div>
+  <div class="announcement-slide announcement-collab" role="group" aria-roledescription="slide" aria-label="2 of 2" data-t-attr="aria-label:header.n_2_of_2_label" data-announcement-slide>
+    <a class="announcement-link" href="collection.html" draggable="false">
+      <div class="announcement-message">
+        <img class="announcement-art announcement-art-start" src="assets/img/announcement-collab-start.webp" alt="" width="212" height="125" decoding="async" draggable="false">
+        <p data-t="header.an_iconic_collab_has_entered_the_chat" data-t-words><span class="announcement-word"><span>An</span></span> <span class="announcement-word [--at:0.1s]"><span>iconic</span></span> <span class="announcement-word [--at:0.2s]"><span>collab</span></span> <span class="announcement-word [--at:0.3s]"><span>has</span></span> <span class="announcement-word [--at:0.4s]"><span>entered</span></span> <span class="announcement-word [--at:0.5s]"><span>the</span></span> <span class="announcement-word [--at:0.6s]"><span>chat</span></span></p>
+        <img class="announcement-art announcement-art-end" src="assets/img/announcement-collab-end.webp" alt="" width="212" height="125" decoding="async" draggable="false">
+      </div>
+    </a>
+  </div>
+  <button class="icon-btn announcement-pause" type="button" aria-pressed="false" data-announcement-pause>
+    <span class="sr-only" data-t="header.pause_announcements">Pause announcements</span>
+    <svg class="size-6" aria-hidden="true"><use href="#i-pause-bare"></use></svg>
+  </button>
+</aside>
+
 <!-- intro-drop and the [--at] beats belong to the hero intro (src/css/components/hero-motion.css):
      inert unless <html> carries data-hero-intro, which product.html and index.html set. -->
-<!-- The row is as tall as the wordmark, so the menu, wordmark and bag centre on the header:
-     32px below md (the mobile wordmark) in 16px of padding, 64 in all as drawn; 44px from md,
-     where the links and the 44px desktop wordmark come in, in 20; the padding opens to 28 at
-     lg. (A 24px row once left the 32px wordmark overhanging it, and everything sat 4px low.) -->
-<header id="nav" class="site-container py-4 md:py-5 lg:py-7">
-  <div class="grid h-8 grid-cols-[1fr_auto_1fr] items-center md:h-11">
-    <button class="icon-btn intro-drop md:hidden" type="button" aria-label="Open menu" aria-expanded="false" data-t-attr="aria-label:header.open_menu_label">
+<!-- The row is as tall as the wordmark's box, so the menu, wordmark and bag centre on the header
+     (Echo xs-navigation 291:3184, xxl-nav 291:3185): 36px below md in 14px of padding, 64 in all
+     as drawn; 44px from md, where the links and the full-size wordmark come in, in 20; the padding
+     opens to 26 at lg, 96 in all as drawn. -->
+<!-- Over the announcement bar — positioned, and after it, so it paints over it; no z-index, so
+     the homepage hero's earplugs, after it in the same way, still paint over the nav — so the
+     page slides up over the bar: its white runs past the
+     1920 column to the window's edges (a spread shadow, clipped top and bottom), so a wide screen
+     never shows the bar at the sides. The clip also keeps the hero intro's nav items, dropping in
+     from 80 above, inside the header — they come out from under its top edge. -->
+<header id="nav" class="site-container relative bg-default py-3.5 text-primary shadow-[0_0_0_100vmax_var(--background-color-default)] [clip-path:inset(0_-100vmax)] md:py-5 lg:py-6.5">
+  <div class="grid h-9 grid-cols-[1fr_auto_1fr] items-center md:h-11">
+    <button class="icon-btn intro-drop text-icon-primary md:hidden" type="button" aria-label="Open menu" aria-expanded="false" data-t-attr="aria-label:header.open_menu_label">
       <svg class="h-2.5 w-6" aria-hidden="true"><use href="#i-menu"></use></svg>
     </button>
 
-    <nav class="hidden gap-10.5 md:flex" aria-label="Primary" data-t-attr="aria-label:header.primary_label">
-      <a class="intro-drop text-lg leading-none font-semibold transition-opacity hover:opacity-60" href="collection.html" data-t="header.shop">Shop</a>
-      <a class="intro-drop text-lg leading-none font-semibold transition-opacity hover:opacity-60 [--at:0.1s]" href="#" data-t="header.explore">Explore</a>
-      <a class="intro-drop text-lg leading-none font-semibold transition-opacity hover:opacity-60 [--at:0.2s]" href="#" data-t="header.learn">Learn</a>
+    <nav class="hidden gap-12 md:flex" aria-label="Primary" data-t-attr="aria-label:header.primary_label">
+      <a class="intro-drop text-nav-primary transition-opacity hover:opacity-60" href="collection.html" data-t="header.shop">Shop</a>
+      <a class="intro-drop text-nav-primary transition-opacity hover:opacity-60 [--at:0.1s]" href="#" data-t="header.explore">Explore</a>
+      <a class="intro-drop text-nav-primary transition-opacity hover:opacity-60 [--at:0.2s]" href="#" data-t="header.learn">Learn</a>
     </nav>
 
-    <!-- The two artboards draw the wordmark at slightly different proportions
-         (2.011 vs 2.063). Both are shipped; see README, "Known design deltas".
-         overflow-visible, here and on the sprite's two wordmark symbols: the ink
-         runs to the very edge of the viewBox, and at a fractional x the clip shaved
-         the last anti-aliased column off the "p". -->
-    <a class="intro-drop col-start-2 block text-black [--at:0.4s]" href="index.html" aria-label="Loop — home" data-t-attr="aria-label:header.loop_home_label">
-      <svg class="hidden h-auto w-[88.5px] overflow-visible md:block" aria-hidden="true" viewBox="0 0 88.493 44"><use href="#i-logo"></use></svg>
-      <svg class="block h-auto w-[66px] overflow-visible md:hidden" aria-hidden="true" viewBox="0 0 66.0044 32"><use href="#i-logo-sm"></use></svg>
+    <!-- One wordmark at both artboards: 88.5 x 44 of ink from md (Figma's 90 x 46 box is that
+         ink with 1px round it), and the same drawing at 36/46 of that below md (69.26 x 34.43,
+         in a 70.43 x 36 box). The footer draws the older mobile wordmark, i-logo-sm (66 x 32), as its
+         320 frame does.
+         overflow-visible, here and on the sprite's wordmark symbols: the ink runs to the very
+         edge of the viewBox, and at a fractional x the clip shaved the last anti-aliased column
+         off the "p". -->
+    <a class="intro-drop col-start-2 block text-primary [--at:0.4s]" href="index.html" aria-label="Loop — home" data-t-attr="aria-label:header.loop_home_label">
+      <svg class="block h-auto w-[69.26px] overflow-visible md:w-[88.5px]" aria-hidden="true" viewBox="0 0 88.493 44"><use href="#i-logo"></use></svg>
     </a>
 
     <!-- The account and bag icons move on hover and keyboard focus (src/css/components/icon-motion.css,
          src/js/icon-motion.js): the head nods in headphones, the bag swings from its handle. Inline,
          not from the sprite, so their parts can move; each is its sprite glyph on a 24 grid, so it
          fills the 24px icon button exactly. -->
-    <div class="col-start-3 flex justify-end gap-6.5">
+    <div class="col-start-3 flex justify-end gap-6.5 text-icon-primary">
       <a class="icon-btn intro-drop hidden md:inline-grid [--at:0.1s]" href="#" aria-label="Account" data-t-attr="aria-label:header.account_label">
         <svg class="icon-motion icon-headphones" viewBox="0 0 24 24" fill="none" aria-hidden="true" data-icon-motion>
           <path d="M3 21C3.816 17.816 7.114 15 12 15C16.886 15 20.184 17.816 21 21"/>
@@ -283,7 +336,7 @@
        same build on load, and the earplugs sink and turn on scroll and lean
        toward the pointer. Figma: desktop 113:4949, mobile 113:4952.
        ===================================================================== -->
-  <section id="hero" class="site-container px-0 lg:px-5 [--bud-parallax:0px]" aria-labelledby="hero-title" data-hero-scroll data-drift-scene>
+  <section id="hero" class="site-container px-0 pb-14 lg:px-5 lg:pb-20 [--bud-parallax:0px]" aria-labelledby="hero-title" data-hero-scroll data-drift-scene>
     <!-- Below xl the contents stack in a column, the 320 artboard's proportions up to
          460px; the plate is as tall as they are (643 at 320). From xl the column
          dissolves into the 1512 composition on a 772 plate: earplugs centred, the
@@ -294,7 +347,7 @@
          The build is timed off XXL_Homepage_Prototype_001 (hero-motion.css, "Homepage
          hero"): every part starts with the nav, the words 0.1s apart. -->
     <div class="@container relative xl:h-193" data-hero-scroll-plate>
-      <div class="absolute inset-0 overflow-hidden rounded-lg bg-grey-700">
+      <div class="absolute inset-0 overflow-hidden rounded-lg" data-media>
         <!-- Two artboards, the impact plate's pair: 1920 x 1080 from 600px, 600 x 940 below
              (build/make-home-hero-plate-media.py, which lists the safe zones). Each covers the
              plate pinned to its top, so nothing comes off the top: a wider plate trims the
@@ -309,11 +362,11 @@
           <source type="image/avif" srcset="assets/img/home-hero-plate-mobile-600.avif 600w, assets/img/home-hero-plate-mobile-900.avif 900w, assets/img/home-hero-plate-mobile-1200.avif 1200w" sizes="130vw">
           <img class="intro-zoom absolute inset-0 size-full object-cover object-top [--dur:4s] [--zoom-from:1.33] [--zoom-origin:53.67%_9%]" src="assets/img/home-hero-plate-mobile-1200.webp" srcset="assets/img/home-hero-plate-mobile-600.webp 600w, assets/img/home-hero-plate-mobile-900.webp 900w, assets/img/home-hero-plate-mobile-1200.webp 1200w" sizes="130vw" data-hero-intro-img alt="" width="600" height="940" fetchpriority="high" decoding="async">
         </picture>
-        <!-- Desktop only: the 320 artboard crops the backdrop without it. Placed where the
-             Figma render and the prototype recording both draw it, centred at 1300, 384 of
-             the 1512 frame (the layer's reported box is 100px higher), and settling from
-             1.42x about its own centre as the build runs. -->
-        <img class="intro-zoom absolute top-35 right-15.5 hidden h-auto w-68.5 [--dur:3.6s] [--zoom-from:1.42] [--zoom-origin:52.9%_50.4%] xl:block" src="assets/img/home-hero-sun.webp" alt="" width="548" height="572" decoding="async">
+        <!-- Desktop only: the 320 artboard crops the backdrop without it. Placed as the
+             harmonised frame draws it (291:2712): its 275 x 286 box 1134, 138 into the plate
+             (set 274 wide, 64 from the right), settling from 1.42x about its own centre as the
+             build runs. -->
+        <img class="intro-zoom absolute top-34.5 right-16 hidden h-auto w-68.5 [--dur:3.6s] [--zoom-from:1.42] [--zoom-origin:52.9%_50.4%] xl:block" src="assets/img/home-hero-sun.webp" alt="" width="548" height="572" decoding="async">
       </div>
 
       <!-- The contents box is the plate's box (as tall as the column below xl, the plate
@@ -321,23 +374,31 @@
            overhang the top edge, but as they sink on scroll they go down behind the
            plate's edge rather than out of it. -->
       <div class="relative mx-auto flex max-w-115 flex-col items-center [clip-path:inset(-100vh_-100vw_0_-100vw)] xl:absolute xl:inset-0 xl:max-w-none">
-        <!-- The two earplugs. Each box is its Figma mask's box, a percentage of the
-             cluster, so the pair holds its drawing at every width. Three layers each:
-             the pointer lean (hero-drift), the build and the scroll (hero-bud-*), the
-             image. From xl the pair is its drawn share of the plate, up to the drawn 561px:
-             the plate stops growing taller at 772, so the pair stops growing too. -->
-        <div class="relative -mt-[3.75%] ml-[2.709%] aspect-[296.8/364.45] w-[92.75%] self-start xl:absolute xl:-top-6 xl:left-1/2 xl:m-0 xl:aspect-[561/628] xl:w-[38.111%] xl:max-w-[561px] xl:-translate-x-[52.585%]" data-hero-scroll-cluster>
-          <div class="hero-drift absolute top-[32.926%] left-0 h-[67.074%] w-[58.41%] xl:top-[28.822%] xl:h-[71.178%] xl:w-[56.506%]" data-drift="lead">
-            <img class="hero-bud-lower absolute inset-0 size-full [--bud-rise:40.7%]" src="assets/img/home-hero-bud-left.webp" data-hero-intro-img alt="Loop Experience earplugs in Tomorrowland blue" width="634" height="894" fetchpriority="high" data-t-attr="alt:home.hero.loop_experience_earplugs_in_tomorrowland_alt">
+        <!-- The two earplugs. Each is a square asset (1:1, as the backend takes them), the
+             box the harmonised frames draw it in — 532 at 1512, 290 at 320 (xxl-desktop
+             291:2712, xs-mobile 291:2740; build/make-home-hero-media.py) — placed as a
+             percentage of the cluster, the two squares' bounding box, so the pair holds its
+             drawing at every width. The squares are mostly clear, so the cluster lets clicks
+             through (it overlaps the nav). Three layers each: the pointer lean (hero-drift),
+             the build and the scroll (hero-bud-*), the image; both turn about the point each
+             earplug turned about before the squares (the old mask box's centre). The 320
+             frame seats the right earplug differently in its box, so there its square sits by
+             the earplug, not the frame's box. From xl the pair is its drawn share of the
+             plate, up to the drawn 776px: the plate stops growing taller at 772, so the pair
+             stops growing too; its top keeps the earplugs 19 over the plate's edge at 1512,
+             closing up with the pair as it narrows. -->
+        <div class="pointer-events-none relative -mt-[10.509%] -mb-[3.444%] -ml-[16.547%] aspect-[413.33/409.5] w-[129.166%] self-start xl:absolute xl:top-[calc(-1.5rem-min(3.159cqw,46.5px))] xl:left-1/2 xl:m-0 xl:aspect-[776.16/712] xl:w-[52.7283%] xl:max-w-[776.16px] xl:-translate-x-[50.7086%]" data-hero-scroll-cluster>
+          <div class="hero-drift absolute top-[28.972%] left-0 h-[71.028%] w-[70.37%] origin-[48.32%_50.94%] xl:top-[25.2809%] xl:h-[74.7191%] xl:w-[68.5426%]" data-drift="lead">
+            <img class="hero-bud-lower absolute inset-0 size-full origin-[48.32%_50.94%] [--bud-rise:34.2%]" src="assets/img/home-hero-earplug-left.webp" data-hero-intro-img alt="Loop Experience earplugs in Tomorrowland blue" width="1064" height="1064" fetchpriority="high" data-t-attr="alt:home.hero.loop_experience_earplugs_in_tomorrowland_alt">
           </div>
-          <div class="hero-drift absolute top-0 left-[44.906%] h-[66.624%] w-[55.094%] xl:left-[46.702%] xl:h-[70.701%] xl:w-[53.298%]" data-drift="trail">
-            <img class="hero-bud-upper absolute inset-0 size-full [--bud-rise:42.8%]" src="assets/img/home-hero-bud-right.webp" data-hero-intro-img alt="" width="598" height="888" fetchpriority="high">
+          <div class="hero-drift absolute top-0 left-[29.63%] h-[71.028%] w-[70.37%] origin-[49.99%_50.47%] xl:left-[31.4574%] xl:h-[74.7191%] xl:w-[68.5426%]" data-drift="trail">
+            <img class="hero-bud-upper absolute inset-0 size-full origin-[49.99%_50.47%] [--bud-rise:35.72%]" src="assets/img/home-hero-earplug-right.webp" data-hero-intro-img alt="" width="1064" height="1064" fetchpriority="high">
           </div>
         </div>
 
         <!-- Positioned, so the sinking earplugs pass behind the lockup and the headline. -->
-        <div class="relative mt-7 flex flex-col items-center gap-6 text-center xl:absolute xl:bottom-7.5 xl:left-9 xl:mt-0 xl:items-start xl:gap-10 xl:text-start">
-          <span class="intro-mask block"><img class="intro-rise h-auto w-30 [--dur:1.65s] [--rise:100%] xl:w-38.25" src="assets/img/home-hero-lockup.webp" alt="Tomorrowland × Loop" width="459" height="182" decoding="async" data-t-attr="alt:home.hero.tomorrowland_loop_alt"></span>
+        <div class="relative flex flex-col items-center gap-7 text-center xl:absolute xl:bottom-7.5 xl:left-9 xl:items-start xl:gap-10 xl:text-start">
+          <span class="intro-mask block"><img class="intro-rise h-auto w-31.5 [--dur:1.65s] [--rise:100%] xl:w-37.75" src="assets/img/home-hero-lockup.webp" alt="Tomorrowland × Loop" width="459" height="182" decoding="async" data-t-attr="alt:home.hero.tomorrowland_loop_alt"></span>
           <!-- Drawn at 54 and 112, set on the display stops either side (56 and 120).
                Both artboards break after "earplugs"; nowrap holds that as the size slides.
                One mask per word: each rises on its own beat, 0.1s after the last. -->
@@ -354,8 +415,8 @@
              the ™ at full size, the 1512 one small and raised. Below xl the pill is the
              plate's width less 10px a side, up to its desktop 469, wider than the column
              where there's room; the label wraps only when it has to. -->
-        <div class="intro-mask mt-1 w-[min(calc(100cqw-1.25rem),29.3125rem)] pt-3 pb-3 xl:absolute xl:right-9 xl:bottom-0 xl:m-0 xl:w-auto xl:pt-4 xl:pb-9">
-          <a class="btn btn-light btn-knockout btn-punch btn-product group intro-lift w-full justify-between gap-2 text-start text-xl leading-5 whitespace-normal xl:whitespace-nowrap [--dur:1.75s] [--rise:calc(100%+25px)] xl:w-auto xl:gap-5.25 xl:leading-none xl:[--rise:calc(100%+49px)]" href="#" data-btn-product>
+        <div class="intro-mask mt-2 w-[min(calc(100cqw-1.25rem),29.3125rem)] pt-3 pb-3.5 xl:absolute xl:right-9 xl:bottom-0 xl:m-0 xl:w-auto xl:pt-4 xl:pb-9">
+          <a class="btn btn-light btn-knockout btn-punch btn-product group intro-lift w-full justify-between gap-2 text-start text-button-primary-lg whitespace-normal xl:whitespace-nowrap [--dur:1.75s] [--rise:calc(100%+25px)] xl:w-auto xl:gap-5.25 xl:leading-none xl:[--rise:calc(100%+49px)]" href="#" data-btn-product>
             <span class="btn-product-media"><img src="assets/img/product-tml26-experience-cobalt.webp" alt="" width="348" height="348" decoding="async"></span>
             <span class="roll"><span class="roll-text" data-btn-product-label translate="no">Tomorrowland x Loop Experience<sup class="relative top-0 text-[1em] leading-none xl:-top-[0.3853em] xl:text-[0.645em]">™</sup></span><span class="roll-text" aria-hidden="true" translate="no">Tomorrowland x Loop Experience<sup class="relative top-0 text-[1em] leading-none xl:-top-[0.3853em] xl:text-[0.645em]">™</sup></span></span>
             <span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
@@ -373,7 +434,7 @@
        list, which is the open state at rest. Figma: desktop 100:4098, mobile
        113:4978, every row open 112:4839.
        ===================================================================== -->
-  <section id="scenarios" class="site-container mt-14 px-2.5 lg:mt-20 lg:px-(--gutter)" aria-labelledby="scenarios-title">
+  <section id="scenarios" class="site-container px-2.5 pb-20 lg:px-(--gutter) lg:pb-32" aria-labelledby="scenarios-title">
     <h2 class="text-center text-2xl lg:text-3xl" id="scenarios-title" data-t="home.scenarios.what_brings_you_here">What brings you here?</h2>
 
     <!-- Both layouts scale as one, from a font size that every part of a row is sized in
@@ -386,20 +447,22 @@
          long word (Sensitivity) pushes it along; the products and the disc are percentages
          of the row from its right end. The product list gives 48px of its height back
          (-my-6), so a row of three products is no taller than a row of two where the row
-         is small. Each photo is its Figma frame's width, 210 — 30px wider than the open tile
-         (--scenario-travel), for the drift as the tile opens. The stacked list opens each row
-         the same way as it scrolls into view, once (src/js/scenarios-reveal.js); its photos are
-         the open tile's width (1.2em) rather than the tile's, so while one drifts in its own
-         square edge never shows inside the tile's rounded one. -->
-    <ul class="mt-12 flex flex-col gap-[min(0.2em,0.75rem)] text-[min(calc(20vw-4px),8.3875rem)] lg-hover:mt-10 lg-hover:gap-0" role="list" data-scenarios>
+         is small. Each photo is its Figma frame's width — 210 in the hover rows, 30px wider than
+         the open tile (--scenario-travel), and 82 in the stacked list, 10 wider than its 72 —
+         for the drift as the tile opens; one file serves both, 210 x 122 at 2x, as the
+         harmonised frames draw the same photo component in both (xxl-hp-scenarios 779:10903,
+         xs 779:10902). The stacked list opens each row the same way as it scrolls into view,
+         once (src/js/scenarios-reveal.js). Vertical rhythm, as drawn: the title, 40 (44 in
+         the hover rows, so Sleep's photo, hovered, clears the title), then each row the
+         word, 20, its rule, 24 to the next word (the hover rows; the stacked
+         rows keep their 64 pitch 12 apart); 44 / 64 from the last rule to the CTA; 80 / 128
+         below it, and no top — the hero's foot (56 / 80) is the space above. -->
+    <ul class="mt-10 flex flex-col gap-[min(0.2em,0.75rem)] text-[min(calc(20vw-4px),8.3875rem)] lg-hover:mt-5 lg-hover:gap-0" role="list" data-scenarios>
         <li>
-          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:py-[0.1375em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
+          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:pt-[0.15em] lg-hover:pb-[0.125em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
             <span class="scenario-lead flex min-w-0 items-center lg-hover:min-w-[40.678%]">
               <span class="scenario-tile relative mr-(--scenario-gap) h-[0.8em] w-(--scenario-tile) shrink-0 overflow-hidden rounded-[0.1em] lg-hover:h-[0.7625em] lg-hover:rounded-[0.125em]">
-                <picture>
-                  <source media="(hover: hover) and (min-width: 64rem)" srcset="assets/img/scenario-sleep.webp">
-                  <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.2em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-sleep-mobile.webp" alt="" width="384" height="256" loading="lazy" decoding="async">
-                </picture>
+                <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.3667em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-sleep.webp" alt="" width="420" height="244" loading="lazy" decoding="async">
               </span>
               <span class="scenario-word text-display-lg text-[1em] leading-none text-(--scenario-ink) lg-hover:leading-[0.775]"><span data-fit data-fit-group="scenarios" class="data-fit-floor:py-[0.05em] data-fit-floor:leading-[0.9] lg-hover:data-fit-floor:py-0 lg-hover:data-fit-floor:leading-[0.85]" data-t="home.scenarios.sleep">Sleep</span></span>
             </span>
@@ -417,13 +480,10 @@
           </a>
         </li>
         <li>
-          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:py-[0.1375em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
+          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:pt-[0.15em] lg-hover:pb-[0.125em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
             <span class="scenario-lead flex min-w-0 items-center lg-hover:min-w-[40.678%]">
               <span class="scenario-tile relative mr-(--scenario-gap) h-[0.8em] w-(--scenario-tile) shrink-0 overflow-hidden rounded-[0.1em] lg-hover:h-[0.7625em] lg-hover:rounded-[0.125em]">
-                <picture>
-                  <source media="(hover: hover) and (min-width: 64rem)" srcset="assets/img/scenario-sensitivity.webp">
-                  <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.2em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-sensitivity-mobile.webp" alt="" width="384" height="256" loading="lazy" decoding="async">
-                </picture>
+                <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.3667em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-sensitivity.webp" alt="" width="420" height="244" loading="lazy" decoding="async">
               </span>
               <span class="scenario-word text-display-lg text-[1em] leading-none text-(--scenario-ink) lg-hover:leading-[0.775]"><span data-fit data-fit-group="scenarios" class="data-fit-floor:py-[0.05em] data-fit-floor:leading-[0.9] lg-hover:data-fit-floor:py-0 lg-hover:data-fit-floor:leading-[0.85]" data-t="home.scenarios.sensitivity">Sensitivity</span></span>
             </span>
@@ -440,13 +500,10 @@
           </a>
         </li>
         <li>
-          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:py-[0.1375em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
+          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:pt-[0.15em] lg-hover:pb-[0.125em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
             <span class="scenario-lead flex min-w-0 items-center lg-hover:min-w-[40.678%]">
               <span class="scenario-tile relative mr-(--scenario-gap) h-[0.8em] w-(--scenario-tile) shrink-0 overflow-hidden rounded-[0.1em] lg-hover:h-[0.7625em] lg-hover:rounded-[0.125em]">
-                <picture>
-                  <source media="(hover: hover) and (min-width: 64rem)" srcset="assets/img/scenario-events.webp">
-                  <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.2em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-events-mobile.webp" alt="" width="384" height="256" loading="lazy" decoding="async">
-                </picture>
+                <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.3667em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-events.webp" alt="" width="420" height="244" loading="lazy" decoding="async">
               </span>
               <span class="scenario-word text-display-lg text-[1em] leading-none text-(--scenario-ink) lg-hover:leading-[0.775]"><span data-fit data-fit-group="scenarios" class="data-fit-floor:py-[0.05em] data-fit-floor:leading-[0.9] lg-hover:data-fit-floor:py-0 lg-hover:data-fit-floor:leading-[0.85]" data-t="home.scenarios.events">Events</span></span>
             </span>
@@ -463,13 +520,10 @@
           </a>
         </li>
         <li>
-          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:py-[0.1375em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
+          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:pt-[0.15em] lg-hover:pb-[0.125em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
             <span class="scenario-lead flex min-w-0 items-center lg-hover:min-w-[40.678%]">
               <span class="scenario-tile relative mr-(--scenario-gap) h-[0.8em] w-(--scenario-tile) shrink-0 overflow-hidden rounded-[0.1em] lg-hover:h-[0.7625em] lg-hover:rounded-[0.125em]">
-                <picture>
-                  <source media="(hover: hover) and (min-width: 64rem)" srcset="assets/img/scenario-focus.webp">
-                  <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.2em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-focus-mobile.webp" alt="" width="384" height="256" loading="lazy" decoding="async">
-                </picture>
+                <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.3667em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-focus.webp" alt="" width="420" height="244" loading="lazy" decoding="async">
               </span>
               <span class="scenario-word text-display-lg text-[1em] leading-none text-(--scenario-ink) lg-hover:leading-[0.775]"><span data-fit data-fit-group="scenarios" class="data-fit-floor:py-[0.05em] data-fit-floor:leading-[0.9] lg-hover:data-fit-floor:py-0 lg-hover:data-fit-floor:leading-[0.85]" data-t="home.scenarios.focus">Focus</span></span>
             </span>
@@ -486,13 +540,10 @@
           </a>
         </li>
         <li>
-          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:py-[0.1375em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
+          <a class="scenario flex h-[1.0667em] has-[[data-fit-floor]]:h-auto has-[[data-fit-floor]]:min-h-[1.0667em] items-center border-b-2 border-grey-200 pb-[min(0.2em,0.75rem)] [--scenario-travel:0.1875em] lg-hover:h-auto lg-hover:border-(--scenario-rule) lg-hover:pt-[0.15em] lg-hover:pb-[0.125em] lg-hover:text-[min(calc(11.299vw-10.847px),10rem)]" href="#" data-scenarios-row>
             <span class="scenario-lead flex min-w-0 items-center lg-hover:min-w-[40.678%]">
               <span class="scenario-tile relative mr-(--scenario-gap) h-[0.8em] w-(--scenario-tile) shrink-0 overflow-hidden rounded-[0.1em] lg-hover:h-[0.7625em] lg-hover:rounded-[0.125em]">
-                <picture>
-                  <source media="(hover: hover) and (min-width: 64rem)" srcset="assets/img/scenario-kids.webp">
-                  <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.2em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-kids-mobile.webp" alt="" width="384" height="256" loading="lazy" decoding="async">
-                </picture>
+                <img class="scenario-photo absolute inset-y-0 left-0 h-full w-[1.3667em] max-w-none object-cover translate-x-(--scenario-shift) lg-hover:w-[1.3125em]" src="assets/img/scenario-kids.webp" alt="" width="420" height="244" loading="lazy" decoding="async">
               </span>
               <span class="scenario-word text-display-lg text-[1em] leading-none text-(--scenario-ink) lg-hover:leading-[0.775]"><span data-fit data-fit-group="scenarios" class="data-fit-floor:py-[0.05em] data-fit-floor:leading-[0.9] lg-hover:data-fit-floor:py-0 lg-hover:data-fit-floor:leading-[0.85]" data-t="home.scenarios.kids">Kids</span></span>
             </span>
@@ -510,7 +561,7 @@
         </li>
     </ul>
 
-    <div class="mt-12 flex justify-center lg-hover:mt-15">
+    <div class="mt-11 flex justify-center lg-hover:mt-16">
       <a class="btn btn-primary btn-knockout" href="#"><span class="roll"><span class="roll-text" data-t="home.scenarios.help_me_choose">Help me choose</span><span class="roll-text" aria-hidden="true" data-t="home.scenarios.help_me_choose">Help me choose</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
     </div>
   </section>
@@ -526,78 +577,91 @@
        the hero's and impact's: full-bleed below lg, 20px in from lg.
        Figma: desktop 100:3931, mobile 113:5047.
        ===================================================================== -->
-  <section id="essentials" class="site-container mt-20 px-0 lg:px-5" aria-labelledby="essentials-title" data-essentials data-slider>
-    <div class="flex flex-col overflow-clip rounded-lg bg-black text-white lg:block">
+  <section id="essentials" class="site-container px-0 pb-20 lg:px-5 lg:pb-32" aria-labelledby="essentials-title" data-essentials data-slider data-slider-bounce>
+    <div class="flex flex-col overflow-clip rounded-lg bg-default text-primary lg:block" data-scheme="dark">
       <!-- The bar: title and Shop now. Below lg it dissolves (contents) and its two parts
            take their places above and below the carousel. From lg it sticks to the top of
            the screen and rests at the plate's foot, in the room the spacer at the end makes. -->
-      <div class="essentials-bar contents lg:sticky lg:top-0 lg:z-10 lg:mx-7.5 lg:flex lg:h-30 lg:items-center lg:justify-between lg:bg-black">
-        <h2 class="order-1 mt-9 text-center text-4xl lg:mt-0 lg:text-start lg:text-3xl lg:leading-[1.14]" id="essentials-title" data-t="home.essentials.loop_essentials">Loop essentials</h2>
-        <a class="btn btn-light btn-knockout order-4 mx-auto mt-11 mb-11 lg:m-0" href="#"><span class="roll"><span class="roll-text" data-t="home.essentials.shop_now">Shop now</span><span class="roll-text" aria-hidden="true" data-t="home.essentials.shop_now">Shop now</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
+      <div class="essentials-bar contents lg:sticky lg:top-0 lg:z-10 lg:mx-7 lg:flex lg:h-29.5 lg:items-center lg:justify-between lg:bg-default">
+        <h2 class="order-1 mt-7 text-center text-3xl lg:mt-0 lg:text-start" id="essentials-title" data-t="home.essentials.loop_essentials">Loop essentials</h2>
+        <span class="order-1 mx-4 mt-6.75 border-t-2 border-subtle lg:hidden" aria-hidden="true"></span>
+        <a class="btn btn-light btn-knockout order-4 mx-auto mt-7 mb-10 lg:m-0" href="#"><span class="roll"><span class="roll-text" data-t="home.essentials.shop_now">Shop now</span><span class="roll-text" aria-hidden="true" data-t="home.essentials.shop_now">Shop now</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
       </div>
 
-      <!-- Tiles: below lg a carousel of slides three quarters of the screen wide (240 at 320,
-           held at the drawn 278), each overlapping the next by 1.25vw (4 at 320, drawn 40) —
-           the renders' ground is the plate's, and the products sit in their middle 60% —
-           so at 320 there is ~92px between one product and the next and the next peeks in
-           16px; the end spacer gives the last slide's overlap back. a grid of thirds from lg with each tile centred in its column at up
+      <!-- Tiles: below lg a carousel of slides as the 320 frame draws them, 278 wide (held
+           there on wider screens), each overlapping the next by 30 (drawn 50, which set the
+           products too close together; opened by request) — the renders' ground is the
+           plate's, and the products sit in their middle 60% — so the next product peeks in at
+           the edge. Each product is its 1080 frame (make-product-media.py) placed so its
+           render lands where the product-tile component draws it (800:16160 / 822:4733): at
+           the component's one inset, 302 square 5.2, 7.1 into the 320 area (and Engage Kids at
+           the component's 88.33% of that) — --frame / --frame-x / --frame-y per tile, since
+           each product's own frame insets its render differently. Dream's spin video, cut to
+           the old 335 x 327 area, is placed from the Dream frame it was fitted to. Each slide snaps to the middle of the screen, the first included
+           (the track's leading padding is half the room around a slide: 21 at 320, where the
+           frame puts it); the end spacer is that half again plus the last slide's overlap,
+           and is the only room at the end — no trailing padding, which Safari counts as
+           scroll room and Chrome doesn't, so the end stops exactly on the last slide in both
+           and the bounce starts there. A drag past
+           either end pulls a little and springs back, as the PDP's reviews do
+           (data-slider-bounce, slider-progress.js). a grid of thirds from lg with each tile centred in its column at up
            to the drawn 336. The limited edition (McLaren) is desktop only: the grid fills its
            last cell with it, but it isn't one of the core products the carousel shows.
            The swatches are disabled until there are renders for each colour: they answer
            hover, but picking one does nothing yet. The Explore pill is hidden for now, by
            request, while design sees the hover without it: `lg-hover:inline-flex` on it
            brings it back. -->
-      <div class="relative order-2 mt-14 lg:mx-7.5 lg:mt-0.5" data-essentials-grid>
-        <ul class="flex snap-x snap-mandatory scroll-px-5 overflow-x-auto px-5 [scrollbar-width:none] after:w-[calc(1.25rem+min(1.25vw,0.25rem))] after:shrink-0 after:content-[''] lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:after:hidden [&::-webkit-scrollbar]:hidden" role="list" data-slider-track>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+      <div class="relative order-2 mt-6.75 lg:mx-7 lg:mt-0.5" data-essentials-grid>
+        <ul class="flex snap-x snap-mandatory overflow-x-auto overflow-y-hidden pl-[calc((100%-min(86.875vw,17.375rem))/2)] [scrollbar-width:none] after:w-[calc((100vw-min(86.875vw,17.375rem))/2+min(9.375vw,1.875rem))] after:shrink-0 after:content-[''] lg:grid lg:grid-cols-3 lg:overflow-visible lg:px-0 lg:after:hidden [&::-webkit-scrollbar]:hidden" role="list" data-slider-track>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/experience-gold.webp" alt="Loop Experience" width="720" height="720" loading="lazy" decoding="async" id="essential-experience-image" data-t-attr="alt:home.essentials.loop_experience_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:103.571%] [--frame-x:-2.787%] [--frame-y:-1.222%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/experience-gold.webp" alt="Loop Experience" width="720" height="720" loading="lazy" decoding="async" id="essential-experience-image" data-t-attr="alt:home.essentials.loop_experience_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Experience<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_29_95">£29.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Experience<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_29_95">£29.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Experience colour" data-swatch-target="essential-experience-image" data-t-attr="aria-label:home.essentials.loop_experience_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Experience colour" data-swatch-target="essential-experience-image" data-t-attr="aria-label:home.essentials.loop_experience_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#DEA6A6_11.9%,#C27A7A_50%,#DD9E9E_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Rose Gold" data-swatch-image="assets/img/product/experience-rose.webp" data-t-attr="aria-label:home.essentials.rose_gold_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#D8D08D_11.9%,#BFB76D_50%,#E4DD9B_92.3%)]" type="button" role="radio" aria-checked="true" aria-label="Gold" data-swatch-image="assets/img/product/experience-gold.webp" data-t-attr="aria-label:home.essentials.gold_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#D5D5D5_11.9%,#B0B0B0_50%,#DCDCDC_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Silver" data-swatch-image="assets/img/product/experience-silver.webp" data-t-attr="aria-label:home.essentials.silver_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#3F3F3F_11.9%,#000_50%,#3F3F3F_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Black" data-swatch-image="assets/img/product/experience-black.webp" data-t-attr="aria-label:home.essentials.black_label"></button>
-                <span class="text-xl leading-none" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
+                <span class="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 text-xl leading-6" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.sleep">Sleep</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/eclipse-black.webp" alt="Loop Eclipse" width="720" height="720" loading="lazy" decoding="async" id="essential-eclipse-image" data-t-attr="alt:home.essentials.loop_eclipse_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.sleep">Sleep</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:94.363%] [--frame-x:1.625%] [--frame-y:2.227%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/eclipse-black.webp" alt="Loop Eclipse" width="720" height="720" loading="lazy" decoding="async" id="essential-eclipse-image" data-t-attr="alt:home.essentials.loop_eclipse_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Eclipse<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_49_95">£49.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Eclipse<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_49_95">£49.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Eclipse colour" data-swatch-target="essential-eclipse-image" data-t-attr="aria-label:home.essentials.loop_eclipse_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Eclipse colour" data-swatch-target="essential-eclipse-image" data-t-attr="aria-label:home.essentials.loop_eclipse_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#3F3F3F_11.9%,#000_50%,#3F3F3F_92.3%)]" type="button" role="radio" aria-checked="true" aria-label="Black" data-swatch-image="assets/img/product/eclipse-black.webp" data-t-attr="aria-label:home.essentials.black_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#005564_11.9%,#002D37_50%,#005564_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Teal" data-swatch-image="assets/img/product/eclipse-teal.webp" data-t-attr="aria-label:home.essentials.teal_label"></button>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/quiet-mint.webp" alt="Loop Quiet" width="720" height="720" loading="lazy" decoding="async" id="essential-quiet-image" data-t-attr="alt:home.essentials.loop_quiet_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.focus">Focus</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:103.571%] [--frame-x:-2.787%] [--frame-y:-1.419%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/quiet-mint.webp" alt="Loop Quiet" width="720" height="720" loading="lazy" decoding="async" id="essential-quiet-image" data-t-attr="alt:home.essentials.loop_quiet_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Quiet<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_19_95">£19.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Quiet<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_19_95">£19.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Quiet colour" data-swatch-target="essential-quiet-image" data-t-attr="aria-label:home.essentials.loop_quiet_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Quiet colour" data-swatch-target="essential-quiet-image" data-t-attr="aria-label:home.essentials.loop_quiet_colour_label">
                 <button class="swatch swatch-sm bg-[#EFEAED]" type="button" role="radio" aria-checked="false" aria-label="White" data-swatch-image="assets/img/product/quiet-white.webp" data-t-attr="aria-label:home.essentials.white_label"></button>
                 <button class="swatch swatch-sm bg-[#C7BEDC]" type="button" role="radio" aria-checked="false" aria-label="Violet" data-swatch-image="assets/img/product/quiet-violet.webp" data-t-attr="aria-label:home.essentials.violet_label"></button>
                 <button class="swatch swatch-sm bg-[#000]" type="button" role="radio" aria-checked="false" aria-label="Black" data-swatch-image="assets/img/product/quiet-black.webp" data-t-attr="aria-label:home.essentials.black_label"></button>
@@ -605,30 +669,30 @@
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/switch-emerald.webp" alt="Loop Switch" width="720" height="720" loading="lazy" decoding="async" id="essential-switch-image" data-t-attr="alt:home.essentials.loop_switch_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.sensitivity">Sensitivity</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:107.5%] [--frame-x:-3.75%] [--frame-y:-3.75%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/switch-emerald.webp" alt="Loop Switch" width="720" height="720" loading="lazy" decoding="async" id="essential-switch-image" data-t-attr="alt:home.essentials.loop_switch_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Switch<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_54_95">£54.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Switch<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_54_95">£54.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Switch colour" data-swatch-target="essential-switch-image" data-t-attr="aria-label:home.essentials.loop_switch_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Switch colour" data-swatch-target="essential-switch-image" data-t-attr="aria-label:home.essentials.loop_switch_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#3F3F3F_11.9%,#000_50%,#3F3F3F_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Black" data-swatch-image="assets/img/product/switch-black.webp" data-t-attr="aria-label:home.essentials.black_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#D5D5D5_11.9%,#B0B0B0_50%,#DCDCDC_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Silver" data-swatch-image="assets/img/product/switch-silver.webp" data-t-attr="aria-label:home.essentials.silver_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(315deg,#35675B,#4D9C89)]" type="button" role="radio" aria-checked="true" aria-label="Emerald" data-swatch-image="assets/img/product/switch-emerald.webp" data-t-attr="aria-label:home.essentials.emerald_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#D8D08D_11.9%,#BFB76D_50%,#E4DD9B_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Gold" data-swatch-image="assets/img/product/switch-gold.webp" data-t-attr="aria-label:home.essentials.gold_label"></button>
-                <span class="text-xl leading-none" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
+                <span class="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 text-xl leading-6" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item data-hover-video-host>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item data-hover-video-host>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.sleep">Sleep</span></span>
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.sleep">Sleep</span></span>
                 <!-- In Lilac, Dream spins a full turn on a seamless loop while hovered and stops where it
                      is on leave (src/js/hover-video.js); it starts on the video's first frame, which is
                      the Lilac product's pose. The video's
@@ -636,15 +700,15 @@
                      plate shows exactly where the ground is and the tile has no edge. The other
                      colours are stills: choosing one swaps the video for its image
                      (src/js/product-options.js). -->
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip bg-black">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/dream-lilac.webp" alt="Loop Dream" width="720" height="720" loading="lazy" decoding="async" id="essential-dream-image" hidden data-t-attr="alt:home.essentials.loop_dream_alt">
-                  <video class="essential-image absolute inset-0 size-full object-cover mix-blend-lighten" id="essential-dream-video" src="assets/video/essential-dream-spin.mp4" poster="assets/img/essential-dream-spin-poster.webp" muted loop playsinline preload="none" aria-hidden="true" data-hover-video data-hover-video-leave="pause" data-hover-video-rate="1.25"></video>
+                <span class="relative block aspect-square w-full overflow-clip bg-default lg:mt-0.5 lg:w-[95.238%] [--frame:107.049%] [--frame-x:-6.307%] [--frame-y:-2.333%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/dream-lilac.webp" alt="Loop Dream" width="720" height="720" loading="lazy" decoding="async" id="essential-dream-image" hidden data-t-attr="alt:home.essentials.loop_dream_alt">
+                  <video class="essential-image absolute top-[-1.055%] left-[-6.307%] h-[104.492%] w-[107.049%] max-w-none object-cover mix-blend-lighten" id="essential-dream-video" src="assets/video/essential-dream-spin.mp4" poster="assets/img/essential-dream-spin-poster.webp" muted loop playsinline preload="none" aria-hidden="true" data-hover-video data-hover-video-leave="pause" data-hover-video-rate="1.25"></video>
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Dream<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_44_95">£44.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Dream<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_44_95">£44.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Dream colour" data-swatch-target="essential-dream-image" data-swatch-video-target="essential-dream-video" data-t-attr="aria-label:home.essentials.loop_dream_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Dream colour" data-swatch-target="essential-dream-image" data-swatch-video-target="essential-dream-video" data-t-attr="aria-label:home.essentials.loop_dream_colour_label">
                 <button class="swatch swatch-sm bg-[#000]" type="button" role="radio" aria-checked="false" aria-label="Black" data-swatch-image="assets/img/product/dream-black.webp" data-t-attr="aria-label:home.essentials.black_label"></button>
                 <button class="swatch swatch-sm bg-[#97B5D5]" type="button" role="radio" aria-checked="false" aria-label="Blue" data-swatch-image="assets/img/product/dream-blue.webp" data-t-attr="aria-label:home.essentials.blue_label"></button>
                 <button class="swatch swatch-sm bg-[#CAB4E7]" type="button" role="radio" aria-checked="true" aria-label="Lilac" data-swatch-image="assets/img/product/dream-lilac.webp" data-swatch-video data-t-attr="aria-label:home.essentials.lilac_label"></button>
@@ -652,72 +716,72 @@
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/cocoon-berry.webp" alt="Loop Cocoon" width="720" height="720" loading="lazy" decoding="async" id="essential-cocoon-image" data-t-attr="alt:home.essentials.loop_cocoon_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.kids">Kids</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:112.486%] [--frame-x:-7.436%] [--frame-y:-6.834%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/cocoon-berry.webp" alt="Loop Cocoon" width="720" height="720" loading="lazy" decoding="async" id="essential-cocoon-image" data-t-attr="alt:home.essentials.loop_cocoon_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Cocoon<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_45_99">£45.99</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Cocoon<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_45_99">£45.99</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Cocoon colour" data-swatch-target="essential-cocoon-image" data-t-attr="aria-label:home.essentials.loop_cocoon_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Cocoon colour" data-swatch-target="essential-cocoon-image" data-t-attr="aria-label:home.essentials.loop_cocoon_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(90deg,#FB637E_50%,#C5B4E3_50%)]" type="button" role="radio" aria-checked="true" aria-label="Berry" data-swatch-image="assets/img/product/cocoon-berry.webp" data-t-attr="aria-label:home.essentials.berry_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(90deg,#0F4C81_50%,#A7BCD6_50%)]" type="button" role="radio" aria-checked="false" aria-label="Cloud" data-swatch-image="assets/img/product/cocoon-cloud.webp" data-t-attr="aria-label:home.essentials.cloud_label"></button>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/engage-dusk.webp" alt="Loop Engage" width="720" height="720" loading="lazy" decoding="async" id="essential-engage-image" data-t-attr="alt:home.essentials.loop_engage_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.sensitivity">Sensitivity</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:103.571%] [--frame-x:-2.787%] [--frame-y:-1.222%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/engage-dusk.webp" alt="Loop Engage" width="720" height="720" loading="lazy" decoding="async" id="essential-engage-image" data-t-attr="alt:home.essentials.loop_engage_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Engage<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_29_95">£29.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Engage<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_29_95">£29.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Engage colour" data-swatch-target="essential-engage-image" data-t-attr="aria-label:home.essentials.loop_engage_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Engage colour" data-swatch-target="essential-engage-image" data-t-attr="aria-label:home.essentials.loop_engage_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(317deg,#C5C5C5,#E9E9E9)]" type="button" role="radio" aria-checked="false" aria-label="Clear" data-swatch-image="assets/img/product/engage-clear.webp" data-t-attr="aria-label:home.essentials.clear_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(317deg,#3E3E3E,#CED6D6)]" type="button" role="radio" aria-checked="true" aria-label="Dusk" data-swatch-image="assets/img/product/engage-dusk.webp" data-t-attr="aria-label:home.essentials.dusk_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(155deg,#DEA6A6_11.9%,#C27A7A_50%,#DD9E9E_92.3%)]" type="button" role="radio" aria-checked="false" aria-label="Rose" data-swatch-image="assets/img/product/engage-rose.webp" data-t-attr="aria-label:home.essentials.rose_label"></button>
-                <span class="text-xl leading-none" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
+                <span class="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 text-xl leading-6" aria-label="More colours" data-t-attr="aria-label:home.essentials.more_colours_label" translate="no">+</span>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.sleep">Sleep</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/product/engage-kids-blueberry.webp" alt="Loop Engage Kids" width="720" height="720" loading="lazy" decoding="async" id="essential-engage-kids-image" data-t-attr="alt:home.essentials.loop_engage_kids_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.kids">Kids</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:91.483%] [--frame-x:3.06%] [--frame-y:5.102%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/engage-kids-blueberry.webp" alt="Loop Engage Kids" width="720" height="720" loading="lazy" decoding="async" id="essential-engage-kids-image" data-t-attr="alt:home.essentials.loop_engage_kids_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">Loop Engage<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup> Kids</span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_29_95">£29.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">Loop Engage<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup> Kids</span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_29_95">£29.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Engage Kids colour" data-swatch-target="essential-engage-kids-image" data-t-attr="aria-label:home.essentials.loop_engage_kids_colour_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-label="Loop Engage Kids colour" data-swatch-target="essential-engage-kids-image" data-t-attr="aria-label:home.essentials.loop_engage_kids_colour_label">
                 <button class="swatch swatch-sm bg-[linear-gradient(90deg,#A67CB7_50%,#8BB8E8_50%)]" type="button" role="radio" aria-checked="true" aria-label="Blueberry" data-swatch-image="assets/img/product/engage-kids-blueberry.webp" data-t-attr="aria-label:home.essentials.blueberry_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(90deg,#FC9BB3_50%,#009877_50%)]" type="button" role="radio" aria-checked="false" aria-label="Watermelon" data-swatch-image="assets/img/product/engage-kids-watermelon.webp" data-t-attr="aria-label:home.essentials.watermelon_label"></button>
                 <button class="swatch swatch-sm bg-[linear-gradient(90deg,#F68D2E_50%,#A2C7E2_50%)]" type="button" role="radio" aria-checked="false" aria-label="Ocean" data-swatch-image="assets/img/product/engage-kids-ocean.webp" data-t-attr="aria-label:home.essentials.ocean_label"></button>
               </div>
             </div>
           </li>
-          <li class="essential -mr-[min(1.25vw,0.25rem)] w-[min(75vw,17.375rem)] shrink-0 snap-start max-lg:hidden lg:mr-0 lg:w-auto lg:border-b-2 lg:border-white/10 lg:py-13.5" data-essentials-item>
+          <li class="essential -mr-[min(9.375vw,1.875rem)] w-[min(86.875vw,17.375rem)] shrink-0 snap-center max-lg:hidden lg:mr-0 lg:w-auto lg:border-b-2 lg:border-subtle lg:pt-14 lg:pb-14.75" data-essentials-item>
             <div class="mx-auto flex max-w-84 flex-col items-center">
               <a class="flex w-full flex-col items-center text-center" href="#">
-                <span class="flex min-h-8.75 flex-wrap items-center justify-center gap-x-2.5 gap-y-1.5"><span class="badge badge-lg badge-outline" data-t="home.essentials.events">Events</span> <span class="badge badge-lg" data-t="home.essentials.limited_edition">Limited Edition</span></span>
-                <span class="relative mt-0.5 block aspect-[335/327] w-full overflow-clip">
-                  <img class="essential-image absolute inset-0 size-full object-cover" src="assets/img/essential-mclaren.webp" alt="McLaren Racing x Loop Switch" width="670" height="654" loading="lazy" decoding="async" data-t-attr="alt:home.essentials.mclaren_racing_x_loop_switch_alt">
+                <span class="relative z-1 flex min-h-8 flex-wrap items-center justify-center gap-2"><span class="badge badge-lg badge-outline" data-t="home.essentials.sensitivity">Sensitivity</span> <span class="badge badge-lg" data-t="home.essentials.limited_edition">Limited Edition</span></span>
+                <span class="relative block aspect-square w-full overflow-clip lg:mt-0.5 lg:w-[95.238%] [--frame:107.5%] [--frame-x:-3.75%] [--frame-y:-3.75%]">
+                  <img class="essential-image absolute top-(--frame-y) left-(--frame-x) size-(--frame) max-w-none" src="assets/img/product/switch-mclaren.webp" alt="McLaren Racing x Loop Switch" width="720" height="720" loading="lazy" decoding="async" data-t-attr="alt:home.essentials.mclaren_racing_x_loop_switch_alt">
                   <span class="essential-explore btn btn-light pointer-events-none absolute top-[76.6%] left-[39.25%] hidden -translate-x-1/2 -translate-y-1/2 px-12" aria-hidden="true" data-t="home.essentials.explore">Explore</span>
                 </span>
-                <span class="mt-0.5 text-2xl leading-[1.14]" translate="no">McLaren Racing x Loop Switch<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
-                <span class="mt-3 text-xl leading-[1.3] text-grey-500" data-t="home.essentials.n_59_95">£59.95</span>
+                <span class="mt-0.5 text-2xl lg:mt-2" translate="no">McLaren Racing x Loop Switch<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span>
+                <span class="mt-2 text-xl text-secondary" data-t="home.essentials.n_59_95">£59.95</span>
               </a>
-              <div class="mt-6.5 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-disabled="true" aria-label="McLaren Racing x Loop Switch colour" data-t-attr="aria-label:home.essentials.mclaren_racing_x_loop_switch_label">
+              <div class="relative mt-6.25 flex h-7 items-center gap-3 [--swatch-ring:var(--color-white)]" role="radiogroup" aria-disabled="true" aria-label="McLaren Racing x Loop Switch colour" data-t-attr="aria-label:home.essentials.mclaren_racing_x_loop_switch_label">
                 <button class="swatch swatch-sm bg-[#E18C47]" type="button" role="radio" disabled aria-checked="true" aria-label="Papaya" data-t-attr="aria-label:home.essentials.papaya_label"></button>
               </div>
             </div>
@@ -726,11 +790,23 @@
         <span class="essentials-line hidden lg-hover:block" data-essentials-line aria-hidden="true"></span>
       </div>
 
-      <div class="relative order-3 mx-5 mt-14 h-1 overflow-hidden rounded-sm bg-white/10 lg:hidden" aria-hidden="true">
-        <span class="slider-fill absolute inset-y-0 left-0 w-[28.571%] rounded-sm bg-white [--travel:250%]" data-slider-fill></span>
+      <!-- Below lg: previous / next either side of the progress rail (slider-progress.js), as
+           the 320 frame draws them — 42 discs of 10% white, the rail 172 between. -->
+      <div class="order-3 mx-4 mt-8 flex items-center justify-between lg:hidden">
+        <button class="grid size-10.5 place-items-center rounded-full bg-white/10 text-icon-primary transition-opacity aria-disabled:opacity-40" type="button" data-slider-prev>
+          <span class="sr-only" data-t="home.essentials.previous_product">Previous product</span>
+          <svg class="h-3.5 w-2 -translate-x-px -scale-x-100" aria-hidden="true"><use href="#i-chevron-sm"></use></svg>
+        </button>
+        <div class="relative h-1 w-43 overflow-hidden rounded-full bg-white/10" aria-hidden="true">
+          <span class="slider-fill absolute inset-y-0 left-0 w-[36.047%] rounded-full bg-white [--travel:177.42%]" data-slider-fill></span>
+        </div>
+        <button class="grid size-10.5 place-items-center rounded-full bg-white/10 text-icon-primary transition-opacity aria-disabled:opacity-40" type="button" data-slider-next>
+          <span class="sr-only" data-t="home.essentials.next_product">Next product</span>
+          <svg class="h-3.5 w-2 translate-x-px" aria-hidden="true"><use href="#i-chevron-sm"></use></svg>
+        </button>
       </div>
 
-      <div class="hidden h-30 lg:block" aria-hidden="true"></div>
+      <div class="hidden h-29.5 lg:block" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -744,50 +820,49 @@
        small frame shows the media, not the quotes or the badge.
        Figma: desktop 100:3853, mobile 113:5062.
        ===================================================================== -->
-  <section id="fans" class="site-container mt-20 px-2.5 md:px-5 lg:mt-30 lg:px-(--gutter)" aria-labelledby="fans-title" data-fans>
+  <section id="fans" class="site-container px-2.5 pb-20 md:px-5 lg:px-(--gutter) lg:pb-32" aria-labelledby="fans-title" data-fans>
     <div class="fans">
-      <figure class="fans-part fans-quote-a bg-black text-white">
-        <blockquote class="text-[1em] leading-[1.35]"><p data-t="home.fans.its_like_having_a_volume">It’s like having a volume control for real life.</p></blockquote>
-        <figcaption class="mt-[0.857em] text-[0.875em] leading-[1.35] text-grey-500" data-t="home.fans.jessicalee02">@jessicalee02</figcaption>
+      <figure class="fans-part fans-quote-a bg-default text-primary" data-scheme="dark">
+        <blockquote class="text-[1em] leading-[1.375]"><p data-t="home.fans.its_like_having_a_volume">It’s like having a volume control for real life.</p></blockquote>
+        <figcaption class="mt-[0.857em] text-[0.875em] leading-[1.2857] text-secondary" data-t="home.fans.jessicalee02">@jessicalee02</figcaption>
       </figure>
-      <div class="fans-part fans-photo-a overflow-clip bg-grey-200" data-parallax="fans-image">
-        <img class="size-full object-cover" src="assets/img/fans-photo-a.webp" alt="A Loop fan wearing Loop Experience earplugs" width="442" height="560" loading="lazy" decoding="async" data-t-attr="alt:home.fans.a_loop_fan_wearing_loop_alt">
-        <span class="fans-chip fans-chip-on-photo"><img src="assets/img/fans-chip-experience-gold.webp" alt="" width="186" height="165" loading="lazy" decoding="async"></span>
+      <div class="fans-part fans-photo-a overflow-clip" data-parallax="fans-image" data-media>
+        <img class="size-full object-cover" src="assets/img/fans-photo-a.webp" alt="A Loop fan wearing Loop Experience earplugs" width="698" height="800" loading="lazy" decoding="async" data-t-attr="alt:home.fans.a_loop_fan_wearing_loop_alt">
+        <a class="fans-chip fans-chip-on-photo" href="#" aria-label="Discover Loop Experience" data-fans-chip data-t-attr="aria-label:home.fans.discover_loop_experience_label"><span class="fans-chip-plate"><span class="fans-chip-label"><span data-t="home.fans.discover">Discover</span></span><span class="fans-chip-go" aria-hidden="true"><svg class="h-[0.625em] w-[0.875em]"><use href="#i-arrow-right"></use></svg></span></span><img src="assets/img/fans-chip-experience-gold.webp" alt="" width="186" height="180" loading="lazy" decoding="async"></a>
       </div>
 
-      <div class="fans-part fans-video-b overflow-clip bg-grey-200" data-parallax="fans-video" data-fans-video>
+      <div class="fans-part fans-video-b overflow-clip" data-parallax="fans-video" data-fans-video data-media>
         <video class="size-full object-cover" src="assets/video/fans-earplugs.mp4" poster="assets/img/fans-poster-earplugs.webp" muted loop playsinline preload="none" aria-label="A Loop fan holding up Loop Experience earplugs in rose gold" data-t-attr="aria-label:home.fans.a_loop_fan_holding_up_label"></video>
-        <span class="fans-chip fans-chip-on-video"><img src="assets/img/fans-chip-experience-rose.webp" alt="" width="186" height="165" loading="lazy" decoding="async"></span>
+        <a class="fans-chip fans-chip-on-video" href="#" aria-label="Discover Loop Experience" data-fans-chip data-t-attr="aria-label:home.fans.discover_loop_experience_label"><span class="fans-chip-plate"><span class="fans-chip-label"><span data-t="home.fans.discover">Discover</span></span><span class="fans-chip-go" aria-hidden="true"><svg class="h-[0.625em] w-[0.875em]"><use href="#i-arrow-right"></use></svg></span></span><img src="assets/img/fans-chip-experience-rose.webp" alt="" width="186" height="180" loading="lazy" decoding="async"></a>
         <button class="icon-btn fans-video-toggle text-white" type="button" aria-label="Pause video" aria-pressed="false" data-fans-video-toggle data-t-attr="aria-label:home.fans.pause_video_label"><svg class="size-full" aria-hidden="true"><use href="#i-pause"></use></svg></button>
       </div>
 
       <div class="fans-part fans-stars text-black" role="img" aria-label="Rated 5 out of 5" data-t-attr="aria-label:home.fans.rated_5_out_of_5_label"><svg class="fans-star [--i:0]" aria-hidden="true"><use href="#i-star"></use></svg><svg class="fans-star [--i:1]" aria-hidden="true"><use href="#i-star"></use></svg><svg class="fans-star [--i:2]" aria-hidden="true"><use href="#i-star"></use></svg><svg class="fans-star [--i:3]" aria-hidden="true"><use href="#i-star"></use></svg><svg class="fans-star [--i:4]" aria-hidden="true"><use href="#i-star"></use></svg></div>
       <div class="fans-part fans-title" data-fans-arrival>
-        <h2 class="text-display-lg text-[4em] lg:text-[5.25em]" id="fans-title"><span class="sr-only" data-t="home.fans.n_14_million_fans">14 million fans</span><span aria-hidden="true" translate="no"><span class="fans-digit"><span>1</span><span class="fans-reel [--at:0s] [--dur:1.5s] [--to:11]"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span></span></span><span class="fans-digit"><span>4</span><span class="fans-reel [--at:0.1s] [--dur:1.9s] [--to:14]"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></span></span> Million fans</span></h2>
+        <h2 class="text-display-lg text-[4.125em] lg:text-[5.25em]" id="fans-title"><span class="sr-only" data-t="home.fans.n_14_million_fans">14 million fans</span><span aria-hidden="true" translate="no"><span class="fans-digit"><span>1</span><span class="fans-reel [--at:0s] [--dur:1.5s] [--to:11]"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span></span></span><span class="fans-digit"><span>4</span><span class="fans-reel [--at:0.1s] [--dur:1.9s] [--to:14]"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span></span></span> Million fans</span></h2>
       </div>
-      <p class="fans-part fans-counting"><span class="block text-[1em] leading-[1.25] lg:font-semibold lg:leading-[1.36]" data-t="home.fans.and_counting">(and counting)</span></p>
+      <p class="fans-part fans-counting"><span class="block text-[1em] leading-[1.125] font-semibold" data-t="home.fans.and_counting">(and counting)</span></p>
       <svg class="fans-part fans-squiggle text-black" aria-hidden="true"><use href="#i-squiggle-arrow"></use></svg>
       <div class="fans-part fans-body">
-        <p class="text-lg leading-[1.36] text-grey-700" data-t="home.fans.festival_lovers_light_sleepers_open_html">Festival lovers. Light sleepers. Open-office warriors. <br class="max-lg:hidden">All experiencing the Loop difference.</p>
-        <a class="btn btn-primary btn-knockout mt-7.5 lg:mt-6" href="#"><span class="roll"><span class="roll-text" data-t="home.fans.join_them">Join them</span><span class="roll-text" aria-hidden="true" data-t="home.fans.join_them">Join them</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
+        <p class="text-lg text-secondary" data-t="home.fans.festival_lovers_light_sleepers_open_html">Festival lovers. Light sleepers. Open-office warriors. <br class="max-lg:hidden">All experiencing the Loop difference.</p>
+        <a class="btn btn-primary btn-knockout mt-7" href="#"><span class="roll"><span class="roll-text" data-t="home.fans.join_them">Join them</span><span class="roll-text" aria-hidden="true" data-t="home.fans.join_them">Join them</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
       </div>
 
-      <div class="fans-part fans-video-c overflow-clip bg-grey-200" data-parallax="fans-video" data-fans-video>
+      <div class="fans-part fans-video-c overflow-clip" data-parallax="fans-video" data-fans-video data-media>
         <video class="size-full object-cover" src="assets/video/fans-eclipse.mp4" muted loop playsinline preload="none" aria-label="A Loop fan putting on the Loop Eclipse sleep mask" data-t-attr="aria-label:home.fans.a_loop_fan_putting_on_label"></video>
-        <a class="fans-pill text-black" href="#"><span class="text-[0.875em] font-semibold" translate="no">Loop Eclipse<sup class="relative -top-[0.3853em] text-[0.645em] leading-none">™</sup></span><span class="ml-auto grid size-[2em] place-items-center rounded-full bg-black text-white" aria-hidden="true"><svg class="h-[0.625em] w-[0.875em]"><use href="#i-arrow-right"></use></svg></span></a>
-        <span class="fans-chip fans-chip-on-video fans-chip-eclipse pointer-events-none"><img src="assets/img/fans-chip-eclipse.webp" alt="" width="243" height="165" loading="lazy" decoding="async"></span>
+        <a class="fans-chip fans-chip-on-video fans-chip-eclipse" href="#" aria-label="Discover Loop Eclipse" data-fans-chip data-t-attr="aria-label:home.fans.discover_loop_eclipse_label"><span class="fans-chip-plate"><span class="fans-chip-label"><span data-t="home.fans.discover">Discover</span></span><span class="fans-chip-go" aria-hidden="true"><svg class="h-[0.625em] w-[0.875em]"><use href="#i-arrow-right"></use></svg></span></span><img src="assets/img/fans-chip-eclipse.webp" alt="" width="243" height="180" loading="lazy" decoding="async"></a>
         <button class="icon-btn fans-video-toggle text-white" type="button" aria-label="Pause video" aria-pressed="false" data-fans-video-toggle data-t-attr="aria-label:home.fans.pause_video_label"><svg class="size-full" aria-hidden="true"><use href="#i-pause"></use></svg></button>
       </div>
 
       <img class="fans-part fans-time100" src="assets/img/fans-time100.webp" alt="TIME100 Companies 2026, industry leader: wellness — Loop Earplugs" width="148" height="196" loading="lazy" decoding="async" data-t-attr="alt:home.fans.time100_companies_2026_industry_leader_alt">
 
-      <figure class="fans-part fans-quote-d bg-black text-white">
-        <blockquote class="text-[1em] leading-[1.35]"><p data-t="home.fans.i_was_sceptical_at_first">I was sceptical at first, but now I don’t leave the house without them.</p></blockquote>
-        <figcaption class="mt-[0.857em] text-[0.875em] leading-[1.35] text-grey-500" data-t="home.fans.kistermorata92">@kistermorata92</figcaption>
+      <figure class="fans-part fans-quote-d bg-default text-primary" data-scheme="dark">
+        <blockquote class="text-[1em] leading-[1.375]"><p data-t="home.fans.i_was_sceptical_at_first">I was sceptical at first, but now I don’t leave the house without them.</p></blockquote>
+        <figcaption class="mt-[0.857em] text-[0.875em] leading-[1.2857] text-secondary" data-t="home.fans.kistermorata92">@kistermorata92</figcaption>
       </figure>
-      <div class="fans-part fans-photo-d overflow-clip bg-grey-200" data-parallax="fans-image">
-        <img class="size-full object-cover" src="assets/img/fans-photo-d.webp" alt="A Loop fan wearing Loop Switch earplugs in green" width="442" height="560" loading="lazy" decoding="async" data-t-attr="alt:home.fans.a_loop_fan_wearing_loop_switch_earplugs_in_alt">
-        <span class="fans-chip fans-chip-on-photo"><img src="assets/img/fans-chip-switch.webp" alt="" width="186" height="165" loading="lazy" decoding="async"></span>
+      <div class="fans-part fans-photo-d overflow-clip" data-parallax="fans-image" data-media>
+        <img class="size-full object-cover" src="assets/img/fans-photo-d.webp" alt="A Loop fan wearing Loop Switch earplugs in green" width="698" height="800" loading="lazy" decoding="async" data-t-attr="alt:home.fans.a_loop_fan_wearing_loop_switch_earplugs_in_alt">
+        <a class="fans-chip fans-chip-on-photo" href="#" aria-label="Discover Loop Switch" data-fans-chip data-t-attr="aria-label:home.fans.discover_loop_switch_label"><span class="fans-chip-plate"><span class="fans-chip-label"><span data-t="home.fans.discover">Discover</span></span><span class="fans-chip-go" aria-hidden="true"><svg class="h-[0.625em] w-[0.875em]"><use href="#i-arrow-right"></use></svg></span></span><img src="assets/img/fans-chip-switch.webp" alt="" width="186" height="180" loading="lazy" decoding="async"></a>
       </div>
     </div>
   </section>
@@ -799,7 +874,10 @@
        screen to its last as it leaves (src/js/htw.js). One pause control on
        each layout stops both.
          below md   the 320 artboard's stack: heading, tile, copy, button. No
-                    portrait, by request; the control sits on the tile.
+                    portrait, by request. Once the column is wider than the
+                    tile's 458 the tile centres in it, and the control stays at
+                    the column's right, 16 in, as it is at 320 (the tile's white
+                    has no edge, so a control at its corner would float).
          md         the tile and the copy side by side under the heading.
          lg         the 1512 artboard: two halves. The left one is a drawing in
                     its own width (the heading and tile in cqw of it) with the
@@ -812,7 +890,7 @@
        Videos by build/make-home-htw-media.py. Figma: desktop 100:3835,
        mobile 113:5120.
        ===================================================================== -->
-  <section id="htw" class="site-container mt-20 lg:mt-30 lg:grid lg:grid-cols-2 lg:gap-x-5" aria-labelledby="htw-title" data-htw>
+  <section id="htw" class="site-container pb-20 lg:grid lg:grid-cols-2 lg:gap-x-6 lg:pb-32" aria-labelledby="htw-title" data-htw>
     <div class="@container md:grid md:grid-cols-2 md:gap-x-5 lg:block">
       <h2 class="text-display-sm text-[length:min(17.143cqw,5.25rem)] md:col-span-full lg:text-[length:min(12.034cqw,5.25rem)]" id="htw-title" data-t="home.htw.designed_for_comfort_built_for_html">Designed for comfort.<br class="max-lg:hidden"> Built for living loud.</h2>
 
@@ -820,25 +898,27 @@
            Browsers draw the video's white a shade under the page's (254 through a canvas, and
            fainter still on screen), so it is lifted 3%, which puts the ground on white and moves
            the render's darks by less than 2%. -->
-      <div class="relative aspect-square w-full max-w-[28.625rem] overflow-clip bg-white lg:ml-[17.192%] lg:w-[65.616%] lg:max-w-none">
-        <video class="absolute inset-0 size-full object-cover brightness-[1.03]" src="assets/video/htw-explode.mp4" poster="assets/img/htw-explode-poster.webp" muted loop playsinline preload="none" aria-hidden="true" data-htw-loop></video>
-        <button class="icon-btn absolute right-2.5 bottom-2.5 text-black lg:hidden" type="button" aria-pressed="false" data-htw-toggle>
+      <div class="relative mt-1.5 md:max-w-[28.625rem] lg:mt-0 lg:max-w-none">
+        <div class="relative mx-auto aspect-square w-full max-w-[28.625rem] overflow-clip bg-default md:mx-0 lg:ml-[17.241%] lg:w-[65.517%] lg:max-w-none">
+          <video class="absolute inset-0 size-full object-cover brightness-[1.03]" src="assets/video/htw-explode.mp4" poster="assets/img/htw-explode-poster.webp" muted loop playsinline preload="none" aria-hidden="true" data-htw-loop></video>
+        </div>
+        <button class="icon-btn absolute right-4 bottom-4 text-icon-primary lg:hidden" type="button" aria-pressed="false" data-htw-toggle>
           <span class="sr-only" data-t="home.htw.pause_the_animation">Pause the animation</span>
           <svg aria-hidden="true"><use href="#i-pause"></use></svg>
         </button>
       </div>
 
-      <div class="relative md:self-end lg:mt-[min(0px,max(-8.739cqw,calc((37.5rem_-_100cqw)_*_0.62)))] lg:ml-auto lg:w-[22.4375rem] lg:max-w-full">
-        <h3 class="text-xl font-semibold" data-t="home.htw.how_our_earplugs_work">How our earplugs work</h3>
-        <p class="mt-3 text-lg leading-[1.36] text-grey-700" data-t="home.htw.some_loop_earplugs_muffle_all">Some Loop earplugs muffle all noise. Others filter and reduce certain sounds. So you still hear clearly, just a little less loud.</p>
-        <p class="mt-3.5 text-lg leading-[1.36] text-grey-700" data-t="home.htw.all_charge_free_reusable_and">All charge-free, reusable, and built to last. Instant volume control when you need it.</p>
-        <a class="btn btn-primary btn-knockout mt-6" href="#"><span class="roll"><span class="roll-text" data-t="home.htw.find_my_match">Find my match</span><span class="roll-text" aria-hidden="true" data-t="home.htw.find_my_match">Find my match</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
+      <div class="relative mt-1.5 md:self-end lg:mt-[min(0px,max(-10.172cqw,calc((37.5rem_-_100cqw)_*_0.7375)))] lg:ml-auto lg:w-[22.5rem] lg:max-w-full">
+        <h3 class="text-button-primary-lg" data-t="home.htw.how_our_earplugs_work">How our earplugs work</h3>
+        <p class="mt-3 text-lg text-secondary" data-t="home.htw.some_loop_earplugs_muffle_all">Some Loop earplugs muffle all noise. Others filter and reduce certain sounds. So you still hear clearly, just a little less loud.</p>
+        <p class="mt-6 text-lg text-secondary" data-t="home.htw.all_charge_free_reusable_and">All charge-free, reusable, and built to last. Instant volume control when you need it.</p>
+        <a class="btn btn-primary btn-knockout mt-7" href="#"><span class="roll"><span class="roll-text" data-t="home.htw.find_my_match">Find my match</span><span class="roll-text" aria-hidden="true" data-t="home.htw.find_my_match">Find my match</span></span><span class="knockout"><svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span></a>
       </div>
     </div>
 
-    <div class="relative hidden overflow-clip rounded-lg bg-grey-200 lg:block">
+    <div class="relative hidden overflow-clip rounded-lg lg:block" data-media>
       <video class="absolute inset-0 size-full object-cover" src="assets/video/htw-lady.mp4" poster="assets/img/htw-lady-poster.webp" muted playsinline preload="none" aria-hidden="true" data-htw-scrub></video>
-      <button class="icon-btn absolute right-3.5 bottom-3.5 text-white" type="button" aria-pressed="false" data-htw-toggle>
+      <button class="icon-btn absolute right-4 bottom-4 text-white" type="button" aria-pressed="false" data-htw-toggle>
         <span class="sr-only" data-t="home.htw.pause_the_animation">Pause the animation</span>
         <svg aria-hidden="true"><use href="#i-pause"></use></svg>
       </button>
@@ -848,38 +928,43 @@
 </main>
 
 <!-- partial:footer:start — GENERATED from src/partials/footer.html by build/include-partials.py (npm run partials); edit the partial, not this copy. -->
-<!-- A dark card on the page's plate inset with "Your life, your volume" pinned behind it.
-     The reveal is position: sticky, not script: the wordmark follows the card in the flow
-     but sticks to the bottom of the screen a layer below it, so once the card's foot rises
-     past the bottom edge it slides up off the wordmark. Below lg: logo, the four link groups
-     as accordions (src/js/footer.js), the sign-up, then the bar. From lg the sign-up sits
-     left of a rule with the links to its right — as many 155px-or-wider columns as the side
-     holds, sharing its width (two at 1024, three by about 1150), four abreast from 1300, the
-     first width the drawn columns fit at a 40 gap, which opens to the drawn 85 by 1512 — and
-     the bar runs currency / copyright / payments across the foot. -->
-<footer id="footer" class="site-container mt-14 px-0 lg:mt-30 lg:px-5" data-footer>
-  <div class="relative z-1 rounded-lg bg-black px-5 pt-10 pb-7.5 text-white lg:px-7 lg:pt-8 lg:pb-4.25">
-    <a class="mx-auto block w-fit text-white" href="index.html" aria-label="Loop home" data-t-attr="aria-label:footer.loop_home_label">
-      <svg class="hidden h-11 w-[88.493px] lg:block" aria-hidden="true"><use href="#i-logo"></use></svg>
-      <svg class="h-8 w-[66px] lg:hidden" aria-hidden="true"><use href="#i-logo-sm"></use></svg>
+<!-- Echo's global footer (xxl-global-footer 1030:34835, xs 1030:34834; the sign-up's
+     states 1022:33701). A card in Echo's dark mode (data-scheme="dark": background/default,
+     border/subtle rules, text/primary and text/secondary) on the page's plate, inset 20
+     from lg, with "Your life, your volume" pinned behind it. The reveal is position: sticky,
+     not script: the wordmark follows the card in the flow but sticks to the bottom of the
+     screen a layer below it, so once the card's foot rises past the bottom edge it slides
+     up off the wordmark. Every gap is a step on Echo's space scale (Tailwind's): 32 over
+     and under the logo, 36 / 40 into the sign-up, 28 between its parts and 14 under the
+     field. Below lg: logo, the four link groups as accordions (src/js/footer.js) with the
+     FAQ's 32px plus, the sign-up, then the bar. From lg the sign-up sits left of a rule
+     with the links to its right — as many 155px-or-wider columns as the side holds,
+     sharing its width (two at 1024, three by about 1150), then from 1340, the first width
+     four drawn 155 columns fit at a 40 gap, four abreast, the gap opening to the drawn 80
+     by 1512 — and the bar runs currency / copyright / payments across the foot. No top
+     margin: the page's last section carries its foot (80 / 128 on the harmonised pages). -->
+<footer id="footer" class="site-container px-0 lg:px-5" data-footer>
+  <div class="relative z-1 rounded-lg bg-default px-5 pt-8 pb-8 text-primary lg:px-7 lg:pb-5" data-scheme="dark">
+    <a class="mx-auto block w-fit" href="index.html" aria-label="Loop home" data-t-attr="aria-label:footer.loop_home_label">
+      <!-- overflow-visible, as on the header's: the ink runs to the viewBox's edge, and centred
+           at a fractional x the clip shaved the last anti-aliased column off the "p". -->
+      <svg class="hidden h-11 w-[88.493px] overflow-visible lg:block" aria-hidden="true"><use href="#i-logo"></use></svg>
+      <svg class="h-8 w-[66px] overflow-visible lg:hidden" aria-hidden="true"><use href="#i-logo-sm"></use></svg>
     </a>
 
-    <div class="mt-9.75 border-y-2 border-white/10 lg:mt-8 lg:grid lg:grid-cols-[max(445px,34.25%)_1fr]">
-      <!-- The tracks from 1300 hold the drawn widths as minimums, so the columns land where
-           they are drawn even now the product names are a couple of characters shorter. -->
-      <nav class="lg:col-start-2 lg:row-start-1 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(155px,1fr))] lg:content-start lg:gap-10 lg:border-l-2 lg:border-white/10 lg:pt-12 lg:pl-14.5 min-[81.25rem]:grid-cols-[repeat(4,minmax(min-content,max-content))] min-[81.25rem]:gap-x-[clamp(2.5rem,-14.746rem+21.226vw,5.3125rem)]" aria-label="Footer" data-t-attr="aria-label:footer.footer_label">
-          <div class="border-b-2 border-white/10 lg:border-0 min-[81.25rem]:min-w-[155px]" data-footer-group>
+    <div class="mt-8 border-y-2 border-subtle lg:grid lg:grid-cols-[max(445px,34.25%)_1fr]">
+      <!-- From 1340 the four columns hold the drawn 155 and the gap takes what the side has
+           left over three, up to the drawn 80. -->
+      <nav class="lg:col-start-2 lg:row-start-1 lg:grid lg:grid-cols-[repeat(auto-fit,minmax(155px,1fr))] lg:content-start lg:gap-10 lg:border-l-2 lg:border-subtle lg:pt-12 lg:pl-14 min-[83.75rem]:grid-cols-[repeat(4,155px)] min-[83.75rem]:gap-x-[min(5rem,(100%-38.75rem)/3)]" aria-label="Footer" data-t-attr="aria-label:footer.footer_label">
+          <div class="border-b-2 border-subtle lg:border-0" data-footer-group>
             <h2>
-              <button class="flex w-full items-center justify-between py-4.25 text-start text-lg font-semibold focus-visible:outline-white lg:cursor-default lg:p-0 lg:text-base lg:font-bold" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-shop">
+              <button class="flex w-full items-center justify-between py-4 text-start text-form-label lg:cursor-default lg:p-0 lg:text-nav-primary" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-shop">
                 <span data-t="footer.shop.heading">Shop</span>
-                <span class="disclosure-icon size-4 lg:hidden" aria-hidden="true">
-                  <svg><use href="#i-plus-sm"></use></svg>
-                  <svg><use href="#i-minus-sm"></use></svg>
-                </span>
+                <span class="disclosure-fold lg:hidden" aria-hidden="true"><svg><use href="#i-disclosure-bar"></use></svg><svg><use href="#i-disclosure-stem"></use></svg></span>
               </button>
             </h2>
             <div class="overflow-hidden" data-footer-panel id="ft-shop">
-              <ul class="pb-4.25 text-base leading-[31px] [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-grey-500 [&_a]:transition-colors [&_a:hover]:text-white [&_a:focus-visible]:text-white lg:mt-3.5 lg:p-0">
+              <ul class="flex flex-col gap-2 pb-4 text-base [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-secondary [&_a]:transition-colors [&_a:hover]:text-primary [&_a:focus-visible]:text-primary lg:mt-4 lg:p-0">
               <li><a href="#" data-t="footer.shop.best_sellers">Best Sellers</a></li>
               <li><a href="#" data-t="footer.shop.loop_dream">Loop Dream</a></li>
               <li><a href="#" data-t="footer.shop.loop_switch">Loop Switch</a></li>
@@ -895,18 +980,15 @@
               </ul>
             </div>
           </div>
-          <div class="border-b-2 border-white/10 lg:border-0 min-[81.25rem]:min-w-[155px]" data-footer-group>
+          <div class="border-b-2 border-subtle lg:border-0" data-footer-group>
             <h2>
-              <button class="flex w-full items-center justify-between py-4.25 text-start text-lg font-semibold focus-visible:outline-white lg:cursor-default lg:p-0 lg:text-base lg:font-bold" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-care">
+              <button class="flex w-full items-center justify-between py-4 text-start text-form-label lg:cursor-default lg:p-0 lg:text-nav-primary" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-care">
                 <span data-t="footer.care.heading">Customer Care</span>
-                <span class="disclosure-icon size-4 lg:hidden" aria-hidden="true">
-                  <svg><use href="#i-plus-sm"></use></svg>
-                  <svg><use href="#i-minus-sm"></use></svg>
-                </span>
+                <span class="disclosure-fold lg:hidden" aria-hidden="true"><svg><use href="#i-disclosure-bar"></use></svg><svg><use href="#i-disclosure-stem"></use></svg></span>
               </button>
             </h2>
             <div class="overflow-hidden" data-footer-panel id="ft-care">
-              <ul class="pb-4.25 text-base leading-[31px] [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-grey-500 [&_a]:transition-colors [&_a:hover]:text-white [&_a:focus-visible]:text-white lg:mt-3.5 lg:p-0">
+              <ul class="flex flex-col gap-2 pb-4 text-base [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-secondary [&_a]:transition-colors [&_a:hover]:text-primary [&_a:focus-visible]:text-primary lg:mt-4 lg:p-0">
               <li><a href="#" data-t="footer.care.faq">FAQ</a></li>
               <li><a href="#" data-t="footer.care.shipping">Shipping</a></li>
               <li><a href="#" data-t="footer.care.returns">Returns</a></li>
@@ -922,18 +1004,15 @@
               </ul>
             </div>
           </div>
-          <div class="border-b-2 border-white/10 lg:border-0 min-[81.25rem]:min-w-[113px]" data-footer-group>
+          <div class="border-b-2 border-subtle lg:border-0" data-footer-group>
             <h2>
-              <button class="flex w-full items-center justify-between py-4.25 text-start text-lg font-semibold focus-visible:outline-white lg:cursor-default lg:p-0 lg:text-base lg:font-bold" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-company">
+              <button class="flex w-full items-center justify-between py-4 text-start text-form-label lg:cursor-default lg:p-0 lg:text-nav-primary" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-company">
                 <span data-t="footer.company.heading">Company</span>
-                <span class="disclosure-icon size-4 lg:hidden" aria-hidden="true">
-                  <svg><use href="#i-plus-sm"></use></svg>
-                  <svg><use href="#i-minus-sm"></use></svg>
-                </span>
+                <span class="disclosure-fold lg:hidden" aria-hidden="true"><svg><use href="#i-disclosure-bar"></use></svg><svg><use href="#i-disclosure-stem"></use></svg></span>
               </button>
             </h2>
             <div class="overflow-hidden" data-footer-panel id="ft-company">
-              <ul class="pb-4.25 text-base leading-[31px] [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-grey-500 [&_a]:transition-colors [&_a:hover]:text-white [&_a:focus-visible]:text-white lg:mt-3.5 lg:p-0">
+              <ul class="flex flex-col gap-2 pb-4 text-base [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-secondary [&_a]:transition-colors [&_a:hover]:text-primary [&_a:focus-visible]:text-primary lg:mt-4 lg:p-0">
               <li><a href="#" data-t="footer.company.careers">Careers</a></li>
               <li><a href="#" data-t="footer.company.loop_rewards">Loop Rewards</a></li>
               <li><a href="#" data-t="footer.company.loop_referrals">Loop Referrals</a></li>
@@ -945,18 +1024,15 @@
               </ul>
             </div>
           </div>
-          <div class="border-b-2 border-white/10 lg:border-0 min-[81.25rem]:min-w-[161px]" data-footer-group>
+          <div class="border-b-2 border-subtle lg:border-0" data-footer-group>
             <h2>
-              <button class="flex w-full items-center justify-between py-4.25 text-start text-lg font-semibold focus-visible:outline-white lg:cursor-default lg:p-0 lg:text-base lg:font-bold" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-policies">
+              <button class="flex w-full items-center justify-between py-4 text-start text-form-label lg:cursor-default lg:p-0 lg:text-nav-primary" data-footer-toggle type="button" aria-expanded="true" aria-controls="ft-policies">
                 <span data-t="footer.policies.heading">Policies</span>
-                <span class="disclosure-icon size-4 lg:hidden" aria-hidden="true">
-                  <svg><use href="#i-plus-sm"></use></svg>
-                  <svg><use href="#i-minus-sm"></use></svg>
-                </span>
+                <span class="disclosure-fold lg:hidden" aria-hidden="true"><svg><use href="#i-disclosure-bar"></use></svg><svg><use href="#i-disclosure-stem"></use></svg></span>
               </button>
             </h2>
             <div class="overflow-hidden" data-footer-panel id="ft-policies">
-              <ul class="pb-4.25 text-base leading-[31px] [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-grey-500 [&_a]:transition-colors [&_a:hover]:text-white [&_a:focus-visible]:text-white lg:mt-3.5 lg:p-0">
+              <ul class="flex flex-col gap-2 pb-4 text-base [&_a]:hyphens-auto [&_a]:[hyphenate-limit-chars:16_6_6] [&_a]:text-secondary [&_a]:transition-colors [&_a:hover]:text-primary [&_a:focus-visible]:text-primary lg:mt-4 lg:p-0">
               <li><a href="#" data-t="footer.policies.legal">Legal</a></li>
               <li><a href="#" data-t="footer.policies.privacy_policy">Privacy Policy</a></li>
               <li><a href="#" data-t="footer.policies.cookie_consent">Cookie consent</a></li>
@@ -967,49 +1043,62 @@
           </div>
       </nav>
 
-      <div class="mx-auto w-full max-w-[clamp(17.5rem,17.5rem+(100vw-30rem)*1.5,36rem)] pt-8 pb-10.25 text-center lg:col-start-1 lg:row-start-1 lg:mx-0 lg:max-w-none lg:px-[calc((100%-405px)/2)] lg:pb-15">
+      <div class="mx-auto w-full max-w-[36rem] pt-10 pb-9 text-center lg:col-start-1 lg:row-start-1 lg:mx-0 lg:max-w-none lg:px-[calc((100%-405px)/2)] lg:pt-9 lg:pb-11">
         <p class="@container relative mx-auto aspect-[405/159] max-w-[25.3125rem] text-start text-display-xs/md" role="img" aria-label="Stay in the loop" data-t-attr="aria-label:footer.stay_in_the_loop_label">
           <span class="absolute top-[11.32%] left-0 z-1 whitespace-nowrap" aria-hidden="true"><span data-fit data-fit-group="lockup" class="[--fit-space:26cqi] data-fit-floor:leading-[0.9]" data-t="footer.stay_in">Stay in</span></span>
           <img class="absolute top-0 left-[25.43%] h-auto w-[42.47%]" src="assets/img/footer-lockup.webp" alt="" width="516" height="477" loading="lazy" decoding="async">
           <span class="absolute top-[58.49%] right-0 z-1 whitespace-nowrap" aria-hidden="true"><span data-fit data-fit-group="lockup" class="text-end [--fit-space:34cqi] data-fit-floor:leading-[0.9]" data-t="footer.the_loop">the loop</span></span>
         </p>
-        <p class="mt-8.25 text-base min-[30.0625rem]:max-lg:text-balance lg:mt-8 lg:text-lg" data-t="footer.sign_up_to_stay_in">Sign up to stay in the loop for new drops, restocks, and occasional treats. No noise.</p>
-        <!-- Focusable and typeable by request; nothing submits. -->
-        <div class="mt-6 flex h-15.5 items-center rounded-sm bg-white focus-within:outline-2 focus-within:outline-offset-3 focus-within:outline-white lg:h-16">
-          <label class="sr-only" for="ft-email" data-t="footer.email_address">Email address</label>
-          <input class="h-full min-w-0 flex-1 rounded-[inherit] border-0 bg-transparent pr-3 pl-4.25 text-lg leading-tight font-semibold text-black outline-none placeholder:text-black/30 lg:pl-5.5" id="ft-email" type="email" placeholder="Email address" autocomplete="email" data-t-attr="placeholder:footer.email_address_placeholder">
-          <button class="mr-2.75 grid size-10 flex-none place-items-center rounded-full bg-black text-white lg:mr-2.5 lg:size-11" type="button" aria-label="Sign up" data-t-attr="aria-label:footer.sign_up_label">
-            <svg class="h-3 w-4" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-          </button>
+        <p class="mt-5 text-lg min-[30.0625rem]:max-lg:text-balance lg:mt-7" data-t="footer.sign_up_to_stay_in">Sign up to stay in the loop for new drops, restocks, and occasional treats. No noise.</p>
+        <!-- A stand-in: it validates and answers, and sends nothing (src/js/footer.js,
+             components/signup.css). No <form>, so nothing can submit the address anywhere. -->
+        <div class="mt-7" data-signup>
+          <div class="signup-field">
+            <div class="contents" data-scheme="light">
+              <label class="signup-label text-form-label" for="ft-email" data-t="footer.email_address">Email address</label>
+              <input class="signup-input text-form-label" id="ft-email" type="email" placeholder=" " autocomplete="email" autocapitalize="off" spellcheck="false" enterkeyhint="send" aria-describedby="ft-signup-note">
+            </div>
+            <button class="signup-go" type="button" aria-label="Sign up" data-t-attr="aria-label:footer.sign_up_label" data-signup-send>
+              <svg class="signup-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+              <svg class="signup-check" aria-hidden="true"><use href="#i-check"></use></svg>
+            </button>
+          </div>
+          <div class="signup-status mt-3.5" aria-live="polite">
+            <p class="signup-note mx-auto max-w-84 text-xs text-secondary min-[30.0625rem]:max-lg:text-balance [&_a]:underline [&_a]:transition-colors [&_a:hover]:text-primary" id="ft-signup-note" data-t="footer.by_signing_up_you_agree_html">By signing up you agree to get marketing communications from Loop. <a href="#">Unsubscribe</a> anytime.</p>
+            <p class="signup-message text-lg text-balance text-(--border-color-success)" data-signup-message="success"><svg class="signup-mark" aria-hidden="true"><use href="#i-status-success"></use></svg><span data-t="footer.youre_in_check_your_inbox">You’re in. Check your inbox.</span></p>
+            <p class="signup-message text-lg text-error-red" id="ft-signup-error" data-signup-message="error"><span class="block"><svg class="signup-mark" aria-hidden="true"><use href="#i-status-error"></use></svg><span data-t="footer.not_a_valid_email">Not a valid email.</span></span><span class="block text-balance" data-t="footer.try_something_like_name">Try something like name@example.com</span></p>
+          </div>
         </div>
-        <p class="mt-4.5 text-xs text-grey-500 min-[30.0625rem]:max-lg:text-balance lg:mt-3.5 lg:leading-none" data-t="footer.by_signing_up_you_agree">By signing up you agree to get marketing communications from Loop. Unsubscribe anytime.</p>
-        <ul class="mx-auto mt-10 flex w-[190px] justify-between lg:mt-9.75" aria-label="Loop on social media" data-t-attr="aria-label:footer.loop_on_social_media_label">
-          <li><a class="grid size-6 place-items-center text-white" aria-label="Loop on X" data-t-attr="aria-label:footer.loop_on_x_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-x"></use></svg></a></li>
-          <li><a class="grid size-6 place-items-center text-white [&>svg]:size-4.5" aria-label="Loop on Instagram" data-t-attr="aria-label:footer.loop_on_instagram_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-instagram"></use></svg></a></li>
-          <li><a class="grid size-6 place-items-center text-white [&>svg]:h-4 [&>svg]:w-6" aria-label="Loop on YouTube" data-t-attr="aria-label:footer.loop_on_youtube_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-youtube"></use></svg></a></li>
-          <li><a class="grid size-6 place-items-center text-white" aria-label="Loop on Facebook" data-t-attr="aria-label:footer.loop_on_facebook_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-facebook"></use></svg></a></li>
-          <li><a class="grid size-6 place-items-center text-white" aria-label="Loop on TikTok" data-t-attr="aria-label:footer.loop_on_tiktok_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-tiktok"></use></svg></a></li>
+        <!-- Six 24 boxes at a 41.5 pitch (the five drawn at 1512 spread over 190, and Reddit 41
+             before X, as drawn), centred under the field. -->
+        <ul class="mx-auto mt-7 flex w-[231.5px] justify-between" aria-label="Loop on social media" data-t-attr="aria-label:footer.loop_on_social_media_label">
+          <li><a class="grid size-6 place-items-center [&>svg]:h-4.5 [&>svg]:w-[21px]" href="https://www.reddit.com/r/LoopEarplugs/" target="_blank" rel="noopener" aria-label="Loop on Reddit" data-t-attr="aria-label:footer.loop_on_reddit_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-reddit"></use></svg></a></li>
+          <li><a class="grid size-6 place-items-center" href="https://x.com/loopearplugs" target="_blank" rel="noopener" aria-label="Loop on X" data-t-attr="aria-label:footer.loop_on_x_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-x"></use></svg></a></li>
+          <li><a class="grid size-6 place-items-center [&>svg]:size-4.5" href="https://www.instagram.com/loopearplugs/" target="_blank" rel="noopener" aria-label="Loop on Instagram" data-t-attr="aria-label:footer.loop_on_instagram_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-instagram"></use></svg></a></li>
+          <li><a class="grid size-6 place-items-center [&>svg]:h-4 [&>svg]:w-6" aria-label="Loop on YouTube" data-t-attr="aria-label:footer.loop_on_youtube_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-youtube"></use></svg></a></li>
+          <li><a class="grid size-6 place-items-center" href="https://www.facebook.com/loopearplugs" target="_blank" rel="noopener" aria-label="Loop on Facebook" data-t-attr="aria-label:footer.loop_on_facebook_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-facebook"></use></svg></a></li>
+          <li><a class="grid size-6 place-items-center" href="https://www.tiktok.com/@loopearplugs" target="_blank" rel="noopener" aria-label="Loop on TikTok" data-t-attr="aria-label:footer.loop_on_tiktok_label"><svg class="size-6" aria-hidden="true"><use href="#i-social-tiktok"></use></svg></a></li>
         </ul>
       </div>
     </div>
 
     <!-- A size container, so the payment marks can go to one line when the bar, not the
          window, has room for them. -->
-    <div class="@container/ft-bar flex flex-col items-center pt-5 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:pt-3">
+    <div class="@container/ft-bar flex flex-col items-center pt-7 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:items-center lg:pt-5">
       <!-- Drawn as a picker; by request it doesn't open. -->
-      <button class="inline-flex items-center gap-4 text-base leading-[31px] text-white lg:justify-self-start" type="button">
+      <button class="inline-flex items-center gap-3.5 text-nav-primary lg:justify-self-start" type="button">
         <img class="h-4.5 w-[25px]" src="assets/img/footer-flag.webp" alt="" width="75" height="54">
         <span data-t="footer.united_kingdom_gbp">United Kingdom (GBP £)</span>
-        <svg class="ml-0.75 h-[7px] w-[11px]" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+        <svg class="ml-1.5 h-[7px] w-[11px]" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
       </button>
-      <p class="order-2 mt-8 text-base text-grey-500 lg:order-none lg:m-0 lg:text-xs" data-t="footer.copyright_loop_bv_2026">Copyright© Loop BV 2026</p>
+      <p class="order-2 mt-8 text-xs text-secondary lg:order-none lg:m-0" data-t="footer.copyright_loop_bv_2026">Copyright© Loop BV 2026</p>
       <!-- While the bar is stacked the marks hold together as a lockup: centred, at the gap
            they have at 340 (16.4 drawn, 16 on the scale), closing up only when the bar is
            narrower than that — never spreading across a wide bar. Two rows of six, and one
            row of twelve once the bar has the ~592px they need (a container query on the bar).
            The second term is the bar's width less six 23px-tall marks (76/48 each), over the
            five gaps between them. -->
-      <ul class="order-1 mt-10 grid w-full grid-cols-[repeat(6,auto)] justify-center gap-x-[min(1rem,(100%_-_6*23px*76/48)/5)] gap-y-3 @min-[37.5rem]/ft-bar:grid-cols-[repeat(12,auto)] lg:order-none lg:m-0 lg:flex lg:w-auto lg:justify-self-end lg:gap-[10.3px]" aria-label="Payment methods" data-t-attr="aria-label:footer.payment_methods_label">
+      <ul class="order-1 mt-10 grid w-full grid-cols-[repeat(6,auto)] justify-center gap-x-[min(1rem,(100%_-_6*23px*76/48)/5)] gap-y-3 @min-[37.5rem]/ft-bar:grid-cols-[repeat(12,auto)] lg:order-none lg:m-0 lg:flex lg:w-auto lg:justify-self-end lg:gap-2.5" aria-label="Payment methods" data-t-attr="aria-label:footer.payment_methods_label">
         <li><img class="h-5.75 w-auto lg:h-4.5" src="assets/img/footer-pay-amex.webp" alt="American Express" width="76" height="48" loading="lazy" decoding="async" data-t-attr="alt:footer.american_express_alt"></li>
         <li><img class="h-5.75 w-auto lg:h-4.5" src="assets/img/footer-pay-apple-pay.webp" alt="Apple Pay" width="76" height="48" loading="lazy" decoding="async" data-t-attr="alt:footer.apple_pay_alt"></li>
         <li><img class="h-5.75 w-auto lg:h-4.5" src="assets/img/footer-pay-bancontact.webp" alt="Bancontact" width="76" height="48" loading="lazy" decoding="async" data-t-attr="alt:footer.bancontact_alt"></li>
@@ -1026,10 +1115,10 @@
     </div>
   </div>
 
-  <div class="sticky bottom-0 z-0 mt-4 lg:mt-6">
+  <div class="sticky bottom-0 z-0 mt-4 pb-2.5 lg:mt-6 lg:pb-1">
     <picture>
       <source media="(min-width: 600px)" srcset="assets/img/footer-wordmark-wide.svg">
-      <img class="mx-auto block h-auto w-[93.19%] sm:w-[99.66%]" src="assets/img/footer-wordmark-stacked.svg" alt="Your life, your volume" width="298" height="156" loading="lazy" decoding="async" data-t-attr="alt:footer.your_life_your_volume_alt">
+      <img class="mx-auto block h-auto w-[93.75%] sm:w-[99.66%]" src="assets/img/footer-wordmark-stacked.svg" alt="Your life, your volume" width="298" height="156" loading="lazy" decoding="async" data-t-attr="alt:footer.your_life_your_volume_alt">
     </picture>
   </div>
 </footer>
@@ -1038,17 +1127,19 @@
 <script src="src/js/btn-product.js?v=061f89d4" defer></script>
 <script src="src/js/hero-intro.js?v=bdaa3120" defer></script>
 <script src="src/js/hero-scroll.js?v=52eeff3e" defer></script>
-<script src="src/js/earplug-drift.js?v=79b85ec4" defer></script>
-<script src="src/js/product-options.js?v=178696f2" defer></script>
-<script src="src/js/slider-progress.js?v=fe033258" defer></script>
+<script src="src/js/earplug-drift.js?v=cdcc786f" defer></script>
+<script src="src/js/product-options.js?v=00388d1b" defer></script>
+<script src="src/js/slider-progress.js?v=20a2e0b8" defer></script>
 <script src="src/js/scenarios-reveal.js?v=e3829d5d" defer></script>
 <script src="src/js/essentials.js?v=45356b93" defer></script>
 <script src="src/js/hover-video.js?v=b51bc562" defer></script>
-<script src="src/js/parallax.js?v=573a7142" defer></script>
-<script src="src/js/fans.js?v=45ee5071" defer></script>
+<script src="src/js/parallax.js?v=53ddba14" defer></script>
+<script src="src/js/fans.js?v=4e8f61b6" defer></script>
 <script src="src/js/htw.js?v=7497a030" defer></script>
-<script src="src/js/footer.js?v=34683287" defer></script>
+<script src="src/js/footer.js?v=7e6765be" defer></script>
+<script src="src/js/announcement.js?v=59ba9a02" defer></script>
 <script src="src/js/icon-motion.js?v=3dab01b3" defer></script>
 <script src="src/js/fit-text.js?v=c6c3ff1f" defer></script>
+<script src="src/js/media-ghost.js?v=18d5db84" defer></script>
 </body>
 </html>
