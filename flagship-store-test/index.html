@@ -43,6 +43,26 @@ section[hidden]{display:none}
 .pages span{color:var(--muted);font-size:14px}
 
 .proto{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:40px;align-items:start}
+
+/* On a wide screen the page becomes a fixed-height shell: the header and the phone
+   stay put while the two side columns scroll on their own. */
+@media (min-width:901px){
+  html,body{height:100%}
+  body{display:flex;flex-direction:column;overflow:hidden}
+  header{flex:none}
+  main{flex:1;min-height:0;overflow-y:auto;padding-bottom:24px}
+  main > section:not([hidden]){height:100%;min-height:0}
+  main > section#intro{height:auto}
+  .proto{height:100%;min-height:0;align-items:stretch}
+  .proto > .side,.proto > .testpanel{overflow-y:auto;min-height:0;
+    padding-right:14px;scrollbar-gutter:stable;
+    scrollbar-width:thin;scrollbar-color:var(--mid) transparent}
+  .proto > .side::-webkit-scrollbar,.proto > .testpanel::-webkit-scrollbar{width:8px}
+  .proto > .side::-webkit-scrollbar-thumb,.proto > .testpanel::-webkit-scrollbar-thumb{
+    background:var(--mid);border-radius:8px}
+  .proto > .phone{align-self:center}
+  .proto > .testpanel{position:static;top:auto}
+}
 .side{padding-top:8px}
 .side h2{font-size:14px;font-weight:600;color:var(--muted);margin:0 0 10px}
 .side h2.sechead{font-size:17px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;
