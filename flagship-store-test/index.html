@@ -355,9 +355,40 @@ section[hidden]{display:none}
   .side.right{order:3}
   .phone{--sw:min(clamp(240px,70vw,340px), calc(72vh / var(--body-ratio)))}
 }
+
+/* Password gate. Note: this is a client-side deterrent on a public host, not
+   real access control — see the note in the README. */
+html.locked body > header,html.locked body > main{visibility:hidden}
+#gate{position:fixed;inset:0;z-index:999;display:none;place-items:center;
+  background:var(--bg);padding:24px}
+html.locked #gate{display:grid}
+.gate-card{width:100%;max-width:360px;text-align:left}
+.gate-card h1{font:400 clamp(34px,6vw,54px)/.9 Anton,Impact,sans-serif;text-transform:uppercase;
+  margin:0 0 10px;letter-spacing:0;color:var(--ink)}
+.gate-card p{margin:0 0 20px;font-size:15px;color:var(--muted)}
+.gate-row{display:flex;gap:8px}
+#gate input{flex:1;min-width:0;font:inherit;font-size:15px;padding:12px 14px;
+  border:1px solid var(--mid);background:var(--panel);color:var(--ink);border-radius:0}
+#gate input:focus{outline:2px solid var(--violet);outline-offset:-1px}
+#gate button{font:inherit;font-weight:600;font-size:15px;padding:12px 20px;border:0;cursor:pointer;
+  background:var(--ink);color:var(--bg);border-radius:0}
+#gate button:hover{opacity:.88}
+.gate-err{margin:12px 0 0;font-size:14px;color:#B3234B;min-height:1.2em}
 </style>
 </head>
 <body>
+<div id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+  <div class="gate-card">
+    <h1 id="gate-title">Flagship test results</h1>
+    <p>This page is for the Loop team. Enter the password to continue.</p>
+    <div class="gate-row">
+      <input id="gate-pw" type="password" autocomplete="current-password" aria-label="Password" placeholder="Password">
+      <button id="gate-go" type="button">Enter</button>
+    </div>
+    <p class="gate-err" id="gate-err" role="alert"></p>
+  </div>
+</div>
+
 <header>
   <h1>Flagship test results</h1>
   <nav class="tabs" role="tablist" aria-label="Pages">
@@ -1001,6 +1032,45 @@ document.querySelectorAll('[data-proto]').forEach(r=>mount(r,PAGES[r.dataset.pro
   });
 })();
 showTab(location.hash.slice(1)||'intro');
+</script>
+
+<script>
+// Password gate. The password is not stored in the page; only its SHA-256 is,
+// and the check runs in the browser. It keeps casual visitors out of a public
+// URL — it is not a substitute for real access control.
+(function(){
+  const HASH='548198426054d3a08ed5aa110637ae50a062064c403afec416bbaed7bd2a9ecc';
+  const KEY='flagship-unlocked';
+  const root=document.documentElement;
+  try{ if(sessionStorage.getItem(KEY)===HASH){ return; } }catch(e){}
+  root.classList.add('locked');
+  async function sha(t){
+    const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t));
+    return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join('');
+  }
+  function ready(fn){ document.readyState==='loading'
+      ? document.addEventListener('DOMContentLoaded',fn) : fn(); }
+  ready(function(){
+    const pw=document.getElementById('gate-pw'), go=document.getElementById('gate-go'),
+          err=document.getElementById('gate-err');
+    pw.focus();
+    async function attempt(){
+      err.textContent='';
+      let h='';
+      try{ h=await sha(pw.value.trim()); }
+      catch(e){ err.textContent="This browser couldn't check the password."; return; }
+      if(h===HASH){
+        try{ sessionStorage.setItem(KEY,HASH); }catch(e){}
+        root.classList.remove('locked');
+      } else {
+        err.textContent='That password is not right.';
+        pw.select();
+      }
+    }
+    go.addEventListener('click',attempt);
+    pw.addEventListener('keydown',function(e){ if(e.key==='Enter') attempt(); });
+  });
+})();
 </script>
 </body>
 </html>
